@@ -81,7 +81,7 @@ public class ServerHandler extends AbstractStreamHandler {
 
                 System.err.println(gson.toJson(x));
 
-                session.write(gson.toJson(x).getBytes());
+                session.write(gson.toJson(new Command[]{x}).getBytes());
             }
         }
     }

@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Prsi Client.iml" filepath="$PROJECT_DIR$/Prsi Client.iml" />
       <module fileurl="file://$PROJECT_DIR$/PrsiClient.iml" filepath="$PROJECT_DIR$/PrsiClient.iml" />
     </modules>
   </component>

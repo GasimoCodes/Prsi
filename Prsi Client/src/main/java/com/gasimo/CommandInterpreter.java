@@ -13,7 +13,6 @@ public class CommandInterpreter {
     private boolean listenConsole = false;
     boolean showServerRawResponse = true;
     private Gson gson = new Gson();
-    private Command cmd;
 
     /**
      * handle JSON Command requests
@@ -22,27 +21,51 @@ public class CommandInterpreter {
      */
     public void parseExternalCommand(String jsonString, Long callerID) {
 
+        ArrayList<Command> cmd = new ArrayList<>();
+
         if (showServerRawResponse) {
             System.out.println(jsonString);
         }
 
         try {
 
-            jsonString.replace("}", "} ");
-            String[] malFormedCommand = jsonString.split(" ");
+            // Dissect possibly malformed request
+
+            int nestedCount = 0;
+            String tempString = "";
+
+            ArrayList<String> malFormedCommand = new ArrayList<>();
+
+            for (char c : jsonString.toCharArray())
+            {
+                if (c == '[')
+                    nestedCount ++;
+
+                if(c == ']')
+                    nestedCount --;
+
+                tempString += c;
+
+                // End one string
+                if(nestedCount == 0)
+                {
+                    malFormedCommand.add(tempString);
+                    tempString = "";
+                }
+            }
+
 
             for (String strT : malFormedCommand) {
-                cmd = gson.fromJson(strT, Command.class);
 
-                if (cmd.identifier == null || cmd.identifier.compareTo("") == 0)
-                    cmd.identifier = "Unknown";
-
-                if (showServerRawResponse) {
-                    System.out.println(jsonString);
-                    System.out.println("[" + cmd.identifier + "] " + cmd.rawCommand);
+                for (Command x : gson.fromJson(strT, Command[].class))
+                {
+                    cmd.add(x);
                 }
 
-                parseCommand(cmd);
+                for(Command x : cmd)
+                {
+                    parseCommand(x);
+                }
             }
 
         } catch (Exception e) {

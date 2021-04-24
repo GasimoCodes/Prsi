@@ -56,7 +56,7 @@ import org.snf4j.core.session.IStreamSession;
                         Command x = new Command();
                         x.rawCommand = line;
                         x.identifier = session.getName();
-                        session.write((gsn.toJson(x)).getBytes());
+                        session.write((gsn.toJson(new Command[]{x})).getBytes());
                     }
                     if ("bye".equalsIgnoreCase(line)) {
                         session.getAttributes().put(BYE_TYPED, BYE_TYPED);

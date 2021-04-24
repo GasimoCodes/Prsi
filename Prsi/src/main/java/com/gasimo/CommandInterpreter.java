@@ -1,5 +1,6 @@
 package com.gasimo;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -11,44 +12,99 @@ public class CommandInterpreter {
 
     private boolean listenConsole = false;
     private Gson gson = new Gson();
+    boolean showServerRawResponse = false;
 
 
+    /**
+     * Interpret Incoming Traffic
+     *
+     * @param jsonString string to interpret
+     * @param callerID the SessionID of the remote caller
+     *
+     */
     public String parseExternalCommand(String jsonString, Long callerID) {
-        Command cmd;
+        ArrayList<Command> cmd = new ArrayList<>();
+        ArrayList<Command> outCmd = new ArrayList<>();
+        ArrayList<String> malFormedCommand = new ArrayList<>();
+
         try {
-            cmd = gson.fromJson(jsonString, Command.class);
+            // Dissect possibly malformed request
+
+            int nestedCount = 0;
+            String tempString = "";
+
+            for (char c : jsonString.toCharArray())
+            {
+                if (c == '[')
+                    nestedCount ++;
+
+                if(c == ']')
+                    nestedCount --;
+
+                tempString += c;
+
+                // End one string
+                if(nestedCount == 0)
+                {
+                    malFormedCommand.add(tempString);
+                    tempString = "";
+                }
+            }
+
+            for (String strT : malFormedCommand) {
+
+                //System.out.println(strT);
+                for(Command x : gson.fromJson(strT, Command[].class))
+                {
+                    cmd.add(x);
+                }
+
+                if (showServerRawResponse) {
+                    System.out.println(jsonString);
+                    // System.out.println("[" + cmd.identifier + "] " + cmd.rawCommand);
+                }
+
+                for(Command c : cmd){
+                String reply = parseCommand(c);
+
+                    if (reply == "" || reply == null) {
+                        // sendMessage(new Command("RECEIVED"));
+                    }
+
+                    Command x = new Command();
+
+                    x.rawCommand = reply;
+                    System.out.println(reply);
+
+                    // Fail occurred during request
+                    if (reply.split(" ")[0].compareTo("Fail") == 0) {
+                        x.result = CommandResult.Failed;
+                    }
+
+                    // Exception occurred during request
+                    if (reply.split(" ")[0].compareTo("Exception") == 0) {
+                        x.result = CommandResult.Exception;
+                    }
+
+                    // Request was ignored
+                    if (reply.split(" ")[0].compareTo("Ignored") == 0) {
+                        x.result = CommandResult.Ignored;
+                    }
+
+                    x.identifier = "Server";
+
+                    outCmd.add(x);
+
+                }
+
+            }
+
+
         } catch (Exception e) {
-            return "echo Request could not be parsed." + e.getCause();
+            e.printStackTrace();
         }
 
-        String reply = parseCommand(cmd);
-
-        if (reply == "" || reply == null) {
-            // sendMessage(new Command("RECEIVED"));
-        }
-
-        Command x = new Command();
-
-        x.rawCommand = reply;
-
-        // Fail occurred during request
-        if (reply.split(" ")[0].compareTo("Fail") == 0) {
-            x.result = CommandResult.Failed;
-        }
-
-        // Exception occurred during request
-        if (reply.split(" ")[0].compareTo("Exception") == 0) {
-            x.result = CommandResult.Exception;
-        }
-
-        // Request was ignored
-        if (reply.split(" ")[0].compareTo("Ignored") == 0) {
-            x.result = CommandResult.Ignored;
-        }
-
-        x.identifier = "Server";
-
-        return gson.toJson(x);
+        return gson.toJson(outCmd.toArray());
     }
 
     /**
@@ -152,14 +208,14 @@ public class CommandInterpreter {
                 if ((tempCmd.size() - 1) >= 1) {
                     try {
                         broadcastMessage(command.rawCommand.replace("broadcast ", ""), command.identifier);
-                        return "Success - Message: " + command.rawCommand.replaceAll("broadcast ", "") + " has been sent.";
+                        return "echo Success - Message: " + command.rawCommand.replaceAll("broadcast ", "") + " has been sent.";
                     } catch (Exception e) {
                         e.printStackTrace();
                         return e.toString();
                     }
 
                 } else {
-                    return "Exception - Bad argument count. Received (" + (tempCmd.size() - 1) + "), " + "at least 1" + " expected.";
+                    return "echo Exception - Bad argument count. Received (" + (tempCmd.size() - 1) + "), " + "at least 1" + " expected.";
                 }
             }
             // Close connection with reason
@@ -207,7 +263,7 @@ public class CommandInterpreter {
      * @return idk
      */
     public void sendMessage(Command cmd) {
-        Main.SH.getSession().write(gson.toJson(cmd));
+        Main.SH.getSession().write(gson.toJson(new Command[]{cmd}));
     }
 
     /**
@@ -222,7 +278,7 @@ public class CommandInterpreter {
 
         //x.identifier = identifier;
 
-        Main.SH.broadcast(gson.toJson(x));
+        Main.SH.broadcast(gson.toJson(new Command[]{x}));
     }
 
     /**

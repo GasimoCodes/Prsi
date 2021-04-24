@@ -4,7 +4,6 @@ public class Main {
 
     public static Player playerInfo;
     public static CommandInterpreter CI = new CommandInterpreter();
-    public static NetworkingInterpreter NI = new NetworkingInterpreter();
 
     // R, V, D
     public static final String clientVersion = "0.0.1";
