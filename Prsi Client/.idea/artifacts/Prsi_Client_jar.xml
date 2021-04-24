@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Prsi Client:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Prsi_Client_jar</output-path>
+    <root id="archive" name="Prsi Client.jar">
+      <element id="module-output" name="Prsi Client" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/snf4j/snf4j-core/1.7.0/snf4j-core-1.7.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/google/code/gson/gson/2.8.6/gson-2.8.6.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

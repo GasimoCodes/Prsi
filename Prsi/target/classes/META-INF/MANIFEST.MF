@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Main-Class: com.gasimo.Main
+Class-Path: gson-2.8.6.jar snf4j-example-1.7.0.jar snf4j-core-1.7.0.jar 
+ snf4j-sctp-1.7.0.jar
+
