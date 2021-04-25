@@ -1,13 +1,11 @@
 com\gasimo\CardType.class
 com\gasimo\CommandResult.class
-com\gasimo\CommandType.class
-com\gasimo\NetworkingInterpreter.class
 com\gasimo\CommandInterpreter.class
-com\gasimo\Client.class
 com\gasimo\Command.class
 com\gasimo\Main.class
 com\gasimo\ClientHandler.class
 com\gasimo\Card.class
 com\gasimo\CardColor.class
+com\gasimo\Client.class
 com\gasimo\CommandInterpreter$1.class
 com\gasimo\Player.class
