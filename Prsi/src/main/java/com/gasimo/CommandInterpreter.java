@@ -169,22 +169,22 @@ public class CommandInterpreter {
                             for (Player x : Main.gm.players) {
                                 if (x.playerName.compareTo(tempCmd.get(1)) == 0) {
                                     if (x.getPlayerSecret().compareTo(tempCmd.get(2)) == 0)
-                                        return "Success PlayerObject " + gson.toJson(x);
+                                        return "echo Success PlayerObject " + gson.toJson(x);
                                     else
-                                        return "Fail - " + "Incorrect player secret.";
+                                        return "echo Fail - " + "Incorrect player secret.";
                                 }
                             }
-                            return "Fail - No player found with name: " + tempCmd.get(1);
+                            return "echo Fail - No player found with name: " + tempCmd.get(1);
                         } catch (Exception e) {
                             throw (e);
                             //return e.toString();
                         }
                     } else {
-                        return "Fail - game not created yet. Create a game first before adding players.";
+                        return "echo Fail - game not created yet. Create a game first before adding players.";
                     }
 
                 } else {
-                    return "Exception - Bad argument count. Received (" + (tempCmd.size() - 1) + "), " + 2 + " expected.";
+                    return "echo Exception - Bad argument count. Received (" + (tempCmd.size() - 1) + "), " + 2 + " expected.";
                 }
             }
 
@@ -193,14 +193,29 @@ public class CommandInterpreter {
                 if ((tempCmd.size() - 1) >= 1) {
                     try {
                         sendMessage(new Command(tempCmd.get(1)));
-                        return "Success - Message: \"" + tempCmd.get(1) + "\" has been sent.";
+                        return "echo Success - Message: \"" + tempCmd.get(1) + "\" has been sent.";
                     } catch (Exception e) {
                         throw (e);
                         //return e.toString();
                     }
 
                 } else {
-                    return "Exception - Bad argument count. Received (" + (tempCmd.size() - 1) + "), " + "at least 1" + " expected.";
+                    return "echo Exception - Bad argument count. Received (" + (tempCmd.size() - 1) + "), " + "at least 1" + " expected.";
+                }
+            }
+            // - - - - - - - - - - - - Send message to client
+            case "cs": {
+                if ((tempCmd.size() - 1) == 2) {
+                    try {
+                        sendMessage(new Command(tempCmd.get(1)));
+                        return "echo Success - Message: \"" + tempCmd.get(1) + "\" has been sent.";
+                    } catch (Exception e) {
+                        throw (e);
+                        //return e.toString();
+                    }
+
+                } else {
+                    return "echo Exception - Bad argument count. Received (" + (tempCmd.size() - 1) + "), " + "at least 1" + " expected.";
                 }
             }
             // Broadcasts message to all players
