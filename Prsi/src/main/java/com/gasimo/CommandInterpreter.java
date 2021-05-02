@@ -146,9 +146,9 @@ public class CommandInterpreter {
                 if ((tempCmd.size() - 1) == 0) {
                     try {
                         if(Main.gm != null)
-                            return Main.gm.getGameStatus().toString();
+                            return "echo " + Main.gm.getGameStatus().toString();
                         else{
-                            return "Game object not initialised.";
+                            return "echo Game object not initialised.";
                         }
 
                     } catch (Exception e) {
@@ -157,7 +157,42 @@ public class CommandInterpreter {
                     }
 
                 } else {
-                    return "echo Exception - Bad argument count. Received (" + (tempCmd.size() - 1) + "), " + 2 + " expected.";
+                    return "echo Exception - Bad argument count. Received (" + (tempCmd.size() - 1) + "), " + 0 + " expected.";
+                }
+            }
+
+            // - - - - - - - - - - - - forceStart
+            case "forceStart": {
+                if ((tempCmd.size() - 1) == 0) {
+                    try {
+                        if(Main.gm != null)
+                        {
+                            if(Main.gm.getGameStatus() == GameStatus.awaitingPlayers)
+                            {
+
+                                if(Main.gm.players.size() >= 2)
+                                {
+                                    Main.gm.forceStart();
+                                    return "echo Forced game start for " + Main.gm.players.size() + " players.";
+                                } else {
+                                    return "echo Cannot force game when less than 2 players are connected.";
+                                }
+
+
+                            } else {
+                                return "echo Game is not awaiting players and thus cannot be forceStarted.";
+                            }
+                        } else {
+                            return "echo Game object not initialised.";
+                        }
+
+                    } catch (Exception e) {
+
+                        return e.toString();
+                    }
+
+                } else {
+                    return "echo Exception - Bad argument count. Received (" + (tempCmd.size() - 1) + "), " + 0 + " expected.";
                 }
             }
 
@@ -175,11 +210,11 @@ public class CommandInterpreter {
                             throw (e);
                         }
                     } else {
-                        return "Fail - game not created yet. Create a game first before adding players.";
+                        return "echo Fail - game not created yet. Create a game first before adding players.";
                     }
 
                 } else {
-                    return "Exception - Bad argument count. Received (" + (tempCmd.size() - 1) + "), " + "At least 2 " + " expected.";
+                    return "echo Exception - Bad argument count. Received (" + (tempCmd.size() - 1) + "), " + "At least 2 " + " expected.";
                 }
             }
             // - - - - - - - - - - - - getPlayerData name secret
@@ -226,13 +261,11 @@ public class CommandInterpreter {
             }
             // - - - - - - - - - - - - Send message to client
             case "cs": {
-                if ((tempCmd.size() - 1) == 2) {
+                if ((tempCmd.size() - 1) >= 0) {
                     try {
-                        sendMessage(new Command(tempCmd.get(1)));
-                        return "echo Success - Message: \"" + tempCmd.get(1) + "\" has been sent.";
+                        return "echo CS CLIENT.";
                     } catch (Exception e) {
                         throw (e);
-                        //return e.toString();
                     }
 
                 } else {

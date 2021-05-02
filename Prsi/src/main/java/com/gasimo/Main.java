@@ -32,7 +32,6 @@ public class Main {
             }
         }
 
-
         newGame();
     }
 
@@ -41,4 +40,5 @@ public class Main {
         gm.newGame();
         return "Success - new game created";
     }
+
 }
