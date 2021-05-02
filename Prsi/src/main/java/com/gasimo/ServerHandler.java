@@ -110,11 +110,10 @@ public class ServerHandler extends AbstractStreamHandler {
         Gson gson = new Gson();
 
         if(Main.NI.logClientRequests)
-            System.out.println("[Server]"+ " -> " + "[All]" + ": "+ message.replaceAll("echo ", ""));
+            System.out.println("[Server]"+ " -> " + "[All]" + ": "+ message);
 
         // Take all sessions
         for (IStreamSession session: sessions.values()) {
-
             session.write(message.getBytes());
         }
     }

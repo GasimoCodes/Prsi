@@ -21,7 +21,9 @@ public class ClientHandler extends AbstractStreamHandler {
 
             // Notify if the closing initiated by the server
             if (!getSession().getAttributes().containsKey(Client.BYE_TYPED)) {
-                System.err.println("Connection closed. Type \"bye\" to exit");
+                System.err.println("Connection closed.");
+                // Close server broadcast here !
+
             }
         }
     }

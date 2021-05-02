@@ -11,7 +11,7 @@ import javax.sql.XAConnection;
 public class CommandInterpreter {
 
     private boolean listenConsole = false;
-    boolean showServerRawResponse = true;
+    boolean showServerRawResponse = false;
     private Gson gson = new Gson();
 
     /**
@@ -54,7 +54,6 @@ public class CommandInterpreter {
                 }
             }
 
-
             for (String strT : malFormedCommand) {
 
                 for (Command x : gson.fromJson(strT, Command[].class))
@@ -62,10 +61,11 @@ public class CommandInterpreter {
                     cmd.add(x);
                 }
 
-                for(Command x : cmd)
-                {
-                    parseCommand(x);
-                }
+            }
+
+            for(Command x : cmd)
+            {
+                parseCommand(x);
             }
 
         } catch (Exception e) {
@@ -93,17 +93,17 @@ public class CommandInterpreter {
                 if ((tempCmd.size() - 1) == 2) {
                     if (Main.playerInfo != null) {
                         try {
-                            return "Success PlayerObject " + gson.toJson(Main.playerInfo);
+                            return "echo Success - PlayerObject " + gson.toJson(Main.playerInfo);
 
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
                     } else {
-                        return "Fail - Player not initialized yet.";
+                        return "echo Fail - Player not initialized yet.";
                     }
 
                 } else {
-                    return "Exception - Bad argument count. Received (" + (tempCmd.size() - 1) + "), " + 2 + " expected.";
+                    return "echo Exception - Bad argument count. Received (" + (tempCmd.size() - 1) + "), " + 2 + " expected.";
                 }
             }
             // - - - - - - - - - - - - getPlayerData name secret

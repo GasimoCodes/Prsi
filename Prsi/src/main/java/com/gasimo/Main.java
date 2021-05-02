@@ -14,8 +14,10 @@ public class Main {
         // Let console execute commands
         try
         {
-        CI.listenToConsole();
-        NI.init();
+            gm = new GameManager();
+            gm.init();
+            CI.listenToConsole();
+            NI.init();
         }
         catch (Exception e)
         {
@@ -35,8 +37,8 @@ public class Main {
     }
 
     public static String newGame(){
-        gm = new GameManager();
-        gm.init();
+        // Replace with new / load later
+        gm.newGame();
         return "Success - new game created";
     }
 }

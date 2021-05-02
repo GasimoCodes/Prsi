@@ -124,7 +124,13 @@ public class CommandInterpreter {
             case "newGame": {
                 if ((tempCmd.size() - 1) == 0) {
                     try {
-                        Main.newGame();
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Main.newGame();
+                            }
+                        }).start();
+
                         return "echo Success - New game created";
                     } catch (Exception e) {
 
@@ -135,20 +141,36 @@ public class CommandInterpreter {
                     return "echo Exception - Bad argument count. Received (" + (tempCmd.size() - 1) + "), " + 2 + " expected.";
                 }
             }
-            // - - - - - - - - - - - - addPlayer playerJSON
+
+            // - - - - - - - - - - - - gameStatus
+            case "gameStatus": {
+                if ((tempCmd.size() - 1) == 0) {
+                    try {
+                        if(Main.gm != null)
+                            return Main.gm.getGameStatus().toString();
+                        else{
+                            return "Game object not initialised.";
+                        }
+
+                    } catch (Exception e) {
+
+                        return e.toString();
+                    }
+
+                } else {
+                    return "echo Exception - Bad argument count. Received (" + (tempCmd.size() - 1) + "), " + 2 + " expected.";
+                }
+            }
+
+
+            // - - - - - - - - - - - - addPlayer name secret
             case "addPlayer": {
-                if ((tempCmd.size() - 1) >= 1) {
+                if ((tempCmd.size() - 1) == 2) {
                     if (Main.gm != null) {
                         try {
-                            String json;
-                            int i;
-                            tempCmd.remove(0);
-
-                            json = command.rawCommand.replace("addPlayer ", "");
-
-                            Main.gm.addPlayer(gson.fromJson(json, Player.class));
-
-                            return "Success - Player \"" + tempCmd.get(1) + "\" added.";
+                            Player p = new Player(tempCmd.get(1), null, 0);
+                            p.setPlayerSecret(tempCmd.get(2));
+                            return Main.gm.addPlayer(p);
 
                         } catch (Exception e) {
                             throw (e);
@@ -251,7 +273,7 @@ public class CommandInterpreter {
                 } else
                     return "You cannot execute close on local caller.";
             }
-            // - - - - - - - - - - - - getPlayerData name secret
+            // - - - - - - - - - - - - echo
             case "echo": {
                 if ((tempCmd.size() - 1) >= 1) {
 
@@ -275,7 +297,7 @@ public class CommandInterpreter {
      * Sends messages
      *
      * @param cmd string to interpret
-     * @return idk
+     *
      */
     public void sendMessage(Command cmd) {
         Main.SH.getSession().write(gson.toJson(new Command[]{cmd}));
@@ -285,14 +307,11 @@ public class CommandInterpreter {
      * Sends messages
      *
      * @param cmd string to interpret
-     * @return idk
+     *
      */
     public void broadcastMessage(String cmd, String identifier) {
         Command x = new Command();
         x.rawCommand = "echo " + cmd;
-
-        //x.identifier = identifier;
-
         Main.SH.broadcast(gson.toJson(new Command[]{x}));
     }
 
