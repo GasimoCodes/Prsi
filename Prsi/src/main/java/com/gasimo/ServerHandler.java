@@ -79,8 +79,6 @@ public class ServerHandler extends AbstractStreamHandler {
                 x.rawCommand = (message);
                 x.identifier = (session.getId() == youId ? "Server" : userId);
 
-                System.err.println(gson.toJson(x));
-
                 session.write(gson.toJson(new Command[]{x}).getBytes());
             }
         }

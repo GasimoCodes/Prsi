@@ -4,9 +4,9 @@ public class Main {
 
     public static Player playerInfo;
     public static CommandInterpreter CI = new CommandInterpreter();
-
-    // R, V, D
     public static final String clientVersion = "0.0.1";
+
+
 
     public static void main(String[] args) throws Exception {
 
@@ -16,7 +16,6 @@ public class Main {
 
         // Let console execute commands
         CI.listenToConsole();
-
     }
 
     public static void tryConnection(String s)

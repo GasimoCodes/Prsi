@@ -64,38 +64,37 @@ public class CommandInterpreter {
                     // System.out.println("[" + cmd.identifier + "] " + cmd.rawCommand);
                 }
 
-                for(Command c : cmd){
+            }
+
+            for(Command c : cmd){
                 String reply = parseCommand(c);
 
-                    if (reply == "" || reply == null) {
-                        // sendMessage(new Command("RECEIVED"));
-                    }
-
-                    Command x = new Command();
-
-                    x.rawCommand = reply;
-                    System.out.println(reply);
-
-                    // Fail occurred during request
-                    if (reply.split(" ")[0].compareTo("Fail") == 0) {
-                        x.result = CommandResult.Failed;
-                    }
-
-                    // Exception occurred during request
-                    if (reply.split(" ")[0].compareTo("Exception") == 0) {
-                        x.result = CommandResult.Exception;
-                    }
-
-                    // Request was ignored
-                    if (reply.split(" ")[0].compareTo("Ignored") == 0) {
-                        x.result = CommandResult.Ignored;
-                    }
-
-                    x.identifier = "Server";
-
-                    outCmd.add(x);
-
+                if (reply == "" || reply == null) {
+                    // sendMessage(new Command("RECEIVED"));
                 }
+
+                Command x = new Command();
+
+                x.rawCommand = reply;
+
+                // Fail occurred during request
+                if (reply.split(" ")[0].compareTo("Fail") == 0) {
+                    x.result = CommandResult.Failed;
+                }
+
+                // Exception occurred during request
+                if (reply.split(" ")[0].compareTo("Exception") == 0) {
+                    x.result = CommandResult.Exception;
+                }
+
+                // Request was ignored
+                if (reply.split(" ")[0].compareTo("Ignored") == 0) {
+                    x.result = CommandResult.Ignored;
+                }
+
+                x.identifier = "Server";
+
+                outCmd.add(x);
 
             }
 

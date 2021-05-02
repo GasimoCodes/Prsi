@@ -9,10 +9,14 @@ import java.util.concurrent.ExecutionException;
 
 public class GameManager {
 
+    // - - - Game data
     private GameStatus gameStatus;
     String sessionID = "";
     public ArrayList<Card> tableStack = new ArrayList<>();
     ArrayList<Player> players = new ArrayList();
+
+    // - - - Others
+
     public NetworkingInterpreter NI;
 
 
@@ -44,7 +48,7 @@ public class GameManager {
         }
 
         gameStatus = GameStatus.inProgress;
-
+        Main.CI.broadcastMessage("Round starting....", "Server");
 
 
     }
@@ -70,7 +74,6 @@ public class GameManager {
                 System.out.println("You cannot forceStart because an game session is already being played.");
                 break;
             case awaitingPlayers:
-
                 break;
             case ended:
 
