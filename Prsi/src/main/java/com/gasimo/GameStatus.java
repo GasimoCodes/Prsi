@@ -7,5 +7,4 @@ public enum GameStatus {
     inProgress,
     noGame // Game statuses
 
-
 }

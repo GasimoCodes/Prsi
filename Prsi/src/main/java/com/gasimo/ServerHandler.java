@@ -116,7 +116,30 @@ public class ServerHandler extends AbstractStreamHandler {
         }
     }
 
-    // Remove client
+
+    // Sent to a specific client (Commanded)
+    public void send(Command command, Long receiver) {
+        Gson gson = new Gson();
+
+        long youId = receiver;
+        String userId = (String) getSession().getAttributes().get(USERID);
+        String message = gson.toJson(command);
+
+        if(Main.NI.logClientRequests)
+            System.out.println("[Server]"+ " -> " + userId + ": "+ message);
+
+        // Only selected sessions
+        for (IStreamSession session: sessions.values()) {
+            if(session.getId() == youId)
+                session.write(message.getBytes());
+        }
+    }
+
+
+
+
+
+    // Remove client (Not yet implemented?)
     public void close(String reason) {
         Gson gson = new Gson();
 

@@ -1,6 +1,6 @@
 package com.gasimo;
 
-import org.snf4j.core.session.IStreamSession;
+import com.google.gson.Gson;
 
 import java.io.IOException;
 import java.lang.reflect.Array;
@@ -27,6 +27,7 @@ public class GameManager {
     // - - - Others
     boolean waitForPlayers =  true;
     public NetworkingInterpreter NI;
+    Gson gson = new Gson();
 
 
     public void init(){
@@ -153,6 +154,17 @@ public class GameManager {
         Collections.shuffle(tableStack);
     }
 
+    void turnStacks() {
+
+        int i = 0;
+        for(Card c : placedStack)
+        {
+            tableStack.add(placedStack.get(i));
+            placedStack.remove(c);
+            i++;
+        }
+    }
+
     void giveCards(int count) {
 
         // For each player we
@@ -168,9 +180,35 @@ public class GameManager {
 
 
     }
+    /*
+    *   Valid actions:
+    *
+    *   place (card)
+    *   pick
+    *   change (color)
+    *
+    * */
 
     void mainGameLoop()
     {
+        // If tableStack is empty, we turn in the placed cards.
+        if(tableStack.size() == 0)
+        {
+            turnStacks();
+        }
+
+
+        // Actions the player can choose from
+        ArrayList<String> Actions = new ArrayList<>();
+
+
+        // Check if we can take a card from the stack
+        if(tableStack.size() != 0)
+        {
+            Actions.add("pick");
+        }
+
+
         // Inform who is currently taking (expected to take) a turn
         Main.CI.broadcastMessage(("Player \"" + gamePlayers.get(currentPlayer) + "\" is on turn."), "Server");
         // check top card and status
@@ -182,16 +220,16 @@ public class GameManager {
 
 
         } else {
-
             // Handle basic cards
+            ArrayList<Card> validCards = CardLogic.CheckLegalMoves(gamePlayers.get(currentPlayer).deck, top);
+
+            for(Card c : validCards){
+
+                Actions.add("place " + gson.toJson(c));
+
+            }
 
         }
-
-
-
-
-
-
     }
 
 

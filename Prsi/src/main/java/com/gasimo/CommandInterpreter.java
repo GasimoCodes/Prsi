@@ -53,7 +53,6 @@ public class CommandInterpreter {
 
             for (String strT : malFormedCommand) {
 
-                //System.out.println(strT);
                 for(Command x : gson.fromJson(strT, Command[].class))
                 {
                     cmd.add(x);
@@ -61,7 +60,6 @@ public class CommandInterpreter {
 
                 if (showServerRawResponse) {
                     System.out.println(jsonString);
-                    // System.out.println("[" + cmd.identifier + "] " + cmd.rawCommand);
                 }
 
             }
@@ -70,7 +68,7 @@ public class CommandInterpreter {
                 String reply = parseCommand(c);
 
                 if (reply == "" || reply == null) {
-                    // sendMessage(new Command("RECEIVED"));
+                    // Possibly add acknowledge response to bodyless responses.
                 }
 
                 Command x = new Command();
@@ -97,7 +95,6 @@ public class CommandInterpreter {
                 outCmd.add(x);
 
             }
-
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -244,7 +241,8 @@ public class CommandInterpreter {
                 }
             }
 
-            // - - - - - - - - - - - - Send message to client
+            /*
+            // - - - - - - - - - - - - Send message to a client
             case "sendMessage": {
                 if ((tempCmd.size() - 1) >= 1) {
                     try {
@@ -259,6 +257,7 @@ public class CommandInterpreter {
                     return "echo Exception - Bad argument count. Received (" + (tempCmd.size() - 1) + "), " + "at least 1" + " expected.";
                 }
             }
+            */
             // - - - - - - - - - - - - Send message to client
             case "cs": {
                 if ((tempCmd.size() - 1) >= 0) {
@@ -300,7 +299,7 @@ public class CommandInterpreter {
                         }
 
                     } else {
-                        return "Exception - Bad argument count. Received (" + (tempCmd.size() - 1) + "), " + "at least 1" + " expected.";
+                        return "echo Exception - Bad argument count. Received (" + (tempCmd.size() - 1) + "), " + "at least 1" + " expected.";
                     }
                 } else
                     return "You cannot execute close on local caller.";
@@ -311,28 +310,52 @@ public class CommandInterpreter {
 
                     try {
                         System.out.println(command.rawCommand.replace("echo ", ""));
+                        return "echo " + command.rawCommand.replace("echo ", "");
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        return "echo Exception - " + e.toString();
+                    }
+                } else {
+                    return "echo Exception - Bad argument count. Received (" + (tempCmd.size() - 1) + "), " + 1 + " or higher expected.";
+                }
+            }
+
+
+            // - - - - - - - - - - - - turn PlayerName PlayerSecret ChoosedTurn Args
+            case "turn": {
+                if ((tempCmd.size() - 1) >= 3) {
+                    try {
+
+                        // Call the GameManager that we have received a game turn request
+
+                        // If its not out turn or the turn is out of bounds, we send the error back to player, otherwise game continues.
+
                         return "";
+
                     } catch (Exception e) {
                         e.printStackTrace();
                         return "Exception - " + e.toString();
                     }
                 } else {
-                    return "Exception - Bad argument count. Received (" + (tempCmd.size() - 1) + "), " + 1 + " or higher expected.";
+                    return "Exception - Bad argument count. Received (" + (tempCmd.size() - 1) + "), " + 3 + " or higher expected.";
                 }
             }
+
+
 
         }
         return "echo Unknown command: \"" + tempCmd.get(0) + "\" ";
     }
 
     /**
-     * Sends messages
-     *
+     * Sends command to a specific client
      * @param cmd string to interpret
-     *
+     * @param Receiver ID of the receiver session who will receive the message.
      */
-    public void sendMessage(Command cmd) {
-        Main.SH.getSession().write(gson.toJson(new Command[]{cmd}));
+    public void sendCommand(String cmd, Long Receiver) {
+        Command x = new Command();
+        x.rawCommand = cmd;
+        Main.SH.send(x, Receiver);
     }
 
     /**

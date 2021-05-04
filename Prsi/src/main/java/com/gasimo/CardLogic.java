@@ -14,7 +14,7 @@ public class CardLogic {
      * @param top  current card on top of stack player has to respond on
      * @return arrayList of legal cards player cna use in given situation
      */
-    public ArrayList<Card> CheckLegalMoves(ArrayList<Card> deck, Card top) throws InvalidCardException {
+    public static ArrayList<Card> CheckLegalMoves(ArrayList<Card> deck, Card top) {
 
         ArrayList<Card> legals = new ArrayList<>();
 
@@ -33,17 +33,22 @@ public class CardLogic {
 
         } else {
 
-            switch (top.type) {
+            try {
+                switch (top.type) {
 
-                // Specials
-                case SEDM:
-                    break;
-                case ESO:
-                    break;
-                case SVRSEK:
-                    throw new InvalidCardException("Svrsek is not valid for not yet trigerred state", top);
-                default:
-                    throw new InvalidCardException("", top);
+                    // Specials
+                    case SEDM:
+                        break;
+                    case ESO:
+                        break;
+                    case SVRSEK:
+                        throw new InvalidCardException("Svrsek is not valid for not yet trigerred state", top);
+                    default:
+                        throw new InvalidCardException("", top);
+                }
+            } catch (Exception e)
+            {
+                e.printStackTrace();
             }
         }
         return legals;
