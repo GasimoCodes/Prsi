@@ -18,6 +18,9 @@ public class GameManager {
 
     int currentPlayer;
 
+    // Number of cards which were called by sedmicka.
+    int passingCards;
+
     public Card top;
     public ArrayList<Card> placedStack;
 
@@ -29,6 +32,8 @@ public class GameManager {
     public NetworkingInterpreter NI;
     Gson gson = new Gson();
 
+    // If we wait the turn until we receive specific player response.
+    Boolean awaitPlayerResponse = false;
 
     public void init(){
 
@@ -208,28 +213,55 @@ public class GameManager {
             Actions.add("pick");
         }
 
+        // - - - - - - - - - SEND TIME
 
         // Inform who is currently taking (expected to take) a turn
         Main.CI.broadcastMessage(("Player \"" + gamePlayers.get(currentPlayer) + "\" is on turn."), "Server");
         // check top card and status
 
+        // Handle available cards
+        ArrayList<Card> validCards = CardLogic.CheckLegalMoves(gamePlayers.get(currentPlayer).deck, top);
+
+        // Add cards to plausible selection.
+        for(Card c : validCards){
+            Actions.add("place " + gson.toJson(c));
+        }
+
         // If not triggered, top must be a special card!
         if(!top.alreadyTriggered)
         {
-            // Handle special stuff here
+            // Handle special stuff here, we must anticipate color change request.
 
 
         } else {
-            // Handle basic cards
-            ArrayList<Card> validCards = CardLogic.CheckLegalMoves(gamePlayers.get(currentPlayer).deck, top);
+            // Reserved
+        }
 
-            for(Card c : validCards){
 
-                Actions.add("place " + gson.toJson(c));
 
-            }
+        // - - - - - - - - - RESPONSE TIME 1
+
+        boolean elaborationReq;
+
+        awaitPlayerResponse = true;
+        while(awaitPlayerResponse)
+        {
+            
+
 
         }
+
+
+
+
+        // - - - - - - - - - RESPONSE TIME 2 IN CASE WE WANT TO APPEND (Change colors, etc)
+
+
+        // - - - - - - - - - CHECK IF OUR ACTIONS HAVE NOT RESULTED IN GAME-END SCENARIO HERE?
+
+
+
+
     }
 
 
