@@ -31,9 +31,10 @@ public class GameManager {
     boolean waitForPlayers =  true;
     public NetworkingInterpreter NI;
     Gson gson = new Gson();
+    ArrayList<String> actionsSaved;
 
     // If we wait the turn until we receive specific player response.
-    Boolean awaitPlayerResponse = false;
+    Boolean listenPlayerWait = false;
 
     public void init(){
 
@@ -185,6 +186,13 @@ public class GameManager {
 
 
     }
+
+
+    
+    
+
+
+
     /*
     *   Valid actions:
     *
@@ -204,13 +212,13 @@ public class GameManager {
 
 
         // Actions the player can choose from
-        ArrayList<String> Actions = new ArrayList<>();
+        ArrayList<String> actions = new ArrayList<>();
 
 
         // Check if we can take a card from the stack
         if(tableStack.size() != 0)
         {
-            Actions.add("pick");
+            actions.add("pick");
         }
 
         // - - - - - - - - - SEND TIME
@@ -224,7 +232,7 @@ public class GameManager {
 
         // Add cards to plausible selection.
         for(Card c : validCards){
-            Actions.add("place " + gson.toJson(c));
+            actions.add("place " + gson.toJson(c));
         }
 
         // If not triggered, top must be a special card!
@@ -241,15 +249,9 @@ public class GameManager {
 
         // - - - - - - - - - RESPONSE TIME 1
 
-        boolean elaborationReq;
-
-        awaitPlayerResponse = true;
-        while(awaitPlayerResponse)
-        {
-            
+        String action = listenToAction(actions, gamePlayers.get(currentPlayer));
 
 
-        }
 
 
 
@@ -258,10 +260,50 @@ public class GameManager {
 
 
         // - - - - - - - - - CHECK IF OUR ACTIONS HAVE NOT RESULTED IN GAME-END SCENARIO HERE?
+        
+    }
+
+    public String listenToAction(ArrayList<String> actions, Player player)
+    {
+        // Make it known that right now, we are just waiting for the player to finish turn.
+        listenPlayerWait = true;
+        actionsSaved = actions;
+
+        // Initiate waiting period.
+        while(listenPlayerWait)
+        {
+            // Stuff while we await
+        }
 
 
+        return "";
+    }
+
+    // Player, Secret, Action.
+
+    public String fireAction(Command x)
+    {
+        String[] cmd = x.rawCommand.split(" ");
+
+        // Check player name
+        if(gamePlayers.get(currentPlayer).playerName.compareTo(cmd[1]) != 0)
+        {
+            return "echo This player is not on the turn. The player on turn is: " + gamePlayers.get(currentPlayer).playerName;
+        }
+
+        // Validate player secret
+        if(gamePlayers.get(currentPlayer).playerName.compareTo(cmd[2]) != 0)
+        {
+            return "echo Incorrect player secret received.";
+        }
+
+        // Validate valid selection
 
 
+        // Handle stuff
+
+        // Respond back with success or error
+        return "Result.";
     }
 
 
