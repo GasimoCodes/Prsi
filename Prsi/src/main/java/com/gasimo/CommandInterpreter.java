@@ -285,7 +285,7 @@ public class CommandInterpreter {
             }
             // Close connection with reason
             case "close": {
-                if (command.identifier == "Local" || command.identifier.isBlank()) {
+                if (command.identifier == "Local" || command.identifier.isEmpty()) {
                     if ((tempCmd.size() - 1) >= 1) {
                         try {
                             broadcastMessage(command.rawCommand.replace("broadcast ", ""), "IDENTIFIER");

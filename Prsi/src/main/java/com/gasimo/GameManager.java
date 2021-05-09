@@ -73,7 +73,6 @@ public class GameManager {
                 waitForPlayers = false;
             }
 
-
             // For some reason, the thread does not update (receive the news that waitForPlayers is no longer true) unless we do this terribleness (Alternative was Print but thats just plain awful and non-performant. This at least saves some CPU ms time).
             try {
                 Thread.sleep(500);
@@ -82,7 +81,6 @@ public class GameManager {
             }
 
             // System.out.println("Funny loop go brr " + waitForPlayers);
-
 
         }
 
@@ -251,7 +249,6 @@ public class GameManager {
             turnStacks();
         }
 
-
         // Actions the player can choose from
         ArrayList<String> actions = new ArrayList<>();
 
@@ -263,8 +260,11 @@ public class GameManager {
 
         // - - - - - - - - - SEND TIME
 
+        // Inform about the card which is on top.
+        Main.CI.broadcastMessage(("topCard " + top), "Server");
+
         // Inform who is currently taking (expected to take) a turn
-        Main.CI.broadcastMessage(("Player \"" + gamePlayers.get(currentPlayer).playerName + "\" is on turn."), "Server");
+        Main.CI.broadcastMessage(("turn \"" + gamePlayers.get(currentPlayer).playerName + "\" is on turn."), "Server");
         // check top card and status
 
         // Handle available cards
@@ -309,12 +309,14 @@ public class GameManager {
         actionsSaved = actions;
         Command cmd = new Command();
 
+        cmd.rawCommand = "reqTurn";
+        cmd.container = gson.toJson(actions);
+
         Main.CI.sendCommand(cmd, player.netSession);
         // Initiate waiting period.
         while (listenPlayerWait) {
             // Stuff while we await
         }
-
 
         return "";
     }

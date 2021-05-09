@@ -1,12 +1,13 @@
 D:\Projects\Prsi\Prsi\src\main\java\com\gasimo\CardLogic.java
 D:\Projects\Prsi\Prsi\src\main\java\com\gasimo\CommandInterpreter.java
+D:\Projects\Prsi\Prsi\src\main\java\com\gasimo\CommandResult.java
+D:\Projects\Prsi\Prsi\src\main\java\com\gasimo\Main.java
+D:\Projects\Prsi\Prsi\src\main\java\com\gasimo\GameStatus.java
+D:\Projects\Prsi\Prsi\src\main\java\com\gasimo\ServerHandler.java
+D:\Projects\Prsi\Prsi\src\main\java\com\gasimo\Card.java
 D:\Projects\Prsi\Prsi\src\main\java\com\gasimo\NetworkingInterpreter.java
 D:\Projects\Prsi\Prsi\src\main\java\com\gasimo\Player.java
 D:\Projects\Prsi\Prsi\src\main\java\com\gasimo\CardColor.java
-D:\Projects\Prsi\Prsi\src\main\java\com\gasimo\CommandResult.java
-D:\Projects\Prsi\Prsi\src\main\java\com\gasimo\Main.java
 D:\Projects\Prsi\Prsi\src\main\java\com\gasimo\CardType.java
 D:\Projects\Prsi\Prsi\src\main\java\com\gasimo\GameManager.java
-D:\Projects\Prsi\Prsi\src\main\java\com\gasimo\ServerHandler.java
-D:\Projects\Prsi\Prsi\src\main\java\com\gasimo\Card.java
 D:\Projects\Prsi\Prsi\src\main\java\com\gasimo\Command.java
