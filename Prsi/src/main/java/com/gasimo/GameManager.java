@@ -36,7 +36,7 @@ public class GameManager {
     // If we wait the turn until we receive specific player response.
     Boolean listenPlayerWait = false;
 
-    public void init(){
+    public void init() {
 
         // Get network session
         try {
@@ -66,15 +66,15 @@ public class GameManager {
         Main.CI.broadcastMessage("Waiting for players...", "Server");
         gameStatus = GameStatus.awaitingPlayers;
 
-        while(waitForPlayers)
-        {
+        while (waitForPlayers) {
             // If all 5 players are joined (Can be overridden by forceStart command)
 
-            if(players.size() == 5) {
+            if (players.size() == 5) {
                 waitForPlayers = false;
             }
 
 
+            // For some reason, the thread does not update (receive the news that waitForPlayers is no longer true) unless we do this terribleness (Alternative was Print but thats just plain awful and non-performant. This at least saves some CPU ms time).
             try {
                 Thread.sleep(500);
             } catch (InterruptedException e) {
@@ -126,8 +126,7 @@ public class GameManager {
      * Skips waiting for players as long as at least 2 players are connected
      */
     public void forceStart() {
-        switch (gameStatus)
-        {
+        switch (gameStatus) {
             case noGame:
                 System.out.println("You cannot forceStart because no game was created. Create game with \"newGame\"");
                 break;
@@ -151,36 +150,33 @@ public class GameManager {
     public String addPlayer(Player p) {
 
         // Cannot add new player if an game is already running.
-        if(gameStatus == GameStatus.inProgress) {
+        if (gameStatus == GameStatus.inProgress) {
             return "echo Cannot add new player while an active game is running.";
         }
 
         // Cannot add new player if an game is already running.
-        if(gameStatus == GameStatus.noGame) {
+        if (gameStatus == GameStatus.noGame) {
             return "echo Cannot add new player while no game was created. Please create a game with newGame command first.";
         }
 
         // Check if the player name isn't already used
-        for(Player x : players)
-        {
-            if(p.playerName.compareTo(x.playerName) == 0 && p.getPlayerSecret().compareTo(x.getPlayerSecret()) == 0)
-            {
+        for (Player x : players) {
+            if (p.playerName.compareTo(x.playerName) == 0 && p.getPlayerSecret().compareTo(x.getPlayerSecret()) == 0) {
                 // Subscribe netSession
                 x.netSession = p.netSession;
 
                 return "echo Player already exists, we reassigned its net session. You now play as " + x.playerName + ".";
 
-            } else if (p.playerName.compareTo(x.playerName) == 0)
-            {
+            } else if (p.playerName.compareTo(x.playerName) == 0) {
                 return "echo Player with same name already exists. Please provide last-used player password for " + x.playerName + " so we can assign the player subscription to you.";
             }
         }
 
         players.add(p);
-        Main.CI.broadcastMessage(("Players joined: " + players.size()  + " out of 5."),"Server");
+        Main.CI.broadcastMessage(("Players joined: " + players.size() + " out of 5."), "Server");
 
         // Cannot add new player if an game is already running.
-        if(p.netSession == 0 ) {
+        if (p.netSession == 0) {
             return "echo Warning - Player NetSessionID is invalid, the player will not receive player-specific calls. Perhaps the player was created by server?" + " Player \" + p.playerName + \" has been added to game.\"";
         }
 
@@ -210,8 +206,7 @@ public class GameManager {
     void turnStacks() {
 
         int i = 0;
-        for(Card c : placedStack)
-        {
+        for (Card c : placedStack) {
             tableStack.add(placedStack.get(i));
             placedStack.remove(c);
             i++;
@@ -226,11 +221,9 @@ public class GameManager {
     public void giveCards(int count) {
 
         // For each player we
-        for (Player p : gamePlayers)
-        {
+        for (Player p : gamePlayers) {
             // give count cards from deck
-            for (int i = 0; i < count; i++)
-            {
+            for (int i = 0; i < count; i++) {
                 p.deck.add(tableStack.get(0));
                 tableStack.remove(0);
             }
@@ -241,23 +234,20 @@ public class GameManager {
 
 
     /*
-    *   Valid actions:
-    *
-    *   place (card)
-    *   pick
-    *   change (color)
-    *
-    * */
+     *   Valid actions:
+     *
+     *   place (card)
+     *   pick
+     *   change (color)
+     *
+     * */
 
     /**
      * Contains main game loop. This method is handled in newGame() method
-     *
      */
-    private void mainGameLoop()
-    {
+    private void mainGameLoop() {
         // If tableStack is empty, we turn in the placed cards.
-        if(tableStack.size() == 0)
-        {
+        if (tableStack.size() == 0) {
             turnStacks();
         }
 
@@ -267,8 +257,7 @@ public class GameManager {
 
 
         // Check if we can take a card from the stack
-        if(tableStack.size() != 0)
-        {
+        if (tableStack.size() != 0) {
             actions.add("pick");
         }
 
@@ -282,13 +271,12 @@ public class GameManager {
         ArrayList<Card> validCards = CardLogic.CheckLegalMoves(gamePlayers.get(currentPlayer).deck, top);
 
         // Add cards to plausible selection.
-        for(Card c : validCards){
+        for (Card c : validCards) {
             actions.add("place " + gson.toJson(c));
         }
 
         // If not triggered, top must be a special card!
-        if(!top.alreadyTriggered)
-        {
+        if (!top.alreadyTriggered) {
             // Handle special stuff here, we must anticipate color change request.
 
 
@@ -297,32 +285,25 @@ public class GameManager {
         }
 
 
-
         // - - - - - - - - - RESPONSE TIME 1
 
         String action = listenToAction(actions, gamePlayers.get(currentPlayer));
-
-
-
-
 
 
         // - - - - - - - - - RESPONSE TIME 2 IN CASE WE WANT TO APPEND (Change colors, etc)
 
 
         // - - - - - - - - - CHECK IF OUR ACTIONS HAVE NOT RESULTED IN GAME-END SCENARIO HERE?
-        
+
     }
 
     /**
      * Wait for specific remote player input before game continues
      *
      * @param actions Actions the player can choose from
-     * @param player Targeted player
-     *
-     * */
-    private String listenToAction(ArrayList<String> actions, Player player)
-    {
+     * @param player  Targeted player
+     */
+    private String listenToAction(ArrayList<String> actions, Player player) {
         // Make it known that right now, we are just waiting for the player to finish turn.
         listenPlayerWait = true;
         actionsSaved = actions;
@@ -330,8 +311,7 @@ public class GameManager {
 
         Main.CI.sendCommand(cmd, player.netSession);
         // Initiate waiting period.
-        while(listenPlayerWait)
-        {
+        while (listenPlayerWait) {
             // Stuff while we await
         }
 
@@ -347,19 +327,16 @@ public class GameManager {
      *
      * @param x Command the player wishes to do
      */
-    public String fireAction(Command x)
-    {
+    public String fireAction(Command x) {
         String[] cmd = x.rawCommand.split(" ");
 
         // Check player name
-        if(gamePlayers.get(currentPlayer).playerName.compareTo(cmd[1]) != 0)
-        {
+        if (gamePlayers.get(currentPlayer).playerName.compareTo(cmd[1]) != 0) {
             return "echo This player is not on the turn. The player on turn is: " + gamePlayers.get(currentPlayer).playerName;
         }
 
         // Validate player secret
-        if(gamePlayers.get(currentPlayer).playerName.compareTo(cmd[2]) != 0)
-        {
+        if (gamePlayers.get(currentPlayer).playerName.compareTo(cmd[2]) != 0) {
             return "echo Incorrect player secret received.";
         }
 

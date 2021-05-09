@@ -19,8 +19,7 @@ public class CommandInterpreter {
      * Interpret Incoming Traffic
      *
      * @param jsonString string to interpret
-     * @param callerID the SessionID of the remote caller
-     *
+     * @param callerID   the SessionID of the remote caller
      */
     public String parseExternalCommand(String jsonString, Long callerID) {
         ArrayList<Command> cmd = new ArrayList<>();
@@ -33,19 +32,17 @@ public class CommandInterpreter {
             int nestedCount = 0;
             String tempString = "";
 
-            for (char c : jsonString.toCharArray())
-            {
+            for (char c : jsonString.toCharArray()) {
                 if (c == '[')
-                    nestedCount ++;
+                    nestedCount++;
 
-                if(c == ']')
-                    nestedCount --;
+                if (c == ']')
+                    nestedCount--;
 
                 tempString += c;
 
                 // End one string
-                if(nestedCount == 0)
-                {
+                if (nestedCount == 0) {
                     malFormedCommand.add(tempString);
                     tempString = "";
                 }
@@ -53,8 +50,7 @@ public class CommandInterpreter {
 
             for (String strT : malFormedCommand) {
 
-                for(Command x : gson.fromJson(strT, Command[].class))
-                {
+                for (Command x : gson.fromJson(strT, Command[].class)) {
                     x.caller = callerID;
                     cmd.add(x);
                 }
@@ -65,7 +61,7 @@ public class CommandInterpreter {
 
             }
 
-            for(Command c : cmd){
+            for (Command c : cmd) {
                 String reply = parseCommand(c);
 
                 if (reply == "" || reply == null) {
@@ -146,9 +142,9 @@ public class CommandInterpreter {
             case "gameStatus": {
                 if ((tempCmd.size() - 1) == 0) {
                     try {
-                        if(Main.gm != null)
+                        if (Main.gm != null)
                             return "echo " + Main.gm.getGameStatus().toString();
-                        else{
+                        else {
                             return "echo Game object not initialised.";
                         }
 
@@ -166,13 +162,10 @@ public class CommandInterpreter {
             case "forceStart": {
                 if ((tempCmd.size() - 1) == 0) {
                     try {
-                        if(Main.gm != null)
-                        {
-                            if(Main.gm.getGameStatus() == GameStatus.awaitingPlayers)
-                            {
+                        if (Main.gm != null) {
+                            if (Main.gm.getGameStatus() == GameStatus.awaitingPlayers) {
 
-                                if(Main.gm.players.size() >= 2)
-                                {
+                                if (Main.gm.players.size() >= 2) {
                                     Main.gm.forceStart();
                                     return "echo Forced game start for " + Main.gm.players.size() + " players.";
                                 } else {
@@ -346,14 +339,14 @@ public class CommandInterpreter {
             }
 
 
-
         }
         return "echo Unknown command: \"" + tempCmd.get(0) + "\" ";
     }
 
     /**
      * Sends command to a specific client
-     * @param cmd rawCommand to interpret and send to desired client
+     *
+     * @param cmd      rawCommand to interpret and send to desired client
      * @param Receiver ID of the receiver session who will receive the message.
      */
     public void sendCommand(String cmd, Long Receiver) {
@@ -364,11 +357,12 @@ public class CommandInterpreter {
 
     /**
      * Sends command to a specific client
-     * @param cmd Command to send to desired client
+     *
+     * @param cmd      Command to send to desired client
      * @param Receiver ID of the receiver session who will receive the message.
      */
     public void sendCommand(Command cmd, Long Receiver) {
-        if(cmd.identifier == null)
+        if (cmd.identifier == null)
             cmd.identifier = "";
 
         Main.SH.send(cmd, Receiver);
@@ -379,7 +373,6 @@ public class CommandInterpreter {
      * Nroadcasts message to all clients
      *
      * @param cmd string to interpret
-     *
      */
     public void broadcastMessage(String cmd, String identifier) {
         Command x = new Command();

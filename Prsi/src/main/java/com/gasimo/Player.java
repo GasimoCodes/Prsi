@@ -20,8 +20,7 @@ public class Player {
         generateNewSecret();
     }
 
-    public void generateNewSecret()
-    {
+    public void generateNewSecret() {
         byte[] array = new byte[7];
         new Random().nextBytes(array);
         String generatedString = new String(array, Charset.forName("UTF-8"));

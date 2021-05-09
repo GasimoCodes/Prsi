@@ -16,7 +16,7 @@ public class NetworkingInterpreter {
     boolean logClientRequests = true;
 
     static final String PREFIX = "org.gasimo.";
-    static final int PORT = Integer.getInteger(PREFIX+"Port", 8002);
+    static final int PORT = Integer.getInteger(PREFIX + "Port", 8002);
 
     public void init() throws IOException, InterruptedException, ExecutionException {
         SelectorLoop loop = new SelectorLoop();
@@ -41,8 +41,7 @@ public class NetworkingInterpreter {
 
             // Wait till the loop ends
             loop.join();
-        }
-        finally {
+        } finally {
 
             // Gently stop the loop
             loop.stop();
