@@ -36,4 +36,11 @@ public class Command {
     public Command() {
     }
 
+    public Command(String identifier, long caller, String rawCommand, String container, CommandResult result) {
+        this.identifier = identifier;
+        this.caller = caller;
+        this.rawCommand = rawCommand;
+        this.container = container;
+        this.result = result;
+    }
 }

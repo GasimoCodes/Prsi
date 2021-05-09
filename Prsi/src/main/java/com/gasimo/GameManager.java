@@ -47,7 +47,11 @@ public class GameManager {
         }
     }
 
-    void newGame() {
+
+    /**
+     * Creates and sets up new game
+     */
+    public void newGame() {
         sessionID = "0000";
 
         // Populate cards
@@ -91,7 +95,10 @@ public class GameManager {
         // Something here?
     }
 
-    void resetGame() {
+    /**
+     * Resets ongoing game
+     */
+    public void resetGame() {
         if (gameStatus != GameStatus.noGame)
             newGame();
         else
@@ -102,7 +109,10 @@ public class GameManager {
         return gameStatus;
     }
 
-    void forceStart() {
+    /**
+     * Skips waiting for players as long as at least 2 players are connected
+     */
+    public void forceStart() {
         switch (gameStatus)
         {
             case noGame:
@@ -119,7 +129,12 @@ public class GameManager {
         }
     }
 
-    String addPlayer(Player p) {
+    /**
+     * Adds player to game session
+     *
+     * @param p Player to add to session
+     */
+    public String addPlayer(Player p) {
 
         // Cannot add new player if an game is already running.
         if(gameStatus == GameStatus.inProgress) {
@@ -136,30 +151,48 @@ public class GameManager {
         {
             if(p.playerName.compareTo(x.playerName) == 0 && p.getPlayerSecret().compareTo(x.getPlayerSecret()) == 0)
             {
-                return "echo Player is already in list. This can happen if your connection was interrupted during waiting for players.";
+                // Subscribe netSession
+                x.netSession = p.netSession;
+
+                return "echo Player already exists, we reassigned its net session. You now play as " + x.playerName + ".";
 
             } else if (p.playerName.compareTo(x.playerName) == 0)
             {
-                return "echo Player with same name already exists.";
+                return "echo Player with same name already exists. Please provide last-used player password for " + x.playerName + " so we can assign the player subscription to you.";
             }
         }
 
         players.add(p);
         Main.CI.broadcastMessage(("Players joined: " + players.size()  + " out of 5."),"Server");
+
+        // Cannot add new player if an game is already running.
+        if(p.netSession == 0 ) {
+            return "echo Warning - Player NetSessionID is invalid, the player will not receive player-specific calls. Perhaps the player was created by server?" + " Player \" + p.playerName + \" has been added to game.\"";
+        }
+
         return "echo Success - Player " + p.playerName + " has been added to game.";
 
     }
 
+    /**
+     * Create and assign all cards in game to deck.
+     */
     void populateStack() {
         for (Card c : CardLogic.getAllCards()) {
             tableStack.add(c);
         }
     }
 
+    /**
+     * Shuffle current deck
+     */
     void shuffleStack() {
         Collections.shuffle(tableStack);
     }
 
+    /**
+     * Borrow cards from placed deck and turn them in.
+     */
     void turnStacks() {
 
         int i = 0;
@@ -171,7 +204,12 @@ public class GameManager {
         }
     }
 
-    void giveCards(int count) {
+    /**
+     * Give away cards to players from tableDeck
+     *
+     * @param count The amount of cards each player will receive
+     */
+    public void giveCards(int count) {
 
         // For each player we
         for (Player p : gamePlayers)
@@ -188,11 +226,6 @@ public class GameManager {
     }
 
 
-    
-    
-
-
-
     /*
     *   Valid actions:
     *
@@ -202,7 +235,11 @@ public class GameManager {
     *
     * */
 
-    void mainGameLoop()
+    /**
+     * Contains main game loop. This method is handled in newGame() method
+     *
+     */
+    private void mainGameLoop()
     {
         // If tableStack is empty, we turn in the placed cards.
         if(tableStack.size() == 0)
@@ -263,12 +300,22 @@ public class GameManager {
         
     }
 
-    public String listenToAction(ArrayList<String> actions, Player player)
+    /**
+     * Wait for specific remote player input before game continues
+     *
+     * @param actions Actions the player can choose from
+     * @param player Targeted player
+     *
+     * */
+    private String listenToAction(ArrayList<String> actions, Player player)
     {
         // Make it known that right now, we are just waiting for the player to finish turn.
         listenPlayerWait = true;
         actionsSaved = actions;
 
+        Command cmd = new Command();
+
+        Main.CI.sendCommand(cmd, player.netSession);
         // Initiate waiting period.
         while(listenPlayerWait)
         {
@@ -281,6 +328,12 @@ public class GameManager {
 
     // Player, Secret, Action.
 
+
+    /**
+     * Interpret player input into main game loop and stop listenToAction() loop
+     *
+     * @param x Command the player wishes to do
+     */
     public String fireAction(Command x)
     {
         String[] cmd = x.rawCommand.split(" ");
@@ -299,8 +352,9 @@ public class GameManager {
 
         // Validate valid selection
 
-
         // Handle stuff
+
+        listenPlayerWait = false;
 
         // Respond back with success or error
         return "Result.";

@@ -55,6 +55,7 @@ public class CommandInterpreter {
 
                 for(Command x : gson.fromJson(strT, Command[].class))
                 {
+                    x.caller = callerID;
                     cmd.add(x);
                 }
 
@@ -97,7 +98,10 @@ public class CommandInterpreter {
             }
 
         } catch (Exception e) {
-            e.printStackTrace();
+
+            outCmd.add(new Command("Server", 0, "echo There was an exception parsing your request.", gson.toJson(e), CommandResult.Exception));
+            System.out.println("Error while parsing occurred.");
+            //e.printStackTrace();
         }
 
         return gson.toJson(outCmd.toArray());
@@ -199,7 +203,7 @@ public class CommandInterpreter {
                 if ((tempCmd.size() - 1) == 2) {
                     if (Main.gm != null) {
                         try {
-                            Player p = new Player(tempCmd.get(1), null, 0);
+                            Player p = new Player(tempCmd.get(1), null, command.caller);
                             p.setPlayerSecret(tempCmd.get(2));
                             return Main.gm.addPlayer(p);
 
@@ -349,7 +353,7 @@ public class CommandInterpreter {
 
     /**
      * Sends command to a specific client
-     * @param cmd string to interpret
+     * @param cmd rawCommand to interpret and send to desired client
      * @param Receiver ID of the receiver session who will receive the message.
      */
     public void sendCommand(String cmd, Long Receiver) {
@@ -359,7 +363,17 @@ public class CommandInterpreter {
     }
 
     /**
-     * Sends messages
+     * Sends command to a specific client
+     * @param cmd Command to send to desired client
+     * @param Receiver ID of the receiver session who will receive the message.
+     */
+    public void sendCommand(Command cmd, Long Receiver) {
+        Main.SH.send(cmd, Receiver);
+    }
+
+
+    /**
+     * Nroadcasts message to all clients
      *
      * @param cmd string to interpret
      *
