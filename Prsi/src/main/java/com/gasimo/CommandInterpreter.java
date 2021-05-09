@@ -368,6 +368,9 @@ public class CommandInterpreter {
      * @param Receiver ID of the receiver session who will receive the message.
      */
     public void sendCommand(Command cmd, Long Receiver) {
+        if(cmd.identifier == null)
+            cmd.identifier = "";
+
         Main.SH.send(cmd, Receiver);
     }
 

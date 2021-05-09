@@ -28,7 +28,7 @@ public class GameManager {
     ArrayList<Player> gamePlayers = new ArrayList();
 
     // - - - Others
-    boolean waitForPlayers =  true;
+    boolean waitForPlayers;
     public NetworkingInterpreter NI;
     Gson gson = new Gson();
     ArrayList<String> actionsSaved;
@@ -65,11 +65,24 @@ public class GameManager {
         System.out.println("Waiting for players...");
         Main.CI.broadcastMessage("Waiting for players...", "Server");
         gameStatus = GameStatus.awaitingPlayers;
+
         while(waitForPlayers)
         {
             // If all 5 players are joined (Can be overridden by forceStart command)
-            if(players.size() == 5)
+
+            if(players.size() == 5) {
                 waitForPlayers = false;
+            }
+
+
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            // System.out.println("Funny loop go brr " + waitForPlayers);
+
 
         }
 
@@ -123,6 +136,7 @@ public class GameManager {
                 break;
             case awaitingPlayers:
                 waitForPlayers = false;
+                System.out.println("Game start has been forced. waitForPlayers = " + waitForPlayers);
                 break;
             case ended:
 
@@ -261,7 +275,7 @@ public class GameManager {
         // - - - - - - - - - SEND TIME
 
         // Inform who is currently taking (expected to take) a turn
-        Main.CI.broadcastMessage(("Player \"" + gamePlayers.get(currentPlayer) + "\" is on turn."), "Server");
+        Main.CI.broadcastMessage(("Player \"" + gamePlayers.get(currentPlayer).playerName + "\" is on turn."), "Server");
         // check top card and status
 
         // Handle available cards
@@ -312,7 +326,6 @@ public class GameManager {
         // Make it known that right now, we are just waiting for the player to finish turn.
         listenPlayerWait = true;
         actionsSaved = actions;
-
         Command cmd = new Command();
 
         Main.CI.sendCommand(cmd, player.netSession);

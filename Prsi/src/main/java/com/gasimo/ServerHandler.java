@@ -22,16 +22,16 @@ public class ServerHandler extends AbstractStreamHandler {
     @Override
     public void read(Object msg) {
 
-        String s = new String((byte[])msg);
+        String s = new String((byte[]) msg);
 
         // Log into console if required
-        if(Main.NI.logClientRequests)
-            System.out.println("["+getSession().getRemoteAddress()+"] -> [Server]: " + s);
+        if (Main.NI.logClientRequests)
+            System.out.println("[" + getSession().getRemoteAddress() + "] -> [Server]: " + s);
 
 
         // Parse
         try {
-        send(Main.CI.parseExternalCommand(s, getSession().getId()));
+            send(Main.CI.parseExternalCommand(s, getSession().getId()));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -50,7 +50,7 @@ public class ServerHandler extends AbstractStreamHandler {
             case OPENED:
                 sessions.put(getSession().getId(), getSession());
                 // Set name of session (e.g. 127.0.0.1:78)
-                getSession().getAttributes().put(USERID, "["+getSession().getRemoteAddress()+"]");
+                getSession().getAttributes().put(USERID, "[" + getSession().getRemoteAddress() + "]");
                 sendCommand("echo Connected");
                 break;
 
@@ -67,14 +67,13 @@ public class ServerHandler extends AbstractStreamHandler {
         long youId = getSession().getId();
         String userId = (String) getSession().getAttributes().get(USERID);
 
-        if(Main.NI.logClientRequests)
-            System.out.println("[Server]"+ " -> " + userId + ": "+ message.replaceAll("echo ", ""));
+        if (Main.NI.logClientRequests)
+            System.out.println("[Server]" + " -> " + userId + ": " + message.replaceAll("echo ", ""));
 
         // Takes all sessions
 
-        for (IStreamSession session: sessions.values()) {
-            if(session.getId() == youId)
-            {
+        for (IStreamSession session : sessions.values()) {
+            if (session.getId() == youId) {
                 Command x = new Command();
                 x.rawCommand = (message);
                 x.identifier = (session.getId() == youId ? "Server" : userId);
@@ -93,13 +92,13 @@ public class ServerHandler extends AbstractStreamHandler {
         String userId = (String) getSession().getAttributes().get(USERID);
 
 
-        if(Main.NI.logClientRequests)
-            System.out.println("[Server]"+ " -> " + userId + ": "+ message.replaceAll("echo ", ""));
+        if (Main.NI.logClientRequests)
+            System.out.println("[Server]" + " -> " + userId + ": " + message.replaceAll("echo ", ""));
 
         // Take all sessions
-        for (IStreamSession session: sessions.values()) {
-            if(session.getId() == youId)
-            session.write(message.getBytes());
+        for (IStreamSession session : sessions.values()) {
+            if (session.getId() == youId)
+                session.write(message.getBytes());
         }
     }
 
@@ -107,11 +106,11 @@ public class ServerHandler extends AbstractStreamHandler {
     public void broadcast(String message) {
         Gson gson = new Gson();
 
-        if(Main.NI.logClientRequests)
-            System.out.println("[Server]"+ " -> " + "[All]" + ": "+ message);
+        if (Main.NI.logClientRequests)
+            System.out.println("[Server]" + " -> " + "[All]" + ": " + message);
 
         // Take all sessions
-        for (IStreamSession session: sessions.values()) {
+        for (IStreamSession session : sessions.values()) {
             session.write(message.getBytes());
         }
     }
@@ -122,21 +121,30 @@ public class ServerHandler extends AbstractStreamHandler {
         Gson gson = new Gson();
 
         long youId = receiver;
-        String userId = (String) getSession().getAttributes().get(USERID);
-        String message = gson.toJson(command);
+        String userId = "";
 
-        if(Main.NI.logClientRequests)
-            System.out.println("[Server]"+ " -> " + userId + ": "+ message);
+        try {
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        Command[] cArray = new Command[]{command};
+
+        String message = gson.toJson(cArray);
 
         // Only selected sessions
-        for (IStreamSession session: sessions.values()) {
-            if(session.getId() == youId)
+        for (IStreamSession session : sessions.values()) {
+            if (session.getId() == youId) {
+                userId = (String) session.getAttributes().get(USERID);
+
+                if (Main.NI.logClientRequests)
+                    System.out.println("[Server]" + " -> " + userId + ": " + message);
+
                 session.write(message.getBytes());
+            }
         }
     }
-
-
-
 
 
     // Remove client (Not yet implemented?)
@@ -146,12 +154,12 @@ public class ServerHandler extends AbstractStreamHandler {
         long youId = getSession().getId();
         String userId = (String) getSession().getAttributes().get(USERID);
 
-        if(Main.NI.logClientRequests)
-            System.out.println("[Server]"+ " -> " + userId + ": "+ reason);
+        if (Main.NI.logClientRequests)
+            System.out.println("[Server]" + " -> " + userId + ": " + reason);
 
         // Take all sessions
-        for (IStreamSession session: sessions.values()) {
-            if(session.getId() == youId)
+        for (IStreamSession session : sessions.values()) {
+            if (session.getId() == youId)
                 session.write(reason.getBytes());
         }
     }
