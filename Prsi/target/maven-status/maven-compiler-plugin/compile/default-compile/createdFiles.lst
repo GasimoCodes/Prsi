@@ -12,6 +12,7 @@ com\gasimo\Main.class
 com\gasimo\ServerHandler$1.class
 com\gasimo\Card.class
 com\gasimo\CardColor.class
+com\gasimo\Kernel32.class
 com\gasimo\CardLogic$1.class
 com\gasimo\CommandInterpreter$1.class
 com\gasimo\Player.class

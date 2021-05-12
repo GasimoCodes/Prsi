@@ -2,11 +2,16 @@ package com.gasimo;
 
 import java.util.HashMap;
 import java.util.Map;
-
+import com.diogonunes.jcolor.*;
 import com.google.gson.Gson;
 import org.snf4j.core.handler.AbstractStreamHandler;
 import org.snf4j.core.handler.SessionEvent;
 import org.snf4j.core.session.IStreamSession;
+
+import javax.swing.*;
+
+import static com.diogonunes.jcolor.Ansi.colorize;
+import static com.diogonunes.jcolor.Attribute.*;
 
 public class ServerHandler extends AbstractStreamHandler {
 
@@ -28,7 +33,7 @@ public class ServerHandler extends AbstractStreamHandler {
         //Todo Surround with try-catch to prevent possible exceptions with malformed packets or move to CommandInterpreter.js
         if (Main.NI.logClientRequests) {
             for (Command x : gson.fromJson(s, Command[].class)) {
-                System.out.println("[" + getSession().getRemoteAddress() + "] -> [Server]: " + x.rawCommand.replace("echo ", ""));
+                System.out.println(colorize("[" + getSession().getRemoteAddress() + "]", YELLOW_TEXT()) + colorize(" -> ", YELLOW_TEXT()) + colorize("[Server]", YELLOW_TEXT()) + colorize(": ", YELLOW_TEXT()) + x.rawCommand.replace("echo ", ""));
             }
         }
 
@@ -79,7 +84,7 @@ public class ServerHandler extends AbstractStreamHandler {
                 x.identifier = (session.getId() == youId ? "Server" : userId);
 
                 if (Main.NI.logClientRequests)
-                    System.out.println("[Server]" + " -> " + userId + ": " + x.rawCommand.replace("echo ", ""));
+                    System.out.println(colorize("[Server]" + " -> " + userId + ": ", YELLOW_TEXT()) + x.rawCommand.replace("echo ", ""));
 
 
                 session.write(gson.toJson(new Command[]{x}).getBytes());
@@ -102,7 +107,7 @@ public class ServerHandler extends AbstractStreamHandler {
         //Todo Surround with try-catch to prevent possible exceptions with malformed packets or move to CommandInterpreter.js
         if (Main.NI.logClientRequests) {
             for (Command x : gson.fromJson(message, Command[].class)) {
-                System.out.println("[Server]" + " -> " + userId + ": " + x.rawCommand.replace("echo ", ""));
+                System.out.println(colorize("[Server]", YELLOW_TEXT()) + colorize(" -> ", YELLOW_TEXT()) + colorize(userId, YELLOW_TEXT()) + colorize(": ", YELLOW_TEXT()) + x.rawCommand.replace("echo ", ""));
             }
         }
 
@@ -121,7 +126,7 @@ public class ServerHandler extends AbstractStreamHandler {
         //Todo Surround with try-catch to prevent possible exceptions with malformed packets or move to CommandInterpreter.js
         if (Main.NI.logClientRequests) {
             for (Command x : gson.fromJson(message, Command[].class)) {
-                System.out.println("[Server]" + " -> " + "[All]" + ": " + x.rawCommand.replace("echo ", ""));
+                System.out.println(colorize("[Server]", YELLOW_TEXT()) + colorize(" -> ", YELLOW_TEXT()) + colorize("[All]", YELLOW_TEXT()) + colorize(": ", YELLOW_TEXT()) + x.rawCommand.replace("echo ", ""));
             }
         }
 
@@ -159,7 +164,7 @@ public class ServerHandler extends AbstractStreamHandler {
 
                     for(Command x : gson.fromJson(message, Command[].class))
                     {
-                        System.out.println("[Server]" + " -> " + userId + ": " + x.rawCommand);
+                        System.out.println(colorize("[Server]" + " -> " + userId + ": ", YELLOW_TEXT()) + x.rawCommand);
                     }
 
                 }

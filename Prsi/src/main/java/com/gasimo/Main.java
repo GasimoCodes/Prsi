@@ -1,7 +1,11 @@
 package com.gasimo;
 
+import com.sun.jna.Pointer;
+import com.sun.jna.ptr.IntByReference;
+
 import java.io.IOException;
 import java.util.concurrent.ExecutionException;
+import com.sun.jna.Native;
 
 public class Main {
 
@@ -9,6 +13,7 @@ public class Main {
     public static CommandInterpreter CI = new CommandInterpreter();
     public static  NetworkingInterpreter NI = new NetworkingInterpreter();
     public static ServerHandler SH = new ServerHandler();
+    Kernel32 k = Native.load("kernel32", Kernel32.class);
 
     public static void main(String[] args) {
         // Let console execute commands
@@ -17,7 +22,9 @@ public class Main {
             gm = new GameManager();
             gm.init();
             CI.listenToConsole();
+            System.out.println("\033[36mServer is online at 10.0.0.127\033[0m");
             NI.init();
+
         }
         catch (Exception e)
         {
