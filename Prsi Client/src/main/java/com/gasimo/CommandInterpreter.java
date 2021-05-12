@@ -1,5 +1,6 @@
 package com.gasimo;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -154,6 +155,39 @@ public class CommandInterpreter {
                     return "127.0.0.1";
                 }
             }
+            // - - - - - - - - - - - - You are on turn.
+            case "reqTurn": {
+                if ((tempCmd.size() - 1) >= 0) {
+
+                    try {
+                        System.out.println("You are on turn.");
+
+                        ArrayList<String>  opt = gson.fromJson(x.container, ArrayList.class);
+                        boolean waitAnswer = true;
+                        int i = 0;
+                        for(String s : opt)
+                        {
+                            System.out.println("[" + i + "]" + s);
+                            i++;
+                        }
+
+                        /*
+                        // Player must select valid option around here. Maybe decentralise into separate command. For now its kept in while().
+                        while(waitAnswer)
+                        {
+                            // Add input detection phase here, or separate into another command so we dont linger on the thread.
+                        }
+                        */
+                        return "Received";
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        return "Exception - " + e.toString();
+                    }
+                } else {
+                    return "";
+                }
+            }
+
         }
         return "Unknown command: \"" + tempCmd.get(0) + "\" ";
     }

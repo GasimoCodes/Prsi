@@ -196,7 +196,7 @@ public class CommandInterpreter {
                 if ((tempCmd.size() - 1) == 2) {
                     if (Main.gm != null) {
                         try {
-                            Player p = new Player(tempCmd.get(1), null, command.caller);
+                            Player p = new Player(tempCmd.get(1), new ArrayList<Card>(), command.caller);
                             p.setPlayerSecret(tempCmd.get(2));
                             return Main.gm.addPlayer(p);
 
@@ -235,6 +235,43 @@ public class CommandInterpreter {
 
                 } else {
                     return "echo Exception - Bad argument count. Received (" + (tempCmd.size() - 1) + "), " + 2 + " expected.";
+                }
+            }
+
+            // - - - - - - - - - - - - makeTurn Action Arg
+            case "makeTurn": {
+                if (Main.gm != null) {
+                    if ((tempCmd.size() - 1) >= 1) {
+                        try {
+                                // Check if we are receiving request from the player we need,
+                                if (Main.gm.players.get(Main.gm.currentPlayer).netSession == command.caller) {
+
+                                        // Replace possible occurrence if we get /makeTurn PlayerName Secret turn args
+                                        command.rawCommand = command.rawCommand.replace(Main.gm.players.get(Main.gm.currentPlayer).playerName + " ", "").replace(Main.gm.players.get(Main.gm.currentPlayer).getPlayerSecret() + " ", "");
+                                        return Main.gm.fireAction(command);
+
+
+                                } else
+                                // In case we want to validate from outside of our session, we use NAME, SECRET, TURN
+                                if(Main.gm.players.get(Main.gm.currentPlayer).playerName.compareTo(tempCmd.get(1))==0 && Main.gm.players.get(Main.gm.currentPlayer).getPlayerSecret().compareTo(tempCmd.get(2))==0)
+                                {
+                                    // occurrence of playerName and Secret /makeTurn PlayerName Secret turn args
+                                    command.rawCommand = command.rawCommand.replace(Main.gm.players.get(Main.gm.currentPlayer).playerName + " ", "").replace(Main.gm.players.get(Main.gm.currentPlayer).getPlayerSecret() + " ", "");
+                                    return Main.gm.fireAction(command);
+
+                                } else {
+                                    return "echo SessionID has timed-out and name or password does not match. You can re-assign your ID by using addPlayer name password ("+  Main.gm.players.get(Main.gm.currentPlayer).playerName + ").";
+                                }
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            return "Invalid arguments count. An exception occurred: " +  e.getLocalizedMessage();
+                        }
+                    } else {
+                        return "echo Fail - game not created yet. Create and begin a game before making turns.";
+                    }
+
+                } else {
+                    return "echo Exception - Bad argument count. Received (" + (tempCmd.size() - 1) + "), " + 2 + " or more expected.";
                 }
             }
 

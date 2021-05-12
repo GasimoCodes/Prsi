@@ -16,23 +16,22 @@ public class CardLogic {
      */
     public static ArrayList<Card> CheckLegalMoves(ArrayList<Card> deck, Card top) {
 
+        // This contains all the possible moves we can make given the situation
         ArrayList<Card> legals = new ArrayList<>();
 
-        // Current card can always be replaced by its own type regardless of color
+        // Current card can always be replaced by its own type regardless of color, here we gather all colors of our type.
         for (Card c : getAllColors(top.type)) {
             legals.add(c);
         }
 
         // Check if the top card is of special type and has been triggered
         if (top.alreadyTriggered) {
-
             // Add all same color. Because no special effects are present, we can use all cards available.
             for (Card c : getAllTypes(top.color)) {
                 legals.add(c);
             }
 
         } else {
-
             try {
                 switch (top.type) {
 
@@ -51,7 +50,24 @@ public class CardLogic {
                 e.printStackTrace();
             }
         }
-        return legals;
+
+        // Filter out unused from deck
+
+        ArrayList<Card> filtered = new ArrayList<>();
+
+        for(Card c : deck)
+        {
+            for (Card l : legals)
+            {
+                if(l.color == c.color && l.type == c.type)
+                {
+                    filtered.add(c);
+                    break;
+                }
+            }
+        }
+
+        return filtered;
     }
 
 

@@ -25,9 +25,12 @@ public class ServerHandler extends AbstractStreamHandler {
         String s = new String((byte[]) msg);
 
         // Log into console if required
-        if (Main.NI.logClientRequests)
-            System.out.println("[" + getSession().getRemoteAddress() + "] -> [Server]: " + s);
-
+        //Todo Surround with try-catch to prevent possible exceptions with malformed packets or move to CommandInterpreter.js
+        if (Main.NI.logClientRequests) {
+            for (Command x : gson.fromJson(s, Command[].class)) {
+                System.out.println("[" + getSession().getRemoteAddress() + "] -> [Server]: " + x.rawCommand.replace("echo ", ""));
+            }
+        }
 
         // Parse
         try {
@@ -67,9 +70,6 @@ public class ServerHandler extends AbstractStreamHandler {
         long youId = getSession().getId();
         String userId = (String) getSession().getAttributes().get(USERID);
 
-        if (Main.NI.logClientRequests)
-            System.out.println("[Server]" + " -> " + userId + ": " + message.replaceAll("echo ", ""));
-
         // Takes all sessions
 
         for (IStreamSession session : sessions.values()) {
@@ -77,6 +77,10 @@ public class ServerHandler extends AbstractStreamHandler {
                 Command x = new Command();
                 x.rawCommand = (message);
                 x.identifier = (session.getId() == youId ? "Server" : userId);
+
+                if (Main.NI.logClientRequests)
+                    System.out.println("[Server]" + " -> " + userId + ": " + x.rawCommand.replace("echo ", ""));
+
 
                 session.write(gson.toJson(new Command[]{x}).getBytes());
             }
@@ -91,9 +95,17 @@ public class ServerHandler extends AbstractStreamHandler {
         long youId = getSession().getId();
         String userId = (String) getSession().getAttributes().get(USERID);
 
-
+        // Replace command with small version of just rawCommand for clarity.
         if (Main.NI.logClientRequests)
-            System.out.println("[Server]" + " -> " + userId + ": " + message.replaceAll("echo ", ""));
+
+
+        //Todo Surround with try-catch to prevent possible exceptions with malformed packets or move to CommandInterpreter.js
+        if (Main.NI.logClientRequests) {
+            for (Command x : gson.fromJson(message, Command[].class)) {
+                System.out.println("[Server]" + " -> " + userId + ": " + x.rawCommand.replace("echo ", ""));
+            }
+        }
+
 
         // Take all sessions
         for (IStreamSession session : sessions.values()) {
@@ -106,8 +118,13 @@ public class ServerHandler extends AbstractStreamHandler {
     public void broadcast(String message) {
         Gson gson = new Gson();
 
-        if (Main.NI.logClientRequests)
-            System.out.println("[Server]" + " -> " + "[All]" + ": " + message);
+        //Todo Surround with try-catch to prevent possible exceptions with malformed packets or move to CommandInterpreter.js
+        if (Main.NI.logClientRequests) {
+            for (Command x : gson.fromJson(message, Command[].class)) {
+                System.out.println("[Server]" + " -> " + "[All]" + ": " + x.rawCommand.replace("echo ", ""));
+            }
+        }
+
 
         // Take all sessions
         for (IStreamSession session : sessions.values()) {
@@ -138,9 +155,14 @@ public class ServerHandler extends AbstractStreamHandler {
             if (session.getId() == youId) {
                 userId = (String) session.getAttributes().get(USERID);
 
-                if (Main.NI.logClientRequests)
-                    System.out.println("[Server]" + " -> " + userId + ": " + message);
+                if (Main.NI.logClientRequests){
 
+                    for(Command x : gson.fromJson(message, Command[].class))
+                    {
+                        System.out.println("[Server]" + " -> " + userId + ": " + x.rawCommand);
+                    }
+
+                }
                 session.write(message.getBytes());
             }
         }

@@ -7,6 +7,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.concurrent.ExecutionException;
 
 public class GameManager {
@@ -15,6 +16,8 @@ public class GameManager {
     private GameStatus gameStatus;
     String sessionID = "";
     public ArrayList<Card> tableStack = new ArrayList<>();
+
+
 
     int currentPlayer;
 
@@ -88,7 +91,10 @@ public class GameManager {
         gameStatus = GameStatus.inProgress;
         Main.CI.broadcastMessage("Round starting....", "Server");
 
-        // Give cards to players, thats 4 according to the rules.
+        // Set the game players to be the copy of all players. Thus we can keep players who already won in the game as spectators.
+        gamePlayers = players;
+
+        // Give cards to players, that's 4 according to the rules.
         giveCards(4);
 
         // Send top deck card as top
@@ -96,9 +102,6 @@ public class GameManager {
         // Set card to not be active (cant get active Eso right on beginning etc.)
         top.alreadyTriggered = true;
         tableStack.remove(0);
-
-        // Set the game players to be the copy of all players. Thus we can keep players who already won in the game as spectators.
-        gamePlayers = players;
 
         // Now begin main game loop
         mainGameLoop();
@@ -148,11 +151,6 @@ public class GameManager {
     public String addPlayer(Player p) {
 
         // Cannot add new player if an game is already running.
-        if (gameStatus == GameStatus.inProgress) {
-            return "echo Cannot add new player while an active game is running.";
-        }
-
-        // Cannot add new player if an game is already running.
         if (gameStatus == GameStatus.noGame) {
             return "echo Cannot add new player while no game was created. Please create a game with newGame command first.";
         }
@@ -168,6 +166,11 @@ public class GameManager {
             } else if (p.playerName.compareTo(x.playerName) == 0) {
                 return "echo Player with same name already exists. Please provide last-used player password for " + x.playerName + " so we can assign the player subscription to you.";
             }
+        }
+
+        // Cannot add new player if an game is already running.
+        if (gameStatus == GameStatus.inProgress) {
+            return "echo Cannot add new player while an active game is running.";
         }
 
         players.add(p);
@@ -220,6 +223,7 @@ public class GameManager {
 
         // For each player we
         for (Player p : gamePlayers) {
+
             // give count cards from deck
             for (int i = 0; i < count; i++) {
                 p.deck.add(tableStack.get(0));
@@ -244,6 +248,8 @@ public class GameManager {
      * Contains main game loop. This method is handled in newGame() method
      */
     private void mainGameLoop() {
+
+
         // If tableStack is empty, we turn in the placed cards.
         if (tableStack.size() == 0) {
             turnStacks();
@@ -261,18 +267,48 @@ public class GameManager {
         // - - - - - - - - - SEND TIME
 
         // Inform about the card which is on top.
-        Main.CI.broadcastMessage(("topCard " + top), "Server");
+        Main.CI.broadcastMessage(("topCard " + top.type + ", " + top.color), "Server");
 
         // Inform who is currently taking (expected to take) a turn
         Main.CI.broadcastMessage(("turn \"" + gamePlayers.get(currentPlayer).playerName + "\" is on turn."), "Server");
+
+        //Inform about other player stats
+
+        String playerStats = "";
+
+        //Todo Replace with more json-ish decode approach here
+        for(Player p : gamePlayers)
+        {
+            playerStats += "Player " + p.playerName + " currently has " + p.deck.size() + " cards." + "\n";
+        }
+
+        Main.CI.broadcastMessage(playerStats, "Server");
+
+        // Inform about which cards you have
+        Command cmde = new Command();
+
+        cmde.rawCommand = "echo You have these cards: " + gson.toJson(gamePlayers.get(currentPlayer).deck);
+        cmde.container = gson.toJson(actions);
+
+        Main.CI.sendCommand(cmde, gamePlayers.get(currentPlayer).netSession);
+
         // check top card and status
 
         // Handle available cards
         ArrayList<Card> validCards = CardLogic.CheckLegalMoves(gamePlayers.get(currentPlayer).deck, top);
 
-        // Add cards to plausible selection.
+        // Add cards to plausible selection and register svrsek actions
         for (Card c : validCards) {
-            actions.add("place " + gson.toJson(c));
+
+            if(c.type != CardType.SVRSEK)
+            {
+                actions.add("place " + gson.toJson(c));
+            }
+            else
+            {
+                // Possibly add color register override for this here?
+                actions.add(("place " + gson.toJson(c)));
+            }
         }
 
         // If not triggered, top must be a special card!
@@ -332,6 +368,7 @@ public class GameManager {
     public String fireAction(Command x) {
         String[] cmd = x.rawCommand.split(" ");
 
+        /* CHANGED TO SessionID Check
         // Check player name
         if (gamePlayers.get(currentPlayer).playerName.compareTo(cmd[1]) != 0) {
             return "echo This player is not on the turn. The player on turn is: " + gamePlayers.get(currentPlayer).playerName;
@@ -341,7 +378,7 @@ public class GameManager {
         if (gamePlayers.get(currentPlayer).playerName.compareTo(cmd[2]) != 0) {
             return "echo Incorrect player secret received.";
         }
-
+        */
         // Validate valid selection
 
         // Handle stuff
