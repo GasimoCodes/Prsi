@@ -2,14 +2,12 @@ package com.gasimo;
 
 import com.google.gson.Gson;
 
-import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.HashMap;
-import java.util.concurrent.ExecutionException;
 
+/**
+ * Main Game Logic Class where all the game is running at.
+ */
 public class GameManager {
 
     // - - - Game data

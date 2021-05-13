@@ -13,6 +13,9 @@ import javax.swing.*;
 import static com.diogonunes.jcolor.Ansi.colorize;
 import static com.diogonunes.jcolor.Attribute.*;
 
+/**
+ * Handle Server/Client request calls.
+ */
 public class ServerHandler extends AbstractStreamHandler {
 
     private static Integer USERID = 0;

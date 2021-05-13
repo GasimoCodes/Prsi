@@ -5,6 +5,9 @@ import com.sun.jna.Pointer;
 import com.sun.jna.ptr.IntByReference;
 import com.sun.jna.win32.StdCallLibrary;
 
+/**
+ * Java native access kernel class (WIN ONLY)
+ */
 public interface Kernel32 extends StdCallLibrary {
 
     Pointer GetStdHandle(IntByReference nStdHandle);

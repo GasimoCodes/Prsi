@@ -10,16 +10,45 @@ import java.io.IOException;
 import java.util.Scanner;
 import java.util.concurrent.ExecutionException;
 
+/**
+ * Server initialization
+ */
 public class Main {
 
-    public static GameManager gm;
-    public static CommandInterpreter CI = new CommandInterpreter();
-    public static  NetworkingInterpreter NI = new NetworkingInterpreter();
-    public static ServerHandler SH = new ServerHandler();
-    public static ServerProperties SP;
-    public static boolean enableConsoleColors = true;
-    Kernel32 k = Native.load("kernel32", Kernel32.class);
+    /**
+     * GameManager Object which controls main game loop
+     */
+    public static GameManager GM;
 
+    /**
+     * CommandInterpreter Object which controls Command calls, Interpretations and execution
+     */
+    public static CommandInterpreter CI = new CommandInterpreter();
+
+    /**
+     * NetworkingInterpreter Object Initializes necessary networking back-end
+     */
+    public static  NetworkingInterpreter NI = new NetworkingInterpreter();
+
+    /**
+     * ServerHandler handles Incoming Network requests from packets into string which is sent to CommandInterpreter
+     */
+    public static ServerHandler SH = new ServerHandler();
+
+    /**
+     * Contains Server Properties which are loaded at runtime.
+     */
+    public static ServerProperties SP;
+
+    /**
+     * Whether we enable colored console output
+     */
+    public static boolean enableConsoleColors = true;
+
+    /**
+     * The starting point of the server. Handles creation and initialization of all necessary objects.
+     * @param args Server start arguments
+     */
     public static void main(String[] args) {
 
         // In case we do not support colors in console (like cmd)
@@ -36,8 +65,8 @@ public class Main {
             SP = loadSP();
 
             // Create and init game object
-            gm = new GameManager();
-            gm.init();
+            GM = new GameManager();
+            GM.init();
 
             // Autostart game in another thread based on serverProperty fields
             if(SP.autoStartNewGame)
@@ -67,13 +96,21 @@ public class Main {
             }
         }
     }
+
+    /**
+     * Creates a new game session on GameManager
+     * @return Result message
+     */
     public static String newGame(){
         // Replace with new / load later
-        gm.newGame();
+        GM.newGame();
         return "Success - new game created";
     }
 
-
+    /**
+     * Loads Server Properties from file
+     * @return Loaded ServerProperties
+     */
     public static ServerProperties loadSP(){
 
         ServerProperties tempSP = new ServerProperties();
@@ -102,6 +139,10 @@ public class Main {
         }
     }
 
+    /**
+     * Saves Server Properties into file
+     * @param saveSP ServerProperties object to be saved
+     */
     public static void saveProperties(ServerProperties saveSP) {
         try {
             FileWriter myWriter = new FileWriter(System.getProperty("user.dir") + "/server.properties");

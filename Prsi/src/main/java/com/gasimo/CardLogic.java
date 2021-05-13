@@ -3,6 +3,9 @@ package com.gasimo;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
+/**
+ * Helper class to handle basic operations with cards
+ */
 public class CardLogic {
     // Implement rules here
 

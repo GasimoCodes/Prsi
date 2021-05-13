@@ -1,5 +1,8 @@
 package com.gasimo;
 
+/**
+ * Covers types of Prsi cards
+ */
 public enum CardType
     {
         // Generic

@@ -6,6 +6,9 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * Defines Player object used by main game loop
+ */
 public class Player {
 
     private String playerSecret;

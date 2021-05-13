@@ -1,0 +1,2150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:UMLLabProfile="http:///schemas/UMLLabProfile/NS/0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///schemas/UMLLabProfile/NS/0 pathmap://UMLLAB_PROFILES/UMLLab.profile.uml#UMLLabProfile-Annotation_2-UMLLabProfile">
+  <uml:Model xmi:id="_Kz8HgLQmEeuOKq0JIa4gdg" name="Prsi">
+    <eAnnotations xmi:id="_K1ZgELQmEeuOKq0JIa4gdg" source="http://ns.yatta.de/umllab">
+      <contents xmi:type="ecore:EAnnotation" xmi:id="_K1ZgEbQmEeuOKq0JIa4gdg" source="codegen">
+        <details xmi:id="_K1ZgErQmEeuOKq0JIa4gdg" key="codegenDirectory" value="/Prsi/src/main/java"/>
+      </contents>
+    </eAnnotations>
+    <elementImport xmi:id="_LB6SELQmEeuOKq0JIa4gdg">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+    </elementImport>
+    <elementImport xmi:id="_LB6SEbQmEeuOKq0JIa4gdg">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#byte"/>
+    </elementImport>
+    <elementImport xmi:id="_LB6SErQmEeuOKq0JIa4gdg">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#char"/>
+    </elementImport>
+    <elementImport xmi:id="_LB6SE7QmEeuOKq0JIa4gdg">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+    </elementImport>
+    <elementImport xmi:id="_LB6SFLQmEeuOKq0JIa4gdg">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+    </elementImport>
+    <elementImport xmi:id="_LB6SFbQmEeuOKq0JIa4gdg">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+    </elementImport>
+    <elementImport xmi:id="_LB6SFrQmEeuOKq0JIa4gdg">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+    </elementImport>
+    <elementImport xmi:id="_LB65ILQmEeuOKq0JIa4gdg">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#short"/>
+    </elementImport>
+    <elementImport xmi:id="_LB65IbQmEeuOKq0JIa4gdg">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </elementImport>
+    <packagedElement xmi:type="uml:Package" xmi:id="_LBJdELQmEeuOKq0JIa4gdg" name="com">
+      <packagedElement xmi:type="uml:Package" xmi:id="_LBNugLQmEeuOKq0JIa4gdg" name="gasimo">
+        <packagedElement xmi:type="uml:Class" xmi:id="_LB3OwLQmEeuOKq0JIa4gdg" name="Card">
+          <ownedComment xmi:id="_LHMasLQmEeuOKq0JIa4gdg">
+            <body>Class to contain all necessary card information</body>
+          </ownedComment>
+          <ownedAttribute xmi:id="_LGiTYLQmEeuOKq0JIa4gdg" name="color" visibility="package" type="_LB_xoLQmEeuOKq0JIa4gdg">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_LGiTYbQmEeuOKq0JIa4gdg" value="null"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_LGi6cbQmEeuOKq0JIa4gdg" name="type" visibility="package" type="_LCA_w7QmEeuOKq0JIa4gdg">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_LGi6crQmEeuOKq0JIa4gdg" value="null"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_LGi6dLQmEeuOKq0JIa4gdg" name="alreadyTriggered" visibility="package">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_LGi6dbQmEeuOKq0JIa4gdg" value="false"/>
+          </ownedAttribute>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LHCCoLQmEeuOKq0JIa4gdg" name="Card" specification="_LFiN0LQmEeuOKq0JIa4gdg">
+            <ownedParameter xmi:id="_LHCCobQmEeuOKq0JIa4gdg" name="color" type="_LB_xoLQmEeuOKq0JIa4gdg"/>
+            <ownedParameter xmi:id="_LHCCorQmEeuOKq0JIa4gdg" name="type" type="_LCA_w7QmEeuOKq0JIa4gdg"/>
+            <ownedParameter xmi:id="_LHCCo7QmEeuOKq0JIa4gdg" name="alreadyTriggered">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_LHCCpLQmEeuOKq0JIa4gdg" type="_LB3OwLQmEeuOKq0JIa4gdg" direction="return"/>
+            <language>java</language>
+            <body>this.color = color;&#xD;
+     this.type = type;&#xD;
+     this.alreadyTriggered = alreadyTriggered;&#xD;
+&#xD;
+     // Force triggered on generic cards so they dont have to be checked later&#xD;
+     if(type == CardType.DESET || type == CardType.DEVET || type == CardType.OSM || type == CardType.KRAL || type == CardType.SPODEK)&#xD;
+     {&#xD;
+         this.alreadyTriggered = true;&#xD;
+     }&#xD;
+ </body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LHEe4LQmEeuOKq0JIa4gdg" name="Card" specification="_LFi04LQmEeuOKq0JIa4gdg">
+            <ownedParameter xmi:id="_LHEe4bQmEeuOKq0JIa4gdg" name="color" type="_LB_xoLQmEeuOKq0JIa4gdg"/>
+            <ownedParameter xmi:id="_LHEe4rQmEeuOKq0JIa4gdg" name="type" type="_LCA_w7QmEeuOKq0JIa4gdg"/>
+            <ownedParameter xmi:id="_LHEe47QmEeuOKq0JIa4gdg" type="_LB3OwLQmEeuOKq0JIa4gdg" direction="return"/>
+            <language>java</language>
+            <body>this.color = color;&#xD;
+     this.type = type;&#xD;
+     this.alreadyTriggered = true;&#xD;
+ </body>
+          </ownedBehavior>
+          <ownedOperation xmi:id="_LFiN0LQmEeuOKq0JIa4gdg" name="Card" method="_LHCCoLQmEeuOKq0JIa4gdg">
+            <eAnnotations xmi:id="_LFiN1LQmEeuOKq0JIa4gdg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+              <details xmi:id="_LFiN1bQmEeuOKq0JIa4gdg" key="create"/>
+            </eAnnotations>
+            <ownedParameter xmi:id="_LFiN0bQmEeuOKq0JIa4gdg" name="color" type="_LB_xoLQmEeuOKq0JIa4gdg"/>
+            <ownedParameter xmi:id="_LFiN0rQmEeuOKq0JIa4gdg" name="type" type="_LCA_w7QmEeuOKq0JIa4gdg"/>
+            <ownedParameter xmi:id="_LFiN07QmEeuOKq0JIa4gdg" name="alreadyTriggered">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_LFiN1rQmEeuOKq0JIa4gdg" type="_LB3OwLQmEeuOKq0JIa4gdg" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:id="_LFi04LQmEeuOKq0JIa4gdg" name="Card" method="_LHEe4LQmEeuOKq0JIa4gdg">
+            <eAnnotations xmi:id="_LFi047QmEeuOKq0JIa4gdg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+              <details xmi:id="_LFi05LQmEeuOKq0JIa4gdg" key="create"/>
+            </eAnnotations>
+            <ownedParameter xmi:id="_LFi04bQmEeuOKq0JIa4gdg" name="color" type="_LB_xoLQmEeuOKq0JIa4gdg"/>
+            <ownedParameter xmi:id="_LFi04rQmEeuOKq0JIa4gdg" name="type" type="_LCA_w7QmEeuOKq0JIa4gdg"/>
+            <ownedParameter xmi:id="_LFi05bQmEeuOKq0JIa4gdg" type="_LB3OwLQmEeuOKq0JIa4gdg" direction="return"/>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Enumeration" xmi:id="_LB_xoLQmEeuOKq0JIa4gdg" name="CardColor">
+          <ownedLiteral xmi:id="_LCAYsbQmEeuOKq0JIa4gdg" name="Srdce"/>
+          <ownedLiteral xmi:id="_LCA_wLQmEeuOKq0JIa4gdg" name="Zaludy"/>
+          <ownedLiteral xmi:id="_LCA_wbQmEeuOKq0JIa4gdg" name="Kule"/>
+          <ownedLiteral xmi:id="_LCA_wrQmEeuOKq0JIa4gdg" name="Listy"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Enumeration" xmi:id="_LCA_w7QmEeuOKq0JIa4gdg" name="CardType">
+          <ownedLiteral xmi:id="_LCBm0bQmEeuOKq0JIa4gdg" name="OSM"/>
+          <ownedLiteral xmi:id="_LCBm0rQmEeuOKq0JIa4gdg" name="DEVET"/>
+          <ownedLiteral xmi:id="_LCBm07QmEeuOKq0JIa4gdg" name="DESET"/>
+          <ownedLiteral xmi:id="_LCBm1LQmEeuOKq0JIa4gdg" name="SPODEK"/>
+          <ownedLiteral xmi:id="_LCBm1bQmEeuOKq0JIa4gdg" name="KRAL"/>
+          <ownedLiteral xmi:id="_LCCN4LQmEeuOKq0JIa4gdg" name="SEDM"/>
+          <ownedLiteral xmi:id="_LCCN4bQmEeuOKq0JIa4gdg" name="SVRSEK"/>
+          <ownedLiteral xmi:id="_LCCN4rQmEeuOKq0JIa4gdg" name="ESO"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_LCCN47QmEeuOKq0JIa4gdg" name="Command">
+          <ownedComment xmi:id="_LHMasbQmEeuOKq0JIa4gdg">
+            <body>Contains necessary fields to define all local and remote command calls</body>
+          </ownedComment>
+          <ownedAttribute xmi:id="_LGjhgbQmEeuOKq0JIa4gdg" name="identifier" visibility="package">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_LGjhgrQmEeuOKq0JIa4gdg" value="&quot;&quot;"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_LGkIkbQmEeuOKq0JIa4gdg" name="caller" visibility="package">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_LGkIkrQmEeuOKq0JIa4gdg" value="0"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_LGkvoLQmEeuOKq0JIa4gdg" name="rawCommand" visibility="package">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_LGkvobQmEeuOKq0JIa4gdg" value="&quot;&quot;"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_LGkvo7QmEeuOKq0JIa4gdg" name="container" visibility="package">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_LGlWsLQmEeuOKq0JIa4gdg" value="&quot;&quot;"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_LGlWsrQmEeuOKq0JIa4gdg" name="result" visibility="package" type="_LCHtcLQmEeuOKq0JIa4gdg">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_LGlWs7QmEeuOKq0JIa4gdg" value="CommandResult.Success"/>
+          </ownedAttribute>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LHEe5LQmEeuOKq0JIa4gdg" name="Command" specification="_LCDcALQmEeuOKq0JIa4gdg">
+            <ownedParameter xmi:id="_LHEe5bQmEeuOKq0JIa4gdg" name="rawCommand">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_LHEe5rQmEeuOKq0JIa4gdg" type="_LCCN47QmEeuOKq0JIa4gdg" direction="return"/>
+            <language>java</language>
+            <body>this.rawCommand = rawCommand;&#xD;
+ </body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LHFF8LQmEeuOKq0JIa4gdg" name="Command" specification="_LFjb8LQmEeuOKq0JIa4gdg">
+            <ownedParameter xmi:id="_LHFF8bQmEeuOKq0JIa4gdg" name="identifier">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_LHFF8rQmEeuOKq0JIa4gdg" name="caller">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_LHFF87QmEeuOKq0JIa4gdg" name="rawCommand">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_LHFF9LQmEeuOKq0JIa4gdg" name="container">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_LHFF9bQmEeuOKq0JIa4gdg" name="result" type="_LCHtcLQmEeuOKq0JIa4gdg"/>
+            <ownedParameter xmi:id="_LHFF9rQmEeuOKq0JIa4gdg" type="_LCCN47QmEeuOKq0JIa4gdg" direction="return"/>
+            <language>java</language>
+            <body>this.identifier = identifier;&#xD;
+     this.caller = caller;&#xD;
+     this.rawCommand = rawCommand;&#xD;
+     this.container = container;&#xD;
+     this.result = result;&#xD;
+ </body>
+          </ownedBehavior>
+          <ownedOperation xmi:id="_LCDcALQmEeuOKq0JIa4gdg" name="Command" method="_LHEe5LQmEeuOKq0JIa4gdg">
+            <eAnnotations xmi:id="_LCEDELQmEeuOKq0JIa4gdg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+              <details xmi:id="_LCEqILQmEeuOKq0JIa4gdg" key="create"/>
+            </eAnnotations>
+            <ownedParameter xmi:id="_LCDcAbQmEeuOKq0JIa4gdg" name="rawCommand">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_LCEqIbQmEeuOKq0JIa4gdg" type="_LCCN47QmEeuOKq0JIa4gdg" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:id="_LCEqIrQmEeuOKq0JIa4gdg" name="Command">
+            <eAnnotations xmi:id="_LCEqI7QmEeuOKq0JIa4gdg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+              <details xmi:id="_LCEqJLQmEeuOKq0JIa4gdg" key="create"/>
+            </eAnnotations>
+            <ownedParameter xmi:id="_LCFRMbQmEeuOKq0JIa4gdg" type="_LCCN47QmEeuOKq0JIa4gdg" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:id="_LFjb8LQmEeuOKq0JIa4gdg" name="Command" method="_LHFF8LQmEeuOKq0JIa4gdg">
+            <eAnnotations xmi:id="_LFkDArQmEeuOKq0JIa4gdg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+              <details xmi:id="_LFkDA7QmEeuOKq0JIa4gdg" key="create"/>
+            </eAnnotations>
+            <ownedParameter xmi:id="_LFjb8bQmEeuOKq0JIa4gdg" name="identifier">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_LFjb8rQmEeuOKq0JIa4gdg" name="caller">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_LFjb87QmEeuOKq0JIa4gdg" name="rawCommand">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_LFkDALQmEeuOKq0JIa4gdg" name="container">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_LFkDAbQmEeuOKq0JIa4gdg" name="result" type="_LCHtcLQmEeuOKq0JIa4gdg"/>
+            <ownedParameter xmi:id="_LFkDBLQmEeuOKq0JIa4gdg" type="_LCCN47QmEeuOKq0JIa4gdg" direction="return"/>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Enumeration" xmi:id="_LCHtcLQmEeuOKq0JIa4gdg" name="CommandResult">
+          <ownedLiteral xmi:id="_LCI7kLQmEeuOKq0JIa4gdg" name="Success"/>
+          <ownedLiteral xmi:id="_LCI7kbQmEeuOKq0JIa4gdg" name="Ignored"/>
+          <ownedLiteral xmi:id="_LCI7krQmEeuOKq0JIa4gdg" name="Failed"/>
+          <ownedLiteral xmi:id="_LCI7k7QmEeuOKq0JIa4gdg" name="Exception"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_LCI7lLQmEeuOKq0JIa4gdg" name="GameData">
+          <ownedComment xmi:id="_LHNBwLQmEeuOKq0JIa4gdg">
+            <body>@deprecated (To be replaced by a better implementation)&#xD;
+Class to contain ongoing game data</body>
+          </ownedComment>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Enumeration" xmi:id="_LCJioLQmEeuOKq0JIa4gdg" name="GameStatus">
+          <ownedLiteral xmi:id="_LCKJsbQmEeuOKq0JIa4gdg" name="awaitingPlayers"/>
+          <ownedLiteral xmi:id="_LCKJsrQmEeuOKq0JIa4gdg" name="ended"/>
+          <ownedLiteral xmi:id="_LCKwwLQmEeuOKq0JIa4gdg" name="inProgress"/>
+          <ownedLiteral xmi:id="_LCKwwbQmEeuOKq0JIa4gdg" name="noGame"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Interface" xmi:id="_LCKwwrQmEeuOKq0JIa4gdg" name="Kernel32">
+          <ownedComment xmi:id="_LHNBwbQmEeuOKq0JIa4gdg">
+            <body>Java native access kernel class (WIN ONLY)</body>
+          </ownedComment>
+          <generalization xmi:id="_LGOKULQmEeuOKq0JIa4gdg" general="_LFmfQbQmEeuOKq0JIa4gdg"/>
+          <ownedOperation xmi:id="_LCMl8LQmEeuOKq0JIa4gdg" name="GetLastError">
+            <ownedParameter xmi:id="_LCMl8bQmEeuOKq0JIa4gdg" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_LGOxYLQmEeuOKq0JIa4gdg" name="GetStdHandle">
+            <ownedParameter xmi:id="_LGOxYbQmEeuOKq0JIa4gdg" name="nStdHandle" type="_LFl4MbQmEeuOKq0JIa4gdg"/>
+            <ownedParameter xmi:id="_LGOxYrQmEeuOKq0JIa4gdg" type="_LFlRIbQmEeuOKq0JIa4gdg" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:id="_LGPYcLQmEeuOKq0JIa4gdg" name="SetConsoleTextAttribute">
+            <ownedParameter xmi:id="_LGPYcbQmEeuOKq0JIa4gdg" name="hConsoleOutput" type="_LFlRIbQmEeuOKq0JIa4gdg"/>
+            <ownedParameter xmi:id="_LGPYcrQmEeuOKq0JIa4gdg" name="wAttributes" type="_LFl4MbQmEeuOKq0JIa4gdg"/>
+            <ownedParameter xmi:id="_LGPYc7QmEeuOKq0JIa4gdg" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+            </ownedParameter>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_LCObILQmEeuOKq0JIa4gdg" name="NetworkingInterpreter">
+          <ownedComment xmi:id="_LHNBwrQmEeuOKq0JIa4gdg">
+            <body>Handles networking initialisation and loop</body>
+          </ownedComment>
+          <ownedAttribute xmi:id="_LGmk0LQmEeuOKq0JIa4gdg" name="logClientRequests" visibility="package">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_LGmk0bQmEeuOKq0JIa4gdg" value="true"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_LGnL4LQmEeuOKq0JIa4gdg" name="PREFIX" visibility="package" isLeaf="true" isStatic="true" isReadOnly="true">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_LGnL4bQmEeuOKq0JIa4gdg" value="&quot;org.gasimo.&quot;"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_LGnL4rQmEeuOKq0JIa4gdg" name="PORT" visibility="package" isLeaf="true" isStatic="true" isReadOnly="true">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_LGnL47QmEeuOKq0JIa4gdg" value="Integer.getInteger(PREFIX + &quot;Port&quot;, 8002)"/>
+          </ownedAttribute>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LHFF97QmEeuOKq0JIa4gdg" name="init" specification="_LCQQULQmEeuOKq0JIa4gdg">
+            <language>java</language>
+            <body>SelectorLoop loop = new SelectorLoop();&#xD;
+&#xD;
+     try {&#xD;
+         loop.start();&#xD;
+&#xD;
+         // Initialize the listener&#xD;
+         ServerSocketChannel channel = ServerSocketChannel.open();&#xD;
+         channel.configureBlocking(false);&#xD;
+         channel.socket().bind(new InetSocketAddress(PORT));&#xD;
+&#xD;
+         if(Main.enableConsoleColors)&#xD;
+             System.out.println(&quot;\033[36mServer is online at: &quot; + getDefaultAddress() + &quot;\033[0m&quot;);&#xD;
+         else&#xD;
+             System.out.println(&quot;Server is online at: &quot; +  getDefaultAddress());&#xD;
+&#xD;
+&#xD;
+         // Register the listener&#xD;
+         loop.register(channel, new AbstractSessionFactory() {&#xD;
+&#xD;
+             @Override&#xD;
+             protected IStreamHandler createHandler(SocketChannel channel) {&#xD;
+&#xD;
+                 return new ServerHandler();&#xD;
+             }&#xD;
+         }).sync();&#xD;
+&#xD;
+         // Wait till the loop ends&#xD;
+         loop.join();&#xD;
+     } finally {&#xD;
+&#xD;
+         // Gently stop the loop&#xD;
+         loop.stop();&#xD;
+     }&#xD;
+&#xD;
+&#xD;
+ </body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LHFF-LQmEeuOKq0JIa4gdg" name="getDefaultAddress" specification="_LCQ3YLQmEeuOKq0JIa4gdg">
+            <ownedParameter xmi:id="_LHFF-bQmEeuOKq0JIa4gdg" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <language>java</language>
+            <body>String sysIP = &quot;&quot;;&#xD;
+     // Modified from https://www.geeksforgeeks.org/java-program-find-ip-address-computer/&#xD;
+     try&#xD;
+     {&#xD;
+         URL url_name = new URL(&quot;http://bot.whatismyipaddress.com&quot;);&#xD;
+         BufferedReader sc =&#xD;
+                 new BufferedReader(new InputStreamReader(url_name.openStream()));&#xD;
+&#xD;
+         // reads system IPAddress&#xD;
+         sysIP = sc.readLine().trim();&#xD;
+         return sysIP;&#xD;
+&#xD;
+     }&#xD;
+     catch (Exception e)&#xD;
+     {&#xD;
+         // In an unlikely scenario we are offline or the service above does not work.&#xD;
+         System.out.println(&quot;Could not obtain your public IP address, perhaps you are running offline?&quot;);&#xD;
+         return &quot;127.0.0.1&quot;;&#xD;
+     }&#xD;
+&#xD;
+ </body>
+          </ownedBehavior>
+          <ownedOperation xmi:id="_LCQQULQmEeuOKq0JIa4gdg" name="init" method="_LHFF97QmEeuOKq0JIa4gdg" raisedException="_LFr-0bQmEeuOKq0JIa4gdg _LGQmkLQmEeuOKq0JIa4gdg _LFvCIrQmEeuOKq0JIa4gdg"/>
+          <ownedOperation xmi:id="_LCQ3YLQmEeuOKq0JIa4gdg" name="getDefaultAddress" visibility="private" method="_LHFF-LQmEeuOKq0JIa4gdg">
+            <ownedComment xmi:id="_LHNBw7QmEeuOKq0JIa4gdg">
+              <body>Get default IP address for remote connection.&#xD;
+     * @return Public IP Address</body>
+            </ownedComment>
+            <ownedParameter xmi:id="_LCRecLQmEeuOKq0JIa4gdg" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_LCTToLQmEeuOKq0JIa4gdg" name="Player">
+          <ownedComment xmi:id="_LHNBxLQmEeuOKq0JIa4gdg">
+            <body>Defines Player object used by main game loop</body>
+          </ownedComment>
+          <ownedAttribute xmi:id="_LGny8LQmEeuOKq0JIa4gdg" name="playerSecret">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_LGny8bQmEeuOKq0JIa4gdg" name="playerName" visibility="package">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_LGoaAbQmEeuOKq0JIa4gdg" name="deck" visibility="package" type="_LFysgbQmEeuOKq0JIa4gdg" association="_LHU9kLQmEeuOKq0JIa4gdg">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_LGpBEbQmEeuOKq0JIa4gdg" value="new ArrayList&lt;>()"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_LGpBE7QmEeuOKq0JIa4gdg" name="netSession">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+          </ownedAttribute>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LHFtALQmEeuOKq0JIa4gdg" name="Player" specification="_LGR0sLQmEeuOKq0JIa4gdg">
+            <ownedParameter xmi:id="_LHFtAbQmEeuOKq0JIa4gdg" name="playerName">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_LHFtArQmEeuOKq0JIa4gdg" name="deck" type="_LFysgbQmEeuOKq0JIa4gdg"/>
+            <ownedParameter xmi:id="_LHFtA7QmEeuOKq0JIa4gdg" name="netSession">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_LHFtBLQmEeuOKq0JIa4gdg" type="_LCTToLQmEeuOKq0JIa4gdg" direction="return"/>
+            <language>java</language>
+            <body>this.playerName = playerName;&#xD;
+     this.deck = deck;&#xD;
+     this.netSession = netSession;&#xD;
+     generateNewSecret();&#xD;
+ </body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LHFtBbQmEeuOKq0JIa4gdg" name="generateNewSecret" specification="_LCVI0LQmEeuOKq0JIa4gdg">
+            <language>java</language>
+            <body>byte[] array = new byte[7];&#xD;
+     new Random().nextBytes(array);&#xD;
+     String generatedString = new String(array, Charset.forName(&quot;UTF-8&quot;));&#xD;
+ </body>
+          </ownedBehavior>
+          <ownedOperation xmi:id="_LCVI0LQmEeuOKq0JIa4gdg" name="generateNewSecret" method="_LHFtBbQmEeuOKq0JIa4gdg"/>
+          <ownedOperation xmi:id="_LGR0sLQmEeuOKq0JIa4gdg" name="Player" method="_LHFtALQmEeuOKq0JIa4gdg">
+            <eAnnotations xmi:id="_LGR0tLQmEeuOKq0JIa4gdg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+              <details xmi:id="_LGR0tbQmEeuOKq0JIa4gdg" key="create"/>
+            </eAnnotations>
+            <ownedParameter xmi:id="_LGR0sbQmEeuOKq0JIa4gdg" name="playerName">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_LGR0srQmEeuOKq0JIa4gdg" name="deck" type="_LFysgbQmEeuOKq0JIa4gdg"/>
+            <ownedParameter xmi:id="_LGR0s7QmEeuOKq0JIa4gdg" name="netSession">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_LGR0trQmEeuOKq0JIa4gdg" type="_LCTToLQmEeuOKq0JIa4gdg" direction="return"/>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_LCW-ALQmEeuOKq0JIa4gdg" name="ServerProperties">
+          <ownedComment xmi:id="_LHNBxbQmEeuOKq0JIa4gdg">
+            <body>Class used to parse/load JSON server properties</body>
+          </ownedComment>
+          <ownedAttribute xmi:id="_LGpoIbQmEeuOKq0JIa4gdg" name="PORT" visibility="package">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_LGqPMLQmEeuOKq0JIa4gdg" value="8002"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_LGqPMrQmEeuOKq0JIa4gdg" name="displayName" visibility="package">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_LGqPM7QmEeuOKq0JIa4gdg" value="&quot;Generic prsi server&quot;"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_LGq2QbQmEeuOKq0JIa4gdg" name="autoStartNewGame" visibility="package">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_LGq2QrQmEeuOKq0JIa4gdg" value="false"/>
+          </ownedAttribute>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_LCYMILQmEeuOKq0JIa4gdg" name="ServerHandler">
+          <ownedComment xmi:id="_LHNBxrQmEeuOKq0JIa4gdg">
+            <body>Handle Server/Client request calls.</body>
+          </ownedComment>
+          <generalization xmi:id="_LGYiYLQmEeuOKq0JIa4gdg" general="_LF2W4LQmEeuOKq0JIa4gdg"/>
+          <ownedAttribute xmi:id="_LGrdUbQmEeuOKq0JIa4gdg" name="USERID" visibility="private" isStatic="true">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_LGrdUrQmEeuOKq0JIa4gdg" value="0"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_LGsEYLQmEeuOKq0JIa4gdg" name="YOUID" visibility="private" isStatic="true">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_LGsEYbQmEeuOKq0JIa4gdg" value="&quot;[you]&quot;"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_LGsrcLQmEeuOKq0JIa4gdg" name="sessions" visibility="package" isLeaf="true" isStatic="true" type="_LFxeYLQmEeuOKq0JIa4gdg" isReadOnly="true" association="_LHVkobQmEeuOKq0JIa4gdg">
+            <qualifier xmi:id="_LGsrcrQmEeuOKq0JIa4gdg">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+            </qualifier>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_LGsrcbQmEeuOKq0JIa4gdg" value="new HashMap&lt;Long, IStreamSession>()"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_LGsrc7QmEeuOKq0JIa4gdg" name="gson" visibility="package" type="_LF1v0bQmEeuOKq0JIa4gdg" association="_LHWLsbQmEeuOKq0JIa4gdg">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_LGsrdLQmEeuOKq0JIa4gdg" value="new Gson()"/>
+          </ownedAttribute>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LHFtBrQmEeuOKq0JIa4gdg" name="read" specification="_LGUQ8bQmEeuOKq0JIa4gdg">
+            <ownedParameter xmi:id="_LHFtB7QmEeuOKq0JIa4gdg" name="msg" type="_LGTp4LQmEeuOKq0JIa4gdg"/>
+            <language>java</language>
+            <body>String s = new String((byte[]) msg);&#xD;
+&#xD;
+     // Log into console if required&#xD;
+     //Todo Surround with try-catch to prevent possible exceptions with malformed packets or move to CommandInterpreter.js&#xD;
+     if (Main.NI.logClientRequests) {&#xD;
+         for (Command x : gson.fromJson(s, Command[].class)) {&#xD;
+             System.out.println(colorize(&quot;[&quot; + getSession().getRemoteAddress() + &quot;]&quot;, YELLOW_TEXT()) + colorize(&quot; -> &quot;, YELLOW_TEXT()) + colorize(&quot;[Server]&quot;, YELLOW_TEXT()) + colorize(&quot;: &quot;, YELLOW_TEXT()) + x.rawCommand.replace(&quot;echo &quot;, &quot;&quot;));&#xD;
+         }&#xD;
+     }&#xD;
+&#xD;
+     // Parse&#xD;
+     try {&#xD;
+         send(Main.CI.parseExternalCommand(s, getSession().getId()));&#xD;
+     } catch (Exception e) {&#xD;
+         e.printStackTrace();&#xD;
+     }&#xD;
+&#xD;
+     // Exit session&#xD;
+     if (&quot;bye&quot;.equalsIgnoreCase(s)) {&#xD;
+         getSession().close();&#xD;
+     }&#xD;
+ </body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LHFtCLQmEeuOKq0JIa4gdg" name="event" specification="_LGWGILQmEeuOKq0JIa4gdg">
+            <ownedParameter xmi:id="_LHFtCbQmEeuOKq0JIa4gdg" name="event" type="_LF298LQmEeuOKq0JIa4gdg"/>
+            <language>java</language>
+            <body>switch (event) {&#xD;
+         case OPENED:&#xD;
+             sessions.put(getSession().getId(), getSession());&#xD;
+             // Set name of session (e.g. 127.0.0.1:78)&#xD;
+             getSession().getAttributes().put(USERID, &quot;[&quot; + getSession().getRemoteAddress() + &quot;]&quot;);&#xD;
+             sendCommand(&quot;echo Connected&quot;);&#xD;
+             break;&#xD;
+&#xD;
+         case CLOSED:&#xD;
+             sessions.remove(getSession().getId());&#xD;
+             sendCommand(&quot;echo Disconnected&quot;);&#xD;
+             break;&#xD;
+     }&#xD;
+ </body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LHGUELQmEeuOKq0JIa4gdg" name="sendCommand" specification="_LCYzMLQmEeuOKq0JIa4gdg">
+            <ownedParameter xmi:id="_LHGUEbQmEeuOKq0JIa4gdg" name="message">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <language>java</language>
+            <body>long youId = getSession().getId();&#xD;
+     String userId = (String) getSession().getAttributes().get(USERID);&#xD;
+&#xD;
+     // Takes all sessions&#xD;
+&#xD;
+     for (IStreamSession session : sessions.values()) {&#xD;
+         if (session.getId() == youId) {&#xD;
+             Command x = new Command();&#xD;
+             x.rawCommand = (message);&#xD;
+             x.identifier = (session.getId() == youId ? &quot;Server&quot; : userId);&#xD;
+&#xD;
+             if (Main.NI.logClientRequests)&#xD;
+                 System.out.println(colorize(&quot;[Server]&quot; + &quot; -> &quot; + userId + &quot;: &quot;, YELLOW_TEXT()) + x.rawCommand.replace(&quot;echo &quot;, &quot;&quot;));&#xD;
+&#xD;
+&#xD;
+             session.write(gson.toJson(new Command[]{x}).getBytes());&#xD;
+         }&#xD;
+     }&#xD;
+ </body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LHGUErQmEeuOKq0JIa4gdg" name="send" specification="_LCZaQbQmEeuOKq0JIa4gdg">
+            <ownedParameter xmi:id="_LHGUE7QmEeuOKq0JIa4gdg" name="message">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <language>java</language>
+            <body>Gson gson = new Gson();&#xD;
+&#xD;
+     long youId = getSession().getId();&#xD;
+     String userId = (String) getSession().getAttributes().get(USERID);&#xD;
+&#xD;
+     // Replace command with small version of just rawCommand for clarity.&#xD;
+     if (Main.NI.logClientRequests)&#xD;
+&#xD;
+&#xD;
+     //Todo Surround with try-catch to prevent possible exceptions with malformed packets or move to CommandInterpreter.js&#xD;
+     if (Main.NI.logClientRequests) {&#xD;
+         for (Command x : gson.fromJson(message, Command[].class)) {&#xD;
+             System.out.println(colorize(&quot;[Server]&quot;, YELLOW_TEXT()) + colorize(&quot; -> &quot;, YELLOW_TEXT()) + colorize(userId, YELLOW_TEXT()) + colorize(&quot;: &quot;, YELLOW_TEXT()) + x.rawCommand.replace(&quot;echo &quot;, &quot;&quot;));&#xD;
+         }&#xD;
+     }&#xD;
+&#xD;
+&#xD;
+     // Take all sessions&#xD;
+     for (IStreamSession session : sessions.values()) {&#xD;
+         if (session.getId() == youId)&#xD;
+             session.write(message.getBytes());&#xD;
+     }&#xD;
+ </body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LHGUFLQmEeuOKq0JIa4gdg" name="broadcast" specification="_LCaBULQmEeuOKq0JIa4gdg">
+            <ownedParameter xmi:id="_LHGUFbQmEeuOKq0JIa4gdg" name="message">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <language>java</language>
+            <body>Gson gson = new Gson();&#xD;
+&#xD;
+     //Todo Surround with try-catch to prevent possible exceptions with malformed packets or move to CommandInterpreter.js&#xD;
+     if (Main.NI.logClientRequests) {&#xD;
+         for (Command x : gson.fromJson(message, Command[].class)) {&#xD;
+             System.out.println(colorize(&quot;[Server]&quot;, YELLOW_TEXT()) + colorize(&quot; -> &quot;, YELLOW_TEXT()) + colorize(&quot;[All]&quot;, YELLOW_TEXT()) + colorize(&quot;: &quot;, YELLOW_TEXT()) + x.rawCommand.replace(&quot;echo &quot;, &quot;&quot;));&#xD;
+         }&#xD;
+     }&#xD;
+&#xD;
+&#xD;
+     // Take all sessions&#xD;
+     for (IStreamSession session : sessions.values()) {&#xD;
+         session.write(message.getBytes());&#xD;
+     }&#xD;
+ </body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LHGUFrQmEeuOKq0JIa4gdg" name="send" specification="_LGX7UbQmEeuOKq0JIa4gdg">
+            <ownedParameter xmi:id="_LHGUF7QmEeuOKq0JIa4gdg" name="command" type="_LCCN47QmEeuOKq0JIa4gdg"/>
+            <ownedParameter xmi:id="_LHGUGLQmEeuOKq0JIa4gdg" name="receiver" type="_LGXUQLQmEeuOKq0JIa4gdg"/>
+            <language>java</language>
+            <body>Gson gson = new Gson();&#xD;
+&#xD;
+     long youId = receiver;&#xD;
+     String userId = &quot;&quot;;&#xD;
+&#xD;
+     try {&#xD;
+&#xD;
+     } catch (Exception e) {&#xD;
+         e.printStackTrace();&#xD;
+     }&#xD;
+&#xD;
+     Command[] cArray = new Command[]{command};&#xD;
+&#xD;
+     String message = gson.toJson(cArray);&#xD;
+&#xD;
+     // Only selected sessions&#xD;
+     for (IStreamSession session : sessions.values()) {&#xD;
+         if (session.getId() == youId) {&#xD;
+             userId = (String) session.getAttributes().get(USERID);&#xD;
+&#xD;
+             if (Main.NI.logClientRequests){&#xD;
+&#xD;
+                 for(Command x : gson.fromJson(message, Command[].class))&#xD;
+                 {&#xD;
+                     System.out.println(colorize(&quot;[Server]&quot; + &quot; -> &quot; + userId + &quot;: &quot;, YELLOW_TEXT()) + x.rawCommand);&#xD;
+                 }&#xD;
+&#xD;
+             }&#xD;
+             session.write(message.getBytes());&#xD;
+         }&#xD;
+     }&#xD;
+ </body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LHGUGbQmEeuOKq0JIa4gdg" name="close" specification="_LCaBUrQmEeuOKq0JIa4gdg">
+            <ownedParameter xmi:id="_LHGUGrQmEeuOKq0JIa4gdg" name="reason">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <language>java</language>
+            <body>Gson gson = new Gson();&#xD;
+&#xD;
+     long youId = getSession().getId();&#xD;
+     String userId = (String) getSession().getAttributes().get(USERID);&#xD;
+&#xD;
+     if (Main.NI.logClientRequests)&#xD;
+         System.out.println(&quot;[Server]&quot; + &quot; -> &quot; + userId + &quot;: &quot; + reason);&#xD;
+&#xD;
+     // Take all sessions&#xD;
+     for (IStreamSession session : sessions.values()) {&#xD;
+         if (session.getId() == youId)&#xD;
+             session.write(reason.getBytes());&#xD;
+     }&#xD;
+ </body>
+          </ownedBehavior>
+          <ownedOperation xmi:id="_LCYzMLQmEeuOKq0JIa4gdg" name="sendCommand" method="_LHGUELQmEeuOKq0JIa4gdg">
+            <ownedParameter xmi:id="_LCZaQLQmEeuOKq0JIa4gdg" name="message">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_LCZaQbQmEeuOKq0JIa4gdg" name="send" method="_LHGUErQmEeuOKq0JIa4gdg">
+            <ownedParameter xmi:id="_LCZaQrQmEeuOKq0JIa4gdg" name="message">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_LCaBULQmEeuOKq0JIa4gdg" name="broadcast" method="_LHGUFLQmEeuOKq0JIa4gdg">
+            <ownedParameter xmi:id="_LCaBUbQmEeuOKq0JIa4gdg" name="message">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_LCaBUrQmEeuOKq0JIa4gdg" name="close" method="_LHGUGbQmEeuOKq0JIa4gdg">
+            <ownedParameter xmi:id="_LCaBU7QmEeuOKq0JIa4gdg" name="reason">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_LGUQ8bQmEeuOKq0JIa4gdg" name="read" method="_LHFtBrQmEeuOKq0JIa4gdg">
+            <ownedParameter xmi:id="_LGUQ8rQmEeuOKq0JIa4gdg" name="msg" type="_LGTp4LQmEeuOKq0JIa4gdg"/>
+          </ownedOperation>
+          <ownedOperation xmi:id="_LGWGILQmEeuOKq0JIa4gdg" name="event" method="_LHFtCLQmEeuOKq0JIa4gdg">
+            <ownedParameter xmi:id="_LGWGIbQmEeuOKq0JIa4gdg" name="event" type="_LF298LQmEeuOKq0JIa4gdg"/>
+          </ownedOperation>
+          <ownedOperation xmi:id="_LGX7UbQmEeuOKq0JIa4gdg" name="send" method="_LHGUFrQmEeuOKq0JIa4gdg">
+            <ownedParameter xmi:id="_LGX7UrQmEeuOKq0JIa4gdg" name="command" type="_LCCN47QmEeuOKq0JIa4gdg"/>
+            <ownedParameter xmi:id="_LGX7U7QmEeuOKq0JIa4gdg" name="receiver" type="_LGXUQLQmEeuOKq0JIa4gdg"/>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_LCdrsLQmEeuOKq0JIa4gdg" name="Main">
+          <ownedComment xmi:id="_LHNo0LQmEeuOKq0JIa4gdg">
+            <body>Server initialization</body>
+          </ownedComment>
+          <ownedAttribute xmi:id="_LGtSgbQmEeuOKq0JIa4gdg" name="GM" isStatic="true" type="_LCjLQLQmEeuOKq0JIa4gdg" association="_LHWywbQmEeuOKq0JIa4gdg"/>
+          <ownedAttribute xmi:id="_LGt5kbQmEeuOKq0JIa4gdg" name="CI" isStatic="true" type="_LCrHELQmEeuOKq0JIa4gdg" association="_LHXZ0bQmEeuOKq0JIa4gdg">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_LGt5krQmEeuOKq0JIa4gdg" value="new CommandInterpreter()"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_LGugoLQmEeuOKq0JIa4gdg" name="NI" isStatic="true" type="_LCObILQmEeuOKq0JIa4gdg" association="_LHXZ1LQmEeuOKq0JIa4gdg">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_LGugobQmEeuOKq0JIa4gdg" value="new NetworkingInterpreter()"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_LGugo7QmEeuOKq0JIa4gdg" name="SH" isStatic="true" type="_LCYMILQmEeuOKq0JIa4gdg" association="_LHYA4bQmEeuOKq0JIa4gdg">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_LGugpLQmEeuOKq0JIa4gdg" value="new ServerHandler()"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_LGvHsbQmEeuOKq0JIa4gdg" name="SP" isStatic="true" type="_LCW-ALQmEeuOKq0JIa4gdg" association="_LHYn8bQmEeuOKq0JIa4gdg"/>
+          <ownedAttribute xmi:id="_LGvHs7QmEeuOKq0JIa4gdg" name="enableConsoleColors" isStatic="true">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_LGvuwLQmEeuOKq0JIa4gdg" value="true"/>
+          </ownedAttribute>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LHG7ILQmEeuOKq0JIa4gdg" name="main" specification="_LCe50LQmEeuOKq0JIa4gdg">
+            <ownedParameter xmi:id="_LHG7IbQmEeuOKq0JIa4gdg" name="args">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_LHG7IrQmEeuOKq0JIa4gdg" value="*"/>
+            </ownedParameter>
+            <language>java</language>
+            <body>// In case we do not support colors in console (like cmd)&#xD;
+     if(args.length >= 1 &amp;&amp; args[1].compareTo(&quot;-noColor&quot;) == 0)&#xD;
+     {&#xD;
+         System.out.println(&quot;Colored output has been disabled.&quot;);&#xD;
+         enableConsoleColors = false;&#xD;
+     }&#xD;
+&#xD;
+     // Init&#xD;
+     try&#xD;
+     {&#xD;
+         // Load Server Properties&#xD;
+         SP = loadSP();&#xD;
+&#xD;
+         // Create and init game object&#xD;
+         GM = new GameManager();&#xD;
+         GM.init();&#xD;
+&#xD;
+         // Autostart game in another thread based on serverProperty fields&#xD;
+         if(SP.autoStartNewGame)&#xD;
+         {&#xD;
+             new Thread(new Runnable() {&#xD;
+                 @Override&#xD;
+                 public void run() {&#xD;
+                         newGame();&#xD;
+                     }&#xD;
+             }).start();&#xD;
+         }&#xD;
+&#xD;
+         // Initialize listening to console (separate thread)&#xD;
+         CI.listenToConsole();&#xD;
+         NI.init();&#xD;
+     }&#xD;
+     catch (Exception e)&#xD;
+     {&#xD;
+         try {&#xD;
+             throw(e);&#xD;
+         } catch (IOException ioException) {&#xD;
+             ioException.printStackTrace();&#xD;
+         } catch (InterruptedException interruptedException) {&#xD;
+             interruptedException.printStackTrace();&#xD;
+         } catch (ExecutionException executionException) {&#xD;
+             executionException.printStackTrace();&#xD;
+         }&#xD;
+     }&#xD;
+ </body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LHG7I7QmEeuOKq0JIa4gdg" name="newGame" specification="_LCfg4bQmEeuOKq0JIa4gdg">
+            <ownedParameter xmi:id="_LHG7JLQmEeuOKq0JIa4gdg" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <language>java</language>
+            <body>// Replace with new / load later&#xD;
+     GM.newGame();&#xD;
+     return &quot;Success - new game created&quot;;&#xD;
+ </body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LHG7JbQmEeuOKq0JIa4gdg" name="loadSP" specification="_LCgH8LQmEeuOKq0JIa4gdg">
+            <ownedParameter xmi:id="_LHG7JrQmEeuOKq0JIa4gdg" type="_LCW-ALQmEeuOKq0JIa4gdg" direction="return"/>
+            <language>java</language>
+            <body>ServerProperties tempSP = new ServerProperties();&#xD;
+     String data = &quot;&quot;;&#xD;
+&#xD;
+     try {&#xD;
+         File myObj = new File(System.getProperty(&quot;user.dir&quot;) + &quot;/server.properties&quot;);&#xD;
+         Scanner myReader = new Scanner(myObj);&#xD;
+         while (myReader.hasNextLine()) {&#xD;
+             data = myReader.nextLine();&#xD;
+         }&#xD;
+         myReader.close();&#xD;
+&#xD;
+         Gson gson = new Gson();&#xD;
+&#xD;
+         tempSP = gson.fromJson(data, ServerProperties.class);&#xD;
+&#xD;
+         return tempSP;&#xD;
+     } catch (FileNotFoundException e) {&#xD;
+         System.out.println(&quot;An error occurred while loading serverProperties file. A blank file will be generated.&quot;);&#xD;
+         saveProperties(tempSP);&#xD;
+         tempSP = new ServerProperties();&#xD;
+&#xD;
+&#xD;
+         return tempSP;&#xD;
+     }&#xD;
+ </body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LHG7J7QmEeuOKq0JIa4gdg" name="saveProperties" specification="_LF9EkbQmEeuOKq0JIa4gdg">
+            <ownedParameter xmi:id="_LHG7KLQmEeuOKq0JIa4gdg" name="saveSP" type="_LCW-ALQmEeuOKq0JIa4gdg"/>
+            <language>java</language>
+            <body>try {&#xD;
+         FileWriter myWriter = new FileWriter(System.getProperty(&quot;user.dir&quot;) + &quot;/server.properties&quot;);&#xD;
+         Gson gson = new Gson();&#xD;
+         myWriter.write(gson.toJson(saveSP));&#xD;
+         myWriter.close();&#xD;
+         System.out.println(&quot;Saved ServerProperties.&quot;);&#xD;
+     } catch (IOException e) {&#xD;
+         System.out.println(&quot;An error occurred while saving ServerProperties.&quot;);&#xD;
+         e.printStackTrace();&#xD;
+     }&#xD;
+ </body>
+          </ownedBehavior>
+          <ownedOperation xmi:id="_LCe50LQmEeuOKq0JIa4gdg" name="main" isStatic="true" method="_LHG7ILQmEeuOKq0JIa4gdg">
+            <ownedParameter xmi:id="_LCe50bQmEeuOKq0JIa4gdg" name="args">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_LCfg4LQmEeuOKq0JIa4gdg" value="*"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_LCfg4bQmEeuOKq0JIa4gdg" name="newGame" isStatic="true" method="_LHG7I7QmEeuOKq0JIa4gdg">
+            <ownedParameter xmi:id="_LCfg4rQmEeuOKq0JIa4gdg" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_LCgH8LQmEeuOKq0JIa4gdg" name="loadSP" isStatic="true" method="_LHG7JbQmEeuOKq0JIa4gdg">
+            <ownedParameter xmi:id="_LF9EkLQmEeuOKq0JIa4gdg" type="_LCW-ALQmEeuOKq0JIa4gdg" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:id="_LF9EkbQmEeuOKq0JIa4gdg" name="saveProperties" isStatic="true" method="_LHG7J7QmEeuOKq0JIa4gdg">
+            <ownedParameter xmi:id="_LF9EkrQmEeuOKq0JIa4gdg" name="saveSP" type="_LCW-ALQmEeuOKq0JIa4gdg"/>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_LCjLQLQmEeuOKq0JIa4gdg" name="GameManager">
+          <ownedComment xmi:id="_LHNo0bQmEeuOKq0JIa4gdg">
+            <body>Main Game Logic Class where all the game is running at.</body>
+          </ownedComment>
+          <ownedAttribute xmi:id="_LGwV0LQmEeuOKq0JIa4gdg" name="gameStatus" type="_LCJioLQmEeuOKq0JIa4gdg" isReadOnly="true"/>
+          <ownedAttribute xmi:id="_LGwV0bQmEeuOKq0JIa4gdg" name="sessionID" visibility="package">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_LGwV0rQmEeuOKq0JIa4gdg" value="&quot;&quot;"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_LGw84bQmEeuOKq0JIa4gdg" name="tableStack" type="_LFysgbQmEeuOKq0JIa4gdg" association="_LHZPALQmEeuOKq0JIa4gdg">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_LGxj8bQmEeuOKq0JIa4gdg" value="new ArrayList&lt;>()"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_LGyLALQmEeuOKq0JIa4gdg" name="currentPlayer" visibility="package">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_LGyLArQmEeuOKq0JIa4gdg" name="passingCards" visibility="package">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_LGyyEbQmEeuOKq0JIa4gdg" name="top" type="_LB3OwLQmEeuOKq0JIa4gdg" association="_LHZPA7QmEeuOKq0JIa4gdg"/>
+          <ownedAttribute xmi:id="_LGyyE7QmEeuOKq0JIa4gdg" name="placedStack" type="_LFysgbQmEeuOKq0JIa4gdg" association="_LHZ2EbQmEeuOKq0JIa4gdg"/>
+          <ownedAttribute xmi:id="_LG0AMbQmEeuOKq0JIa4gdg" name="players" visibility="package" type="_LFysgbQmEeuOKq0JIa4gdg" association="_LHadILQmEeuOKq0JIa4gdg">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_LG0nQbQmEeuOKq0JIa4gdg" value="new ArrayList()"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_LG0nQ7QmEeuOKq0JIa4gdg" name="gamePlayers" visibility="package" type="_LFysgbQmEeuOKq0JIa4gdg" association="_LHadI7QmEeuOKq0JIa4gdg">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_LG1OUbQmEeuOKq0JIa4gdg" value="new ArrayList()"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_LG11YbQmEeuOKq0JIa4gdg" name="waitForPlayers" visibility="package">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_LG2ccbQmEeuOKq0JIa4gdg" name="NI" type="_LCObILQmEeuOKq0JIa4gdg" association="_LHbEMLQmEeuOKq0JIa4gdg"/>
+          <ownedAttribute xmi:id="_LG3DgbQmEeuOKq0JIa4gdg" name="gson" visibility="package" type="_LF1v0bQmEeuOKq0JIa4gdg" association="_LHbEM7QmEeuOKq0JIa4gdg">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_LG3DgrQmEeuOKq0JIa4gdg" value="new Gson()"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_LG3DhLQmEeuOKq0JIa4gdg" name="actionsSaved" visibility="package" type="_LFysgbQmEeuOKq0JIa4gdg" association="_LHbrQbQmEeuOKq0JIa4gdg"/>
+          <ownedAttribute xmi:id="_LG4RobQmEeuOKq0JIa4gdg" name="listenPlayerWait" visibility="package">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_LG4RorQmEeuOKq0JIa4gdg" value="false"/>
+          </ownedAttribute>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LHHiMLQmEeuOKq0JIa4gdg" name="init" specification="_LClAcLQmEeuOKq0JIa4gdg">
+            <language>java</language>
+            <body>// Get network session&#xD;
+     try {&#xD;
+         NI = Main.NI;&#xD;
+         gameStatus = GameStatus.noGame;&#xD;
+     } catch (Exception e) {&#xD;
+         e.printStackTrace();&#xD;
+     }&#xD;
+ </body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LHHiMbQmEeuOKq0JIa4gdg" name="newGame" specification="_LClngLQmEeuOKq0JIa4gdg">
+            <language>java</language>
+            <body>sessionID = &quot;0000&quot;;&#xD;
+&#xD;
+     // Populate cards&#xD;
+     populateStack();&#xD;
+&#xD;
+     // Shuffle them too&#xD;
+     shuffleStack();&#xD;
+&#xD;
+     // Wait for enough players&#xD;
+     waitForPlayers = true;&#xD;
+     System.out.println(&quot;Waiting for players...&quot;);&#xD;
+     Main.CI.broadcastMessage(&quot;Waiting for players...&quot;, &quot;Server&quot;);&#xD;
+     gameStatus = GameStatus.awaitingPlayers;&#xD;
+&#xD;
+     while (waitForPlayers) {&#xD;
+         // If all 5 players are joined (Can be overridden by forceStart command)&#xD;
+&#xD;
+         if (players.size() == 5) {&#xD;
+             waitForPlayers = false;&#xD;
+         }&#xD;
+&#xD;
+         // For some reason, the thread does not update (receive the news that waitForPlayers is no longer true) unless we do this terribleness (Alternative was Print but thats just plain awful and non-performant. This at least saves some CPU ms time).&#xD;
+         try {&#xD;
+             Thread.sleep(500);&#xD;
+         } catch (InterruptedException e) {&#xD;
+             e.printStackTrace();&#xD;
+         }&#xD;
+&#xD;
+         // System.out.println(&quot;Funny loop go brr &quot; + waitForPlayers);&#xD;
+&#xD;
+     }&#xD;
+&#xD;
+     // Change stat that we are no longer waiting for players&#xD;
+     gameStatus = GameStatus.inProgress;&#xD;
+     Main.CI.broadcastMessage(&quot;Round starting....&quot;, &quot;Server&quot;);&#xD;
+&#xD;
+     // Set the game players to be the copy of all players. Thus we can keep players who already won in the game as spectators.&#xD;
+     gamePlayers = players;&#xD;
+&#xD;
+     // Give cards to players, that's 4 according to the rules.&#xD;
+     giveCards(4);&#xD;
+&#xD;
+     // Send top deck card as top&#xD;
+     top = tableStack.get(0);&#xD;
+     // Set card to not be active (cant get active Eso right on beginning etc.)&#xD;
+     top.alreadyTriggered = true;&#xD;
+     tableStack.remove(0);&#xD;
+&#xD;
+     // Now begin main game loop&#xD;
+     mainGameLoop();&#xD;
+&#xD;
+     // Something here?&#xD;
+ </body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LHHiMrQmEeuOKq0JIa4gdg" name="resetGame" specification="_LClngbQmEeuOKq0JIa4gdg">
+            <language>java</language>
+            <body>if (gameStatus != GameStatus.noGame)&#xD;
+         newGame();&#xD;
+     else&#xD;
+         System.out.println(&quot;No game found to reset.&quot;);&#xD;
+ </body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LHHiM7QmEeuOKq0JIa4gdg" name="forceStart" specification="_LCmOkLQmEeuOKq0JIa4gdg">
+            <language>java</language>
+            <body>switch (gameStatus) {&#xD;
+         case noGame:&#xD;
+             System.out.println(&quot;You cannot forceStart because no game was created. Create game with \&quot;newGame\&quot;&quot;);&#xD;
+             break;&#xD;
+         case inProgress:&#xD;
+             System.out.println(&quot;You cannot forceStart because an game session is already being played.&quot;);&#xD;
+             break;&#xD;
+         case awaitingPlayers:&#xD;
+             waitForPlayers = false;&#xD;
+             System.out.println(&quot;Game start has been forced. waitForPlayers = &quot; + waitForPlayers);&#xD;
+             break;&#xD;
+         case ended:&#xD;
+&#xD;
+     }&#xD;
+ </body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LHIJQLQmEeuOKq0JIa4gdg" name="addPlayer" specification="_LGAH4LQmEeuOKq0JIa4gdg">
+            <ownedParameter xmi:id="_LHIJQbQmEeuOKq0JIa4gdg" name="p" type="_LCTToLQmEeuOKq0JIa4gdg"/>
+            <ownedParameter xmi:id="_LHIJQrQmEeuOKq0JIa4gdg" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <language>java</language>
+            <body>// Cannot add new player if an game is already running.&#xD;
+     if (gameStatus == GameStatus.noGame) {&#xD;
+         return &quot;echo Cannot add new player while no game was created. Please create a game with newGame command first.&quot;;&#xD;
+     }&#xD;
+&#xD;
+     // Check if the player name isn't already used&#xD;
+     for (Player x : players) {&#xD;
+         if (p.playerName.compareTo(x.playerName) == 0 &amp;&amp; p.getPlayerSecret().compareTo(x.getPlayerSecret()) == 0) {&#xD;
+             // Subscribe netSession&#xD;
+             x.netSession = p.netSession;&#xD;
+&#xD;
+             return &quot;echo Player already exists, we reassigned its net session. You now play as &quot; + x.playerName + &quot;.&quot;;&#xD;
+&#xD;
+         } else if (p.playerName.compareTo(x.playerName) == 0) {&#xD;
+             return &quot;echo Player with same name already exists. Please provide last-used player password for &quot; + x.playerName + &quot; so we can assign the player subscription to you.&quot;;&#xD;
+         }&#xD;
+     }&#xD;
+&#xD;
+     // Cannot add new player if an game is already running.&#xD;
+     if (gameStatus == GameStatus.inProgress) {&#xD;
+         return &quot;echo Cannot add new player while an active game is running.&quot;;&#xD;
+     }&#xD;
+&#xD;
+     players.add(p);&#xD;
+     Main.CI.broadcastMessage((&quot;Players joined: &quot; + players.size() + &quot; out of 5.&quot;), &quot;Server&quot;);&#xD;
+&#xD;
+     // Cannot add new player if an game is already running.&#xD;
+     if (p.netSession == 0) {&#xD;
+         return &quot;echo Warning - Player NetSessionID is invalid, the player will not receive player-specific calls. Perhaps the player was created by server?&quot; + &quot; Player \&quot; + p.playerName + \&quot; has been added to game.\&quot;&quot;;&#xD;
+     }&#xD;
+&#xD;
+     return &quot;echo Success - Player &quot; + p.playerName + &quot; has been added to game.&quot;;&#xD;
+&#xD;
+ </body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LHIJQ7QmEeuOKq0JIa4gdg" name="populateStack" specification="_LCmOkbQmEeuOKq0JIa4gdg">
+            <language>java</language>
+            <body>for (Card c : CardLogic.getAllCards()) {&#xD;
+         tableStack.add(c);&#xD;
+     }&#xD;
+ </body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LHIJRLQmEeuOKq0JIa4gdg" name="shuffleStack" specification="_LCmOkrQmEeuOKq0JIa4gdg">
+            <language>java</language>
+            <body>Collections.shuffle(tableStack);&#xD;
+ </body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LHIJRbQmEeuOKq0JIa4gdg" name="turnStacks" specification="_LCm1oLQmEeuOKq0JIa4gdg">
+            <language>java</language>
+            <body>int i = 0;&#xD;
+     for (Card c : placedStack) {&#xD;
+         tableStack.add(placedStack.get(i));&#xD;
+         placedStack.remove(c);&#xD;
+         i++;&#xD;
+     }&#xD;
+ </body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LHIJRrQmEeuOKq0JIa4gdg" name="giveCards" specification="_LCm1obQmEeuOKq0JIa4gdg">
+            <ownedParameter xmi:id="_LHIJR7QmEeuOKq0JIa4gdg" name="count">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+            </ownedParameter>
+            <language>java</language>
+            <body>// For each player we&#xD;
+     for (Player p : gamePlayers) {&#xD;
+&#xD;
+         // give count cards from deck&#xD;
+         for (int i = 0; i &lt; count; i++) {&#xD;
+             p.deck.add(tableStack.get(0));&#xD;
+             tableStack.remove(0);&#xD;
+         }&#xD;
+     }&#xD;
+&#xD;
+&#xD;
+ </body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LHIwULQmEeuOKq0JIa4gdg" name="mainGameLoop" specification="_LCncsLQmEeuOKq0JIa4gdg">
+            <language>java</language>
+            <body>// If tableStack is empty, we turn in the placed cards.&#xD;
+     if (tableStack.size() == 0) {&#xD;
+         turnStacks();&#xD;
+     }&#xD;
+&#xD;
+     // Actions the player can choose from&#xD;
+     ArrayList&lt;String> actions = new ArrayList&lt;>();&#xD;
+&#xD;
+&#xD;
+     // Check if we can take a card from the stack&#xD;
+     if (tableStack.size() != 0) {&#xD;
+         actions.add(&quot;pick&quot;);&#xD;
+     }&#xD;
+&#xD;
+     // - - - - - - - - - SEND TIME&#xD;
+&#xD;
+     // Inform about the card which is on top.&#xD;
+     Main.CI.broadcastMessage((&quot;topCard &quot; + top.type + &quot;, &quot; + top.color), &quot;Server&quot;);&#xD;
+&#xD;
+     // Inform who is currently taking (expected to take) a turn&#xD;
+     Main.CI.broadcastMessage((&quot;turn \&quot;&quot; + gamePlayers.get(currentPlayer).playerName + &quot;\&quot; is on turn.&quot;), &quot;Server&quot;);&#xD;
+&#xD;
+     //Inform about other player stats&#xD;
+&#xD;
+     String playerStats = &quot;&quot;;&#xD;
+&#xD;
+     //Todo Replace with more json-ish decode approach here&#xD;
+     for(Player p : gamePlayers)&#xD;
+     {&#xD;
+         playerStats += &quot;Player &quot; + p.playerName + &quot; currently has &quot; + p.deck.size() + &quot; cards.&quot; + &quot;\n&quot;;&#xD;
+     }&#xD;
+&#xD;
+     Main.CI.broadcastMessage(playerStats, &quot;Server&quot;);&#xD;
+&#xD;
+     // Inform about which cards you have&#xD;
+     Command cmde = new Command();&#xD;
+&#xD;
+     cmde.rawCommand = &quot;echo You have these cards: &quot; + gson.toJson(gamePlayers.get(currentPlayer).deck);&#xD;
+     cmde.container = gson.toJson(actions);&#xD;
+&#xD;
+     Main.CI.sendCommand(cmde, gamePlayers.get(currentPlayer).netSession);&#xD;
+&#xD;
+     // check top card and status&#xD;
+&#xD;
+     // Handle available cards&#xD;
+     ArrayList&lt;Card> validCards = CardLogic.CheckLegalMoves(gamePlayers.get(currentPlayer).deck, top);&#xD;
+&#xD;
+     // Add cards to plausible selection and register svrsek actions&#xD;
+     for (Card c : validCards) {&#xD;
+&#xD;
+         if(c.type != CardType.SVRSEK)&#xD;
+         {&#xD;
+             actions.add(&quot;place &quot; + gson.toJson(c));&#xD;
+         }&#xD;
+         else&#xD;
+         {&#xD;
+             // Possibly add color register override for this here?&#xD;
+             actions.add((&quot;place &quot; + gson.toJson(c)));&#xD;
+         }&#xD;
+     }&#xD;
+&#xD;
+     // If not triggered, top must be a special card!&#xD;
+     if (!top.alreadyTriggered) {&#xD;
+         // Handle special stuff here, we must anticipate color change request.&#xD;
+&#xD;
+&#xD;
+     } else {&#xD;
+         // Reserved&#xD;
+     }&#xD;
+&#xD;
+&#xD;
+     // - - - - - - - - - RESPONSE TIME 1&#xD;
+&#xD;
+     String action = listenToAction(actions, gamePlayers.get(currentPlayer));&#xD;
+&#xD;
+&#xD;
+     // - - - - - - - - - RESPONSE TIME 2 IN CASE WE WANT TO APPEND (Change colors, etc)&#xD;
+&#xD;
+&#xD;
+     // - - - - - - - - - CHECK IF OUR ACTIONS HAVE NOT RESULTED IN GAME-END SCENARIO HERE?&#xD;
+&#xD;
+ </body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LHIwUbQmEeuOKq0JIa4gdg" name="listenToAction" specification="_LGa-oLQmEeuOKq0JIa4gdg">
+            <ownedParameter xmi:id="_LHIwUrQmEeuOKq0JIa4gdg" name="actions" type="_LFysgbQmEeuOKq0JIa4gdg"/>
+            <ownedParameter xmi:id="_LHIwU7QmEeuOKq0JIa4gdg" name="player" type="_LCTToLQmEeuOKq0JIa4gdg"/>
+            <ownedParameter xmi:id="_LHIwVLQmEeuOKq0JIa4gdg" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <language>java</language>
+            <body>// Make it known that right now, we are just waiting for the player to finish turn.&#xD;
+     listenPlayerWait = true;&#xD;
+     actionsSaved = actions;&#xD;
+     Command cmd = new Command();&#xD;
+&#xD;
+     cmd.rawCommand = &quot;reqTurn&quot;;&#xD;
+     cmd.container = gson.toJson(actions);&#xD;
+&#xD;
+     Main.CI.sendCommand(cmd, player.netSession);&#xD;
+     // Initiate waiting period.&#xD;
+     while (listenPlayerWait) {&#xD;
+         // Stuff while we await&#xD;
+     }&#xD;
+&#xD;
+     return &quot;&quot;;&#xD;
+ </body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LHIwVbQmEeuOKq0JIa4gdg" name="fireAction" specification="_LGBWALQmEeuOKq0JIa4gdg">
+            <ownedParameter xmi:id="_LHIwVrQmEeuOKq0JIa4gdg" name="x" type="_LCCN47QmEeuOKq0JIa4gdg"/>
+            <ownedParameter xmi:id="_LHIwV7QmEeuOKq0JIa4gdg" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <language>java</language>
+            <body>String[] cmd = x.rawCommand.split(&quot; &quot;);&#xD;
+&#xD;
+     /* CHANGED TO SessionID Check&#xD;
+     // Check player name&#xD;
+     if (gamePlayers.get(currentPlayer).playerName.compareTo(cmd[1]) != 0) {&#xD;
+         return &quot;echo This player is not on the turn. The player on turn is: &quot; + gamePlayers.get(currentPlayer).playerName;&#xD;
+     }&#xD;
+&#xD;
+     // Validate player secret&#xD;
+     if (gamePlayers.get(currentPlayer).playerName.compareTo(cmd[2]) != 0) {&#xD;
+         return &quot;echo Incorrect player secret received.&quot;;&#xD;
+     }&#xD;
+     */&#xD;
+     // Validate valid selection&#xD;
+&#xD;
+     // Handle stuff&#xD;
+&#xD;
+     listenPlayerWait = false;&#xD;
+&#xD;
+     // Respond back with success or error&#xD;
+     return &quot;Result.&quot;;&#xD;
+ </body>
+          </ownedBehavior>
+          <ownedOperation xmi:id="_LClAcLQmEeuOKq0JIa4gdg" name="init" method="_LHHiMLQmEeuOKq0JIa4gdg"/>
+          <ownedOperation xmi:id="_LClngLQmEeuOKq0JIa4gdg" name="newGame" method="_LHHiMbQmEeuOKq0JIa4gdg"/>
+          <ownedOperation xmi:id="_LClngbQmEeuOKq0JIa4gdg" name="resetGame" method="_LHHiMrQmEeuOKq0JIa4gdg"/>
+          <ownedOperation xmi:id="_LCmOkLQmEeuOKq0JIa4gdg" name="forceStart" method="_LHHiM7QmEeuOKq0JIa4gdg"/>
+          <ownedOperation xmi:id="_LCmOkbQmEeuOKq0JIa4gdg" name="populateStack" visibility="package" method="_LHIJQ7QmEeuOKq0JIa4gdg"/>
+          <ownedOperation xmi:id="_LCmOkrQmEeuOKq0JIa4gdg" name="shuffleStack" visibility="package" method="_LHIJRLQmEeuOKq0JIa4gdg"/>
+          <ownedOperation xmi:id="_LCm1oLQmEeuOKq0JIa4gdg" name="turnStacks" visibility="package" method="_LHIJRbQmEeuOKq0JIa4gdg"/>
+          <ownedOperation xmi:id="_LCm1obQmEeuOKq0JIa4gdg" name="giveCards" method="_LHIJRrQmEeuOKq0JIa4gdg">
+            <ownedParameter xmi:id="_LCm1orQmEeuOKq0JIa4gdg" name="count">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_LCncsLQmEeuOKq0JIa4gdg" name="mainGameLoop" visibility="private" method="_LHIwULQmEeuOKq0JIa4gdg"/>
+          <ownedOperation xmi:id="_LGAH4LQmEeuOKq0JIa4gdg" name="addPlayer" method="_LHIJQLQmEeuOKq0JIa4gdg">
+            <ownedParameter xmi:id="_LGAH4bQmEeuOKq0JIa4gdg" name="p" type="_LCTToLQmEeuOKq0JIa4gdg"/>
+            <ownedParameter xmi:id="_LGAH4rQmEeuOKq0JIa4gdg" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_LGBWALQmEeuOKq0JIa4gdg" name="fireAction" method="_LHIwVbQmEeuOKq0JIa4gdg">
+            <ownedParameter xmi:id="_LGBWAbQmEeuOKq0JIa4gdg" name="x" type="_LCCN47QmEeuOKq0JIa4gdg"/>
+            <ownedParameter xmi:id="_LGBWArQmEeuOKq0JIa4gdg" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_LGa-oLQmEeuOKq0JIa4gdg" name="listenToAction" visibility="private" method="_LHIwUbQmEeuOKq0JIa4gdg">
+            <ownedParameter xmi:id="_LGa-obQmEeuOKq0JIa4gdg" name="actions" type="_LFysgbQmEeuOKq0JIa4gdg"/>
+            <ownedParameter xmi:id="_LGa-orQmEeuOKq0JIa4gdg" name="player" type="_LCTToLQmEeuOKq0JIa4gdg"/>
+            <ownedParameter xmi:id="_LGblsLQmEeuOKq0JIa4gdg" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_LCrHELQmEeuOKq0JIa4gdg" name="CommandInterpreter">
+          <ownedComment xmi:id="_LHNo0rQmEeuOKq0JIa4gdg">
+            <body>Interpreting and executing both remote and local command calls</body>
+          </ownedComment>
+          <ownedAttribute xmi:id="_LG5fwLQmEeuOKq0JIa4gdg" name="listenConsole" visibility="private">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_LG5fwbQmEeuOKq0JIa4gdg" value="false"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_LG6G0LQmEeuOKq0JIa4gdg" name="gson" visibility="private" type="_LF1v0bQmEeuOKq0JIa4gdg" association="_LHbrRLQmEeuOKq0JIa4gdg">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_LG6G0bQmEeuOKq0JIa4gdg" value="new Gson()"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_LG6G07QmEeuOKq0JIa4gdg" name="showServerRawResponse" visibility="package">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_LG6G1LQmEeuOKq0JIa4gdg" value="false"/>
+          </ownedAttribute>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LHJXYLQmEeuOKq0JIa4gdg" name="parseExternalCommand" specification="_LGcz0LQmEeuOKq0JIa4gdg">
+            <ownedParameter xmi:id="_LHJXYbQmEeuOKq0JIa4gdg" name="jsonString">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_LHJXYrQmEeuOKq0JIa4gdg" name="callerID" type="_LGXUQLQmEeuOKq0JIa4gdg"/>
+            <ownedParameter xmi:id="_LHJXY7QmEeuOKq0JIa4gdg" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <language>java</language>
+            <body>ArrayList&lt;Command> cmd = new ArrayList&lt;>();&#xD;
+     ArrayList&lt;Command> outCmd = new ArrayList&lt;>();&#xD;
+     ArrayList&lt;String> malFormedCommand = new ArrayList&lt;>();&#xD;
+&#xD;
+     try {&#xD;
+         // Dissect possibly malformed request&#xD;
+&#xD;
+         int nestedCount = 0;&#xD;
+         String tempString = &quot;&quot;;&#xD;
+&#xD;
+         for (char c : jsonString.toCharArray()) {&#xD;
+             if (c == '[')&#xD;
+                 nestedCount++;&#xD;
+&#xD;
+             if (c == ']')&#xD;
+                 nestedCount--;&#xD;
+&#xD;
+             tempString += c;&#xD;
+&#xD;
+             // End one string&#xD;
+             if (nestedCount == 0) {&#xD;
+                 malFormedCommand.add(tempString);&#xD;
+                 tempString = &quot;&quot;;&#xD;
+             }&#xD;
+         }&#xD;
+&#xD;
+         for (String strT : malFormedCommand) {&#xD;
+&#xD;
+             for (Command x : gson.fromJson(strT, Command[].class)) {&#xD;
+                 x.caller = callerID;&#xD;
+                 cmd.add(x);&#xD;
+             }&#xD;
+&#xD;
+             if (showServerRawResponse) {&#xD;
+                 System.out.println(jsonString);&#xD;
+             }&#xD;
+&#xD;
+         }&#xD;
+&#xD;
+         for (Command c : cmd) {&#xD;
+             String reply = parseCommand(c);&#xD;
+&#xD;
+             if (reply == &quot;&quot; || reply == null) {&#xD;
+                 // Possibly add acknowledge response to bodyless responses.&#xD;
+             }&#xD;
+&#xD;
+             Command x = new Command();&#xD;
+&#xD;
+             x.rawCommand = reply;&#xD;
+&#xD;
+             // Fail occurred during request&#xD;
+             if (reply.split(&quot; &quot;)[0].compareTo(&quot;Fail&quot;) == 0) {&#xD;
+                 x.result = CommandResult.Failed;&#xD;
+             }&#xD;
+&#xD;
+             // Exception occurred during request&#xD;
+             if (reply.split(&quot; &quot;)[0].compareTo(&quot;Exception&quot;) == 0) {&#xD;
+                 x.result = CommandResult.Exception;&#xD;
+             }&#xD;
+&#xD;
+             // Request was ignored&#xD;
+             if (reply.split(&quot; &quot;)[0].compareTo(&quot;Ignored&quot;) == 0) {&#xD;
+                 x.result = CommandResult.Ignored;&#xD;
+             }&#xD;
+&#xD;
+             x.identifier = &quot;Server&quot;;&#xD;
+&#xD;
+             outCmd.add(x);&#xD;
+&#xD;
+         }&#xD;
+&#xD;
+     } catch (Exception e) {&#xD;
+&#xD;
+         outCmd.add(new Command(&quot;Server&quot;, 0, &quot;echo There was an exception parsing your request.&quot;, gson.toJson(e), CommandResult.Exception));&#xD;
+         System.out.println(&quot;Error while parsing occurred.&quot;);&#xD;
+         //e.printStackTrace();&#xD;
+     }&#xD;
+&#xD;
+     return gson.toJson(outCmd.toArray());&#xD;
+ </body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LHJ-cLQmEeuOKq0JIa4gdg" name="parseCommand" specification="_LGEZULQmEeuOKq0JIa4gdg">
+            <ownedParameter xmi:id="_LHJ-cbQmEeuOKq0JIa4gdg" name="command" type="_LCCN47QmEeuOKq0JIa4gdg"/>
+            <ownedParameter xmi:id="_LHJ-crQmEeuOKq0JIa4gdg" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <language>java</language>
+            <body>ArrayList&lt;String> tempCmd = new ArrayList&lt;>();&#xD;
+     for (String s : command.rawCommand.split(&quot; &quot;)) {&#xD;
+         tempCmd.add(s.replace(&quot; &quot;, &quot;&quot;));&#xD;
+     }&#xD;
+&#xD;
+     // Find which command is in question&#xD;
+     switch (tempCmd.get(0).replace(&quot; &quot;, &quot;&quot;)) {&#xD;
+         // - - - - - - - - - - - - newGame&#xD;
+         case &quot;newGame&quot;: {&#xD;
+             if ((tempCmd.size() - 1) == 0) {&#xD;
+                 try {&#xD;
+                     new Thread(new Runnable() {&#xD;
+                         @Override&#xD;
+                         public void run() {&#xD;
+                             Main.newGame();&#xD;
+                         }&#xD;
+                     }).start();&#xD;
+&#xD;
+                     return &quot;echo Success - New game created&quot;;&#xD;
+                 } catch (Exception e) {&#xD;
+&#xD;
+                     return e.toString();&#xD;
+                 }&#xD;
+&#xD;
+             } else {&#xD;
+                 return &quot;echo Exception - Bad argument count. Received (&quot; + (tempCmd.size() - 1) + &quot;), &quot; + 2 + &quot; expected.&quot;;&#xD;
+             }&#xD;
+         }&#xD;
+&#xD;
+         // - - - - - - - - - - - - gameStatus&#xD;
+         case &quot;gameStatus&quot;: {&#xD;
+             if ((tempCmd.size() - 1) == 0) {&#xD;
+                 try {&#xD;
+                     if (Main.GM != null)&#xD;
+                         return &quot;echo &quot; + Main.GM.getGameStatus().toString();&#xD;
+                     else {&#xD;
+                         return &quot;echo Game object not initialised.&quot;;&#xD;
+                     }&#xD;
+&#xD;
+                 } catch (Exception e) {&#xD;
+&#xD;
+                     return e.toString();&#xD;
+                 }&#xD;
+&#xD;
+             } else {&#xD;
+                 return &quot;echo Exception - Bad argument count. Received (&quot; + (tempCmd.size() - 1) + &quot;), &quot; + 0 + &quot; expected.&quot;;&#xD;
+             }&#xD;
+         }&#xD;
+&#xD;
+         // - - - - - - - - - - - - forceStart&#xD;
+         case &quot;forceStart&quot;: {&#xD;
+             if ((tempCmd.size() - 1) == 0) {&#xD;
+                 try {&#xD;
+                     if (Main.GM != null) {&#xD;
+                         if (Main.GM.getGameStatus() == GameStatus.awaitingPlayers) {&#xD;
+&#xD;
+                             if (Main.GM.players.size() >= 2) {&#xD;
+                                 Main.GM.forceStart();&#xD;
+                                 return &quot;echo Forced game start for &quot; + Main.GM.players.size() + &quot; players.&quot;;&#xD;
+                             } else {&#xD;
+                                 return &quot;echo Cannot force game when less than 2 players are connected.&quot;;&#xD;
+                             }&#xD;
+&#xD;
+&#xD;
+                         } else {&#xD;
+                             return &quot;echo Game is not awaiting players and thus cannot be forceStarted.&quot;;&#xD;
+                         }&#xD;
+                     } else {&#xD;
+                         return &quot;echo Game object not initialised.&quot;;&#xD;
+                     }&#xD;
+&#xD;
+                 } catch (Exception e) {&#xD;
+&#xD;
+                     return e.toString();&#xD;
+                 }&#xD;
+&#xD;
+             } else {&#xD;
+                 return &quot;echo Exception - Bad argument count. Received (&quot; + (tempCmd.size() - 1) + &quot;), &quot; + 0 + &quot; expected.&quot;;&#xD;
+             }&#xD;
+         }&#xD;
+&#xD;
+&#xD;
+         // - - - - - - - - - - - - addPlayer name secret&#xD;
+         case &quot;addPlayer&quot;: {&#xD;
+             if ((tempCmd.size() - 1) == 2) {&#xD;
+                 if (Main.GM != null) {&#xD;
+                     try {&#xD;
+                         Player p = new Player(tempCmd.get(1), new ArrayList&lt;Card>(), command.caller);&#xD;
+                         p.setPlayerSecret(tempCmd.get(2));&#xD;
+                         return Main.GM.addPlayer(p);&#xD;
+&#xD;
+                     } catch (Exception e) {&#xD;
+                         throw (e);&#xD;
+                     }&#xD;
+                 } else {&#xD;
+                     return &quot;echo Fail - game not created yet. Create a game first before adding players.&quot;;&#xD;
+                 }&#xD;
+&#xD;
+             } else {&#xD;
+                 return &quot;echo Exception - Bad argument count. Received (&quot; + (tempCmd.size() - 1) + &quot;), &quot; + &quot;At least 2 &quot; + &quot; expected.&quot;;&#xD;
+             }&#xD;
+         }&#xD;
+         // - - - - - - - - - - - - getPlayerData name secret&#xD;
+         case &quot;getPlayer&quot;: {&#xD;
+             if (Main.GM != null) {&#xD;
+                 if ((tempCmd.size() - 1) == 2) {&#xD;
+                     try {&#xD;
+                         for (Player x : Main.GM.players) {&#xD;
+                             if (x.playerName.compareTo(tempCmd.get(1)) == 0) {&#xD;
+                                 if (x.getPlayerSecret().compareTo(tempCmd.get(2)) == 0)&#xD;
+                                     return &quot;echo Success PlayerObject &quot; + gson.toJson(x);&#xD;
+                                 else&#xD;
+                                     return &quot;echo Fail - &quot; + &quot;Incorrect player secret.&quot;;&#xD;
+                             }&#xD;
+                         }&#xD;
+                         return &quot;echo Fail - No player found with name: &quot; + tempCmd.get(1);&#xD;
+                     } catch (Exception e) {&#xD;
+                         throw (e);&#xD;
+                         //return e.toString();&#xD;
+                     }&#xD;
+                 } else {&#xD;
+                     return &quot;echo Fail - game not created yet. Create a game first before adding players.&quot;;&#xD;
+                 }&#xD;
+&#xD;
+             } else {&#xD;
+                 return &quot;echo Exception - Bad argument count. Received (&quot; + (tempCmd.size() - 1) + &quot;), &quot; + 2 + &quot; expected.&quot;;&#xD;
+             }&#xD;
+         }&#xD;
+&#xD;
+         // - - - - - - - - - - - - makeTurn Action Arg&#xD;
+         case &quot;makeTurn&quot;: {&#xD;
+             if (Main.GM != null) {&#xD;
+                 if ((tempCmd.size() - 1) >= 1) {&#xD;
+                     try {&#xD;
+                             // Check if we are receiving request from the player we need,&#xD;
+                             if (Main.GM.players.get(Main.GM.currentPlayer).netSession == command.caller) {&#xD;
+&#xD;
+                                     // Replace possible occurrence if we get /makeTurn PlayerName Secret turn args&#xD;
+                                     command.rawCommand = command.rawCommand.replace(Main.GM.players.get(Main.GM.currentPlayer).playerName + &quot; &quot;, &quot;&quot;).replace(Main.GM.players.get(Main.GM.currentPlayer).getPlayerSecret() + &quot; &quot;, &quot;&quot;);&#xD;
+                                     return Main.GM.fireAction(command);&#xD;
+&#xD;
+&#xD;
+                             } else&#xD;
+                             // In case we want to validate from outside of our session, we use NAME, SECRET, TURN&#xD;
+                             if(Main.GM.players.get(Main.GM.currentPlayer).playerName.compareTo(tempCmd.get(1))==0 &amp;&amp; Main.GM.players.get(Main.GM.currentPlayer).getPlayerSecret().compareTo(tempCmd.get(2))==0)&#xD;
+                             {&#xD;
+                                 // occurrence of playerName and Secret /makeTurn PlayerName Secret turn args&#xD;
+                                 command.rawCommand = command.rawCommand.replace(Main.GM.players.get(Main.GM.currentPlayer).playerName + &quot; &quot;, &quot;&quot;).replace(Main.GM.players.get(Main.GM.currentPlayer).getPlayerSecret() + &quot; &quot;, &quot;&quot;);&#xD;
+                                 return Main.GM.fireAction(command);&#xD;
+&#xD;
+                             } else {&#xD;
+                                 return &quot;echo SessionID has timed-out and name or password does not match. You can re-assign your ID by using addPlayer name password (&quot;+  Main.GM.players.get(Main.GM.currentPlayer).playerName + &quot;).&quot;;&#xD;
+                             }&#xD;
+                     } catch (Exception e) {&#xD;
+                         e.printStackTrace();&#xD;
+                         return &quot;Invalid arguments count. An exception occurred: &quot; +  e.getLocalizedMessage();&#xD;
+                     }&#xD;
+                 } else {&#xD;
+                     return &quot;echo Fail - game not created yet. Create and begin a game before making turns.&quot;;&#xD;
+                 }&#xD;
+&#xD;
+             } else {&#xD;
+                 return &quot;echo Exception - Bad argument count. Received (&quot; + (tempCmd.size() - 1) + &quot;), &quot; + 2 + &quot; or more expected.&quot;;&#xD;
+             }&#xD;
+         }&#xD;
+&#xD;
+         /*&#xD;
+         // - - - - - - - - - - - - Send message to a client&#xD;
+         case &quot;sendMessage&quot;: {&#xD;
+             if ((tempCmd.size() - 1) >= 1) {&#xD;
+                 try {&#xD;
+                     sendMessage(new Command(tempCmd.get(1)));&#xD;
+                     return &quot;echo Success - Message: \&quot;&quot; + tempCmd.get(1) + &quot;\&quot; has been sent.&quot;;&#xD;
+                 } catch (Exception e) {&#xD;
+                     throw (e);&#xD;
+                     //return e.toString();&#xD;
+                 }&#xD;
+&#xD;
+             } else {&#xD;
+                 return &quot;echo Exception - Bad argument count. Received (&quot; + (tempCmd.size() - 1) + &quot;), &quot; + &quot;at least 1&quot; + &quot; expected.&quot;;&#xD;
+             }&#xD;
+         }&#xD;
+         */&#xD;
+         // - - - - - - - - - - - - Send message to client&#xD;
+         case &quot;cs&quot;: {&#xD;
+             if ((tempCmd.size() - 1) >= 0) {&#xD;
+                 try {&#xD;
+                     return &quot;echo CS CLIENT.&quot;;&#xD;
+                 } catch (Exception e) {&#xD;
+                     throw (e);&#xD;
+                 }&#xD;
+&#xD;
+             } else {&#xD;
+                 return &quot;echo Exception - Bad argument count. Received (&quot; + (tempCmd.size() - 1) + &quot;), &quot; + &quot;at least 1&quot; + &quot; expected.&quot;;&#xD;
+             }&#xD;
+         }&#xD;
+         // Broadcasts message to all players&#xD;
+         case &quot;broadcast&quot;: {&#xD;
+             if ((tempCmd.size() - 1) >= 1) {&#xD;
+                 try {&#xD;
+                     broadcastMessage(command.rawCommand.replace(&quot;broadcast &quot;, &quot;&quot;), command.identifier);&#xD;
+                     return &quot;echo Success - Message: &quot; + command.rawCommand.replaceAll(&quot;broadcast &quot;, &quot;&quot;) + &quot; has been sent.&quot;;&#xD;
+                 } catch (Exception e) {&#xD;
+                     e.printStackTrace();&#xD;
+                     return e.toString();&#xD;
+                 }&#xD;
+&#xD;
+             } else {&#xD;
+                 return &quot;echo Exception - Bad argument count. Received (&quot; + (tempCmd.size() - 1) + &quot;), &quot; + &quot;at least 1&quot; + &quot; expected.&quot;;&#xD;
+             }&#xD;
+         }&#xD;
+         // Close connection with reason&#xD;
+         case &quot;close&quot;: {&#xD;
+             if (command.identifier == &quot;Local&quot; || command.identifier.isEmpty()) {&#xD;
+                 if ((tempCmd.size() - 1) >= 1) {&#xD;
+                     try {&#xD;
+                         broadcastMessage(command.rawCommand.replace(&quot;broadcast &quot;, &quot;&quot;), &quot;IDENTIFIER&quot;);&#xD;
+                         return &quot;Success - Message: \&quot;&quot; + tempCmd.get(1) + &quot;\&quot; has been sent.&quot;;&#xD;
+                     } catch (Exception e) {&#xD;
+                         e.printStackTrace();&#xD;
+                         return e.toString();&#xD;
+                     }&#xD;
+&#xD;
+                 } else {&#xD;
+                     return &quot;echo Exception - Bad argument count. Received (&quot; + (tempCmd.size() - 1) + &quot;), &quot; + &quot;at least 1&quot; + &quot; expected.&quot;;&#xD;
+                 }&#xD;
+             } else&#xD;
+                 return &quot;You cannot execute close on local caller.&quot;;&#xD;
+         }&#xD;
+         // - - - - - - - - - - - - echo&#xD;
+         case &quot;echo&quot;: {&#xD;
+             if ((tempCmd.size() - 1) >= 1) {&#xD;
+&#xD;
+                 try {&#xD;
+                     System.out.println(command.rawCommand.replace(&quot;echo &quot;, &quot;&quot;));&#xD;
+                     return &quot;echo &quot; + command.rawCommand.replace(&quot;echo &quot;, &quot;&quot;);&#xD;
+                 } catch (Exception e) {&#xD;
+                     e.printStackTrace();&#xD;
+                     return &quot;echo Exception - &quot; + e.toString();&#xD;
+                 }&#xD;
+             } else {&#xD;
+                 return &quot;echo Exception - Bad argument count. Received (&quot; + (tempCmd.size() - 1) + &quot;), &quot; + 1 + &quot; or higher expected.&quot;;&#xD;
+             }&#xD;
+         }&#xD;
+&#xD;
+&#xD;
+         // - - - - - - - - - - - - turn PlayerName PlayerSecret ChoosedTurn Args&#xD;
+         case &quot;turn&quot;: {&#xD;
+             if ((tempCmd.size() - 1) >= 3) {&#xD;
+                 try {&#xD;
+&#xD;
+                     // Call the GameManager that we have received a game turn request&#xD;
+&#xD;
+                     // If its not out turn or the turn is out of bounds, we send the error back to player, otherwise game continues.&#xD;
+&#xD;
+                     return &quot;&quot;;&#xD;
+&#xD;
+                 } catch (Exception e) {&#xD;
+                     e.printStackTrace();&#xD;
+                     return &quot;Exception - &quot; + e.toString();&#xD;
+                 }&#xD;
+             } else {&#xD;
+                 return &quot;Exception - Bad argument count. Received (&quot; + (tempCmd.size() - 1) + &quot;), &quot; + 3 + &quot; or higher expected.&quot;;&#xD;
+             }&#xD;
+         }&#xD;
+&#xD;
+&#xD;
+     }&#xD;
+     return &quot;echo Unknown command: \&quot;&quot; + tempCmd.get(0) + &quot;\&quot; &quot;;&#xD;
+ </body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LHJ-c7QmEeuOKq0JIa4gdg" name="sendCommand" specification="_LGda47QmEeuOKq0JIa4gdg">
+            <ownedParameter xmi:id="_LHJ-dLQmEeuOKq0JIa4gdg" name="cmd">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_LHJ-dbQmEeuOKq0JIa4gdg" name="Receiver" type="_LGXUQLQmEeuOKq0JIa4gdg"/>
+            <language>java</language>
+            <body>Command x = new Command();&#xD;
+     x.rawCommand = cmd;&#xD;
+     Main.SH.send(x, Receiver);&#xD;
+ </body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LHJ-drQmEeuOKq0JIa4gdg" name="sendCommand" specification="_LGeB8LQmEeuOKq0JIa4gdg">
+            <ownedParameter xmi:id="_LHJ-d7QmEeuOKq0JIa4gdg" name="cmd" type="_LCCN47QmEeuOKq0JIa4gdg"/>
+            <ownedParameter xmi:id="_LHJ-eLQmEeuOKq0JIa4gdg" name="Receiver" type="_LGXUQLQmEeuOKq0JIa4gdg"/>
+            <language>java</language>
+            <body>if (cmd.identifier == null)&#xD;
+         cmd.identifier = &quot;&quot;;&#xD;
+&#xD;
+     Main.SH.send(cmd, Receiver);&#xD;
+ </body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LHJ-ebQmEeuOKq0JIa4gdg" name="broadcastMessage" specification="_LCsVMLQmEeuOKq0JIa4gdg">
+            <ownedParameter xmi:id="_LHJ-erQmEeuOKq0JIa4gdg" name="cmd">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_LHJ-e7QmEeuOKq0JIa4gdg" name="identifier">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <language>java</language>
+            <body>Command x = new Command();&#xD;
+     x.rawCommand = &quot;echo &quot; + cmd;&#xD;
+     Main.SH.broadcast(gson.toJson(new Command[]{x}));&#xD;
+ </body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LHKlgLQmEeuOKq0JIa4gdg" name="listenToConsole" specification="_LCs8QrQmEeuOKq0JIa4gdg">
+            <language>java</language>
+            <body>listenConsole = true;&#xD;
+     Scanner sc = new Scanner(System.in);&#xD;
+     Command x = new Command();&#xD;
+     x.identifier = &quot;Local&quot;;&#xD;
+     x.caller = 0;&#xD;
+&#xD;
+     new Thread(new Runnable() {&#xD;
+         @Override&#xD;
+         public void run() {&#xD;
+             while (listenConsole) {&#xD;
+                 x.rawCommand = sc.nextLine();&#xD;
+                 System.out.println(parseCommand(x).replaceAll(&quot;echo &quot;, &quot;&quot;));&#xD;
+             }&#xD;
+             sc.close();&#xD;
+         }&#xD;
+     }).start();&#xD;
+ </body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LHKlgbQmEeuOKq0JIa4gdg" name="stopListeningToConsole" specification="_LCs8Q7QmEeuOKq0JIa4gdg">
+            <language>java</language>
+            <body>listenConsole = false;&#xD;
+ </body>
+          </ownedBehavior>
+          <ownedOperation xmi:id="_LCsVMLQmEeuOKq0JIa4gdg" name="broadcastMessage" method="_LHJ-ebQmEeuOKq0JIa4gdg">
+            <ownedComment xmi:id="_LHOP4bQmEeuOKq0JIa4gdg">
+              <body>Nroadcasts message to all clients&#xD;
+     *&#xD;
+     * @param cmd string to interpret</body>
+            </ownedComment>
+            <ownedParameter xmi:id="_LCs8QLQmEeuOKq0JIa4gdg" name="cmd">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_LCs8QbQmEeuOKq0JIa4gdg" name="identifier">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_LCs8QrQmEeuOKq0JIa4gdg" name="listenToConsole" method="_LHKlgLQmEeuOKq0JIa4gdg">
+            <ownedComment xmi:id="_LHOP4rQmEeuOKq0JIa4gdg">
+              <body>Initiates listening to console input</body>
+            </ownedComment>
+          </ownedOperation>
+          <ownedOperation xmi:id="_LCs8Q7QmEeuOKq0JIa4gdg" name="stopListeningToConsole" method="_LHKlgbQmEeuOKq0JIa4gdg">
+            <ownedComment xmi:id="_LHOP47QmEeuOKq0JIa4gdg">
+              <body>Ceases listening to console input</body>
+            </ownedComment>
+          </ownedOperation>
+          <ownedOperation xmi:id="_LGEZULQmEeuOKq0JIa4gdg" name="parseCommand" method="_LHJ-cLQmEeuOKq0JIa4gdg">
+            <ownedComment xmi:id="_LHNo1LQmEeuOKq0JIa4gdg">
+              <body>Interpret commands into main game loop&#xD;
+     *&#xD;
+     * @param command string to interpret</body>
+            </ownedComment>
+            <ownedParameter xmi:id="_LGEZUbQmEeuOKq0JIa4gdg" name="command" type="_LCCN47QmEeuOKq0JIa4gdg"/>
+            <ownedParameter xmi:id="_LGFAYLQmEeuOKq0JIa4gdg" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_LGcz0LQmEeuOKq0JIa4gdg" name="parseExternalCommand" method="_LHJXYLQmEeuOKq0JIa4gdg">
+            <ownedComment xmi:id="_LHNo07QmEeuOKq0JIa4gdg">
+              <body>Interpret Incoming Traffic&#xD;
+     *&#xD;
+     * @param jsonString string to interpret&#xD;
+     * @param callerID   the SessionID of the remote caller</body>
+            </ownedComment>
+            <ownedParameter xmi:id="_LGda4LQmEeuOKq0JIa4gdg" name="jsonString">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_LGda4bQmEeuOKq0JIa4gdg" name="callerID" type="_LGXUQLQmEeuOKq0JIa4gdg"/>
+            <ownedParameter xmi:id="_LGda4rQmEeuOKq0JIa4gdg" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_LGda47QmEeuOKq0JIa4gdg" name="sendCommand" method="_LHJ-c7QmEeuOKq0JIa4gdg">
+            <ownedComment xmi:id="_LHNo1bQmEeuOKq0JIa4gdg">
+              <body>Sends command to a specific client&#xD;
+     *&#xD;
+     * @param cmd      rawCommand to interpret and send to desired client&#xD;
+     * @param Receiver ID of the receiver session who will receive the message.</body>
+            </ownedComment>
+            <ownedParameter xmi:id="_LGda5LQmEeuOKq0JIa4gdg" name="cmd">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_LGda5bQmEeuOKq0JIa4gdg" name="Receiver" type="_LGXUQLQmEeuOKq0JIa4gdg"/>
+          </ownedOperation>
+          <ownedOperation xmi:id="_LGeB8LQmEeuOKq0JIa4gdg" name="sendCommand" method="_LHJ-drQmEeuOKq0JIa4gdg">
+            <ownedComment xmi:id="_LHOP4LQmEeuOKq0JIa4gdg">
+              <body>Sends command to a specific client&#xD;
+     *&#xD;
+     * @param cmd      Command to send to desired client&#xD;
+     * @param Receiver ID of the receiver session who will receive the message.</body>
+            </ownedComment>
+            <ownedParameter xmi:id="_LGeB8bQmEeuOKq0JIa4gdg" name="cmd" type="_LCCN47QmEeuOKq0JIa4gdg"/>
+            <ownedParameter xmi:id="_LGeB8rQmEeuOKq0JIa4gdg" name="Receiver" type="_LGXUQLQmEeuOKq0JIa4gdg"/>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_LCuxcLQmEeuOKq0JIa4gdg" name="CardLogic">
+          <ownedComment xmi:id="_LHOP5LQmEeuOKq0JIa4gdg">
+            <body>Helper class to handle basic operations with cards</body>
+          </ownedComment>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LHLMkLQmEeuOKq0JIa4gdg" name="CheckLegalMoves" specification="_LGfQELQmEeuOKq0JIa4gdg">
+            <ownedParameter xmi:id="_LHLMkbQmEeuOKq0JIa4gdg" name="deck" type="_LFysgbQmEeuOKq0JIa4gdg"/>
+            <ownedParameter xmi:id="_LHLMkrQmEeuOKq0JIa4gdg" name="top" type="_LB3OwLQmEeuOKq0JIa4gdg"/>
+            <ownedParameter xmi:id="_LHLMk7QmEeuOKq0JIa4gdg" type="_LFysgbQmEeuOKq0JIa4gdg" direction="return"/>
+            <language>java</language>
+            <body>// This contains all the possible moves we can make given the situation&#xD;
+     ArrayList&lt;Card> legals = new ArrayList&lt;>();&#xD;
+&#xD;
+     // Current card can always be replaced by its own type regardless of color, here we gather all colors of our type.&#xD;
+     for (Card c : getAllColors(top.type)) {&#xD;
+         legals.add(c);&#xD;
+     }&#xD;
+&#xD;
+     // Check if the top card is of special type and has been triggered&#xD;
+     if (top.alreadyTriggered) {&#xD;
+         // Add all same color. Because no special effects are present, we can use all cards available.&#xD;
+         for (Card c : getAllTypes(top.color)) {&#xD;
+             legals.add(c);&#xD;
+         }&#xD;
+&#xD;
+     } else {&#xD;
+         try {&#xD;
+             switch (top.type) {&#xD;
+&#xD;
+                 // Specials&#xD;
+                 case SEDM:&#xD;
+                     break;&#xD;
+                 case ESO:&#xD;
+                     break;&#xD;
+                 case SVRSEK:&#xD;
+                     throw new InvalidCardException(&quot;Svrsek is not valid for not yet trigerred state&quot;, top);&#xD;
+                 default:&#xD;
+                     throw new InvalidCardException(&quot;&quot;, top);&#xD;
+             }&#xD;
+         } catch (Exception e)&#xD;
+         {&#xD;
+             e.printStackTrace();&#xD;
+         }&#xD;
+     }&#xD;
+&#xD;
+     // Filter out unused from deck&#xD;
+&#xD;
+     ArrayList&lt;Card> filtered = new ArrayList&lt;>();&#xD;
+&#xD;
+     for(Card c : deck)&#xD;
+     {&#xD;
+         for (Card l : legals)&#xD;
+         {&#xD;
+             if(l.color == c.color &amp;&amp; l.type == c.type)&#xD;
+             {&#xD;
+                 filtered.add(c);&#xD;
+                 break;&#xD;
+             }&#xD;
+         }&#xD;
+     }&#xD;
+&#xD;
+     return filtered;&#xD;
+ </body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LHLMlLQmEeuOKq0JIa4gdg" name="getAllColors" specification="_LGIDsLQmEeuOKq0JIa4gdg">
+            <ownedParameter xmi:id="_LHLMlbQmEeuOKq0JIa4gdg" name="type" type="_LCA_w7QmEeuOKq0JIa4gdg"/>
+            <ownedParameter xmi:id="_LHLMlrQmEeuOKq0JIa4gdg" type="_LB3OwLQmEeuOKq0JIa4gdg" direction="return">
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_LHLMl7QmEeuOKq0JIa4gdg" value="*"/>
+            </ownedParameter>
+            <language>java</language>
+            <body>// Generate array with space for all color types&#xD;
+     Card[] tempCards = new Card[CardColor.values().length];&#xD;
+&#xD;
+     // Temp index of color we are assigning&#xD;
+     int i = 0;&#xD;
+     // Assign all card colors into tempCards&#xD;
+     for (Card c : tempCards) {&#xD;
+         tempCards[i] = new Card(CardColor.values()[i], type);&#xD;
+         i++;&#xD;
+     }&#xD;
+&#xD;
+     return tempCards;&#xD;
+ </body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LHLMmLQmEeuOKq0JIa4gdg" name="getAllTypes" specification="_LGJR0LQmEeuOKq0JIa4gdg">
+            <ownedParameter xmi:id="_LHLMmbQmEeuOKq0JIa4gdg" name="color" type="_LB_xoLQmEeuOKq0JIa4gdg"/>
+            <ownedParameter xmi:id="_LHLMmrQmEeuOKq0JIa4gdg" type="_LB3OwLQmEeuOKq0JIa4gdg" direction="return">
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_LHLMm7QmEeuOKq0JIa4gdg" value="*"/>
+            </ownedParameter>
+            <language>java</language>
+            <body>// Generate array with space for all color types&#xD;
+     Card[] tempCards = new Card[CardType.values().length];&#xD;
+&#xD;
+     // Temp index of color we are assigning&#xD;
+     int i = 0;&#xD;
+     // Assign all card types into tempCards&#xD;
+     for (Card c : tempCards) {&#xD;
+         tempCards[i] = new Card(color, CardType.values()[i]);&#xD;
+         i++;&#xD;
+     }&#xD;
+     return tempCards;&#xD;
+ </body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LHLMnLQmEeuOKq0JIa4gdg" name="getAllCards" specification="_LCwmoLQmEeuOKq0JIa4gdg">
+            <ownedParameter xmi:id="_LHLMnbQmEeuOKq0JIa4gdg" type="_LB3OwLQmEeuOKq0JIa4gdg" direction="return">
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_LHLMnrQmEeuOKq0JIa4gdg" value="*"/>
+            </ownedParameter>
+            <language>java</language>
+            <body>// Generate array with space for all color types&#xD;
+     Card[] tempCards = new Card[CardType.values().length * CardColor.values().length];&#xD;
+&#xD;
+     int i = 0;&#xD;
+&#xD;
+     // Assign all card types into tempCards&#xD;
+     for (CardType x : CardType.values()) {&#xD;
+         for (Card c : getAllColors(x)) {&#xD;
+             tempCards[i] = c;&#xD;
+             i++;&#xD;
+         }&#xD;
+     }&#xD;
+     return tempCards;&#xD;
+ </body>
+          </ownedBehavior>
+          <ownedOperation xmi:id="_LCwmoLQmEeuOKq0JIa4gdg" name="getAllCards" visibility="package" isStatic="true" method="_LHLMnLQmEeuOKq0JIa4gdg">
+            <ownedComment xmi:id="_LHOP6LQmEeuOKq0JIa4gdg">
+              <body>Returns an array of all cards (32).&#xD;
+     *&#xD;
+     * @return the array of cards with all the colors for given type</body>
+            </ownedComment>
+            <ownedParameter xmi:id="_LCwmobQmEeuOKq0JIa4gdg" type="_LB3OwLQmEeuOKq0JIa4gdg" direction="return">
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_LCwmorQmEeuOKq0JIa4gdg" value="*"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_LGIDsLQmEeuOKq0JIa4gdg" name="getAllColors" visibility="package" isStatic="true" method="_LHLMlLQmEeuOKq0JIa4gdg">
+            <ownedComment xmi:id="_LHOP5rQmEeuOKq0JIa4gdg">
+              <body>Returns an array of all cards filtered by type.&#xD;
+     *&#xD;
+     * @param type the type of cards to be added into array&#xD;
+     * @return the array of cards with all the colors for given type</body>
+            </ownedComment>
+            <ownedParameter xmi:id="_LGIDsbQmEeuOKq0JIa4gdg" name="type" type="_LCA_w7QmEeuOKq0JIa4gdg"/>
+            <ownedParameter xmi:id="_LGIqwLQmEeuOKq0JIa4gdg" type="_LB3OwLQmEeuOKq0JIa4gdg" direction="return">
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_LGIqwbQmEeuOKq0JIa4gdg" value="*"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_LGJR0LQmEeuOKq0JIa4gdg" name="getAllTypes" visibility="package" isStatic="true" method="_LHLMmLQmEeuOKq0JIa4gdg">
+            <ownedComment xmi:id="_LHOP57QmEeuOKq0JIa4gdg">
+              <body>Returns an array of all cards filtered by type.&#xD;
+     *&#xD;
+     * @param color the color of cards to be added into array&#xD;
+     * @return the array of cards with all the colors for given type</body>
+            </ownedComment>
+            <ownedParameter xmi:id="_LGJR0bQmEeuOKq0JIa4gdg" name="color" type="_LB_xoLQmEeuOKq0JIa4gdg"/>
+            <ownedParameter xmi:id="_LGJR0rQmEeuOKq0JIa4gdg" type="_LB3OwLQmEeuOKq0JIa4gdg" direction="return">
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_LGJR07QmEeuOKq0JIa4gdg" value="*"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_LGfQELQmEeuOKq0JIa4gdg" name="CheckLegalMoves" isStatic="true" method="_LHLMkLQmEeuOKq0JIa4gdg">
+            <ownedComment xmi:id="_LHOP5bQmEeuOKq0JIa4gdg">
+              <body>Return arraylist of all legal moves for a given deck based on the current card.&#xD;
+     *&#xD;
+     * @param deck players card deck&#xD;
+     * @param top  current card on top of stack player has to respond on&#xD;
+     * @return arrayList of legal cards player cna use in given situation</body>
+            </ownedComment>
+            <ownedParameter xmi:id="_LGfQEbQmEeuOKq0JIa4gdg" name="deck" type="_LFysgbQmEeuOKq0JIa4gdg"/>
+            <ownedParameter xmi:id="_LGfQErQmEeuOKq0JIa4gdg" name="top" type="_LB3OwLQmEeuOKq0JIa4gdg"/>
+            <ownedParameter xmi:id="_LGf3IbQmEeuOKq0JIa4gdg" type="_LFysgbQmEeuOKq0JIa4gdg" direction="return"/>
+          </ownedOperation>
+          <nestedClassifier xmi:type="uml:Class" xmi:id="_LCvYgLQmEeuOKq0JIa4gdg" name="InvalidCardException" visibility="package">
+            <eAnnotations xmi:id="_LCvYgbQmEeuOKq0JIa4gdg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+              <details xmi:id="_LCvYgrQmEeuOKq0JIa4gdg" key="sameFile"/>
+            </eAnnotations>
+            <generalization xmi:id="_LGepArQmEeuOKq0JIa4gdg" general="_LGepALQmEeuOKq0JIa4gdg"/>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LHKlgrQmEeuOKq0JIa4gdg" name="InvalidCardException" specification="_LGHcoLQmEeuOKq0JIa4gdg">
+              <ownedParameter xmi:id="_LHKlg7QmEeuOKq0JIa4gdg" name="message">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_LHKlhLQmEeuOKq0JIa4gdg" name="crd" type="_LB3OwLQmEeuOKq0JIa4gdg"/>
+              <ownedParameter xmi:id="_LHKlhbQmEeuOKq0JIa4gdg" type="_LCvYgLQmEeuOKq0JIa4gdg" direction="return"/>
+              <language>java</language>
+              <body>super(message + &quot;\nRequested card: \&quot;&quot; + crd.toString() + &quot;\&quot; is invalid for given operation.&quot;);&#xD;
+ </body>
+            </ownedBehavior>
+            <ownedOperation xmi:id="_LGHcoLQmEeuOKq0JIa4gdg" name="InvalidCardException" method="_LHKlgrQmEeuOKq0JIa4gdg">
+              <eAnnotations xmi:id="_LGHco7QmEeuOKq0JIa4gdg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+                <details xmi:id="_LGHcpLQmEeuOKq0JIa4gdg" key="create"/>
+              </eAnnotations>
+              <ownedParameter xmi:id="_LGHcobQmEeuOKq0JIa4gdg" name="message">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_LGHcorQmEeuOKq0JIa4gdg" name="crd" type="_LB3OwLQmEeuOKq0JIa4gdg"/>
+              <ownedParameter xmi:id="_LGHcpbQmEeuOKq0JIa4gdg" type="_LCvYgLQmEeuOKq0JIa4gdg" direction="return"/>
+            </ownedOperation>
+          </nestedClassifier>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_LHU9kLQmEeuOKq0JIa4gdg" name="" memberEnd="_LHU9kbQmEeuOKq0JIa4gdg _LGoaAbQmEeuOKq0JIa4gdg">
+          <ownedEnd xmi:id="_LHU9kbQmEeuOKq0JIa4gdg" name="" type="_LCTToLQmEeuOKq0JIa4gdg" association="_LHU9kLQmEeuOKq0JIa4gdg"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_LHVkobQmEeuOKq0JIa4gdg" name="" memberEnd="_LHVkorQmEeuOKq0JIa4gdg _LGsrcLQmEeuOKq0JIa4gdg">
+          <ownedEnd xmi:id="_LHVkorQmEeuOKq0JIa4gdg" name="" type="_LCYMILQmEeuOKq0JIa4gdg" association="_LHVkobQmEeuOKq0JIa4gdg"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_LHWLsbQmEeuOKq0JIa4gdg" name="" memberEnd="_LHWLsrQmEeuOKq0JIa4gdg _LGsrc7QmEeuOKq0JIa4gdg">
+          <ownedEnd xmi:id="_LHWLsrQmEeuOKq0JIa4gdg" name="" type="_LCYMILQmEeuOKq0JIa4gdg" association="_LHWLsbQmEeuOKq0JIa4gdg"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_LHWywbQmEeuOKq0JIa4gdg" name="" memberEnd="_LHWywrQmEeuOKq0JIa4gdg _LGtSgbQmEeuOKq0JIa4gdg">
+          <ownedEnd xmi:id="_LHWywrQmEeuOKq0JIa4gdg" name="" type="_LCdrsLQmEeuOKq0JIa4gdg" association="_LHWywbQmEeuOKq0JIa4gdg"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_LHXZ0bQmEeuOKq0JIa4gdg" name="" memberEnd="_LHXZ0rQmEeuOKq0JIa4gdg _LGt5kbQmEeuOKq0JIa4gdg">
+          <ownedEnd xmi:id="_LHXZ0rQmEeuOKq0JIa4gdg" name="" type="_LCdrsLQmEeuOKq0JIa4gdg" association="_LHXZ0bQmEeuOKq0JIa4gdg"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_LHXZ1LQmEeuOKq0JIa4gdg" name="" memberEnd="_LHXZ1bQmEeuOKq0JIa4gdg _LGugoLQmEeuOKq0JIa4gdg">
+          <ownedEnd xmi:id="_LHXZ1bQmEeuOKq0JIa4gdg" name="" type="_LCdrsLQmEeuOKq0JIa4gdg" association="_LHXZ1LQmEeuOKq0JIa4gdg"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_LHYA4bQmEeuOKq0JIa4gdg" name="" memberEnd="_LHYA4rQmEeuOKq0JIa4gdg _LGugo7QmEeuOKq0JIa4gdg">
+          <ownedEnd xmi:id="_LHYA4rQmEeuOKq0JIa4gdg" name="" type="_LCdrsLQmEeuOKq0JIa4gdg" association="_LHYA4bQmEeuOKq0JIa4gdg"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_LHYn8bQmEeuOKq0JIa4gdg" name="" memberEnd="_LHYn8rQmEeuOKq0JIa4gdg _LGvHsbQmEeuOKq0JIa4gdg">
+          <ownedEnd xmi:id="_LHYn8rQmEeuOKq0JIa4gdg" name="" type="_LCdrsLQmEeuOKq0JIa4gdg" association="_LHYn8bQmEeuOKq0JIa4gdg"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_LHZPALQmEeuOKq0JIa4gdg" name="" memberEnd="_LHZPAbQmEeuOKq0JIa4gdg _LGw84bQmEeuOKq0JIa4gdg">
+          <ownedEnd xmi:id="_LHZPAbQmEeuOKq0JIa4gdg" name="" type="_LCjLQLQmEeuOKq0JIa4gdg" association="_LHZPALQmEeuOKq0JIa4gdg"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_LHZPA7QmEeuOKq0JIa4gdg" name="" memberEnd="_LHZPBLQmEeuOKq0JIa4gdg _LGyyEbQmEeuOKq0JIa4gdg">
+          <ownedEnd xmi:id="_LHZPBLQmEeuOKq0JIa4gdg" name="" type="_LCjLQLQmEeuOKq0JIa4gdg" association="_LHZPA7QmEeuOKq0JIa4gdg"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_LHZ2EbQmEeuOKq0JIa4gdg" name="" memberEnd="_LHZ2ErQmEeuOKq0JIa4gdg _LGyyE7QmEeuOKq0JIa4gdg">
+          <ownedEnd xmi:id="_LHZ2ErQmEeuOKq0JIa4gdg" name="" type="_LCjLQLQmEeuOKq0JIa4gdg" association="_LHZ2EbQmEeuOKq0JIa4gdg"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_LHadILQmEeuOKq0JIa4gdg" name="" memberEnd="_LHadIbQmEeuOKq0JIa4gdg _LG0AMbQmEeuOKq0JIa4gdg">
+          <ownedEnd xmi:id="_LHadIbQmEeuOKq0JIa4gdg" name="" type="_LCjLQLQmEeuOKq0JIa4gdg" association="_LHadILQmEeuOKq0JIa4gdg"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_LHadI7QmEeuOKq0JIa4gdg" name="" memberEnd="_LHadJLQmEeuOKq0JIa4gdg _LG0nQ7QmEeuOKq0JIa4gdg">
+          <ownedEnd xmi:id="_LHadJLQmEeuOKq0JIa4gdg" name="" type="_LCjLQLQmEeuOKq0JIa4gdg" association="_LHadI7QmEeuOKq0JIa4gdg"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_LHbEMLQmEeuOKq0JIa4gdg" name="" memberEnd="_LHbEMbQmEeuOKq0JIa4gdg _LG2ccbQmEeuOKq0JIa4gdg">
+          <ownedEnd xmi:id="_LHbEMbQmEeuOKq0JIa4gdg" name="" type="_LCjLQLQmEeuOKq0JIa4gdg" association="_LHbEMLQmEeuOKq0JIa4gdg"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_LHbEM7QmEeuOKq0JIa4gdg" name="" memberEnd="_LHbENLQmEeuOKq0JIa4gdg _LG3DgbQmEeuOKq0JIa4gdg">
+          <ownedEnd xmi:id="_LHbENLQmEeuOKq0JIa4gdg" name="" type="_LCjLQLQmEeuOKq0JIa4gdg" association="_LHbEM7QmEeuOKq0JIa4gdg"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_LHbrQbQmEeuOKq0JIa4gdg" name="" memberEnd="_LHbrQrQmEeuOKq0JIa4gdg _LG3DhLQmEeuOKq0JIa4gdg">
+          <ownedEnd xmi:id="_LHbrQrQmEeuOKq0JIa4gdg" name="" type="_LCjLQLQmEeuOKq0JIa4gdg" association="_LHbrQbQmEeuOKq0JIa4gdg"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_LHbrRLQmEeuOKq0JIa4gdg" name="" memberEnd="_LHbrRbQmEeuOKq0JIa4gdg _LG6G0LQmEeuOKq0JIa4gdg">
+          <ownedEnd xmi:id="_LHbrRbQmEeuOKq0JIa4gdg" name="" type="_LCrHELQmEeuOKq0JIa4gdg" association="_LHbrRLQmEeuOKq0JIa4gdg"/>
+        </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_LBWRYLQmEeuOKq0JIa4gdg" name="sun">
+        <packagedElement xmi:type="uml:Package" xmi:id="_LBW4cLQmEeuOKq0JIa4gdg" name="jna">
+          <packagedElement xmi:type="uml:Package" xmi:id="_LBW4cbQmEeuOKq0JIa4gdg" name="ptr">
+            <packagedElement xmi:type="uml:Class" xmi:id="_LFl4MbQmEeuOKq0JIa4gdg" name="IntByReference"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Package" xmi:id="_LBW4crQmEeuOKq0JIa4gdg" name="win32">
+            <packagedElement xmi:type="uml:Interface" xmi:id="_LFmfQbQmEeuOKq0JIa4gdg" name="StdCallLibrary"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_LFkqELQmEeuOKq0JIa4gdg" name="Memory"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_LFlRIbQmEeuOKq0JIa4gdg" name="Pointer"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_LF6BQLQmEeuOKq0JIa4gdg" name="Native"/>
+        </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_LBeNMLQmEeuOKq0JIa4gdg" name="diogonunes">
+        <packagedElement xmi:type="uml:Package" xmi:id="_LBeNMbQmEeuOKq0JIa4gdg" name="jcolor">
+          <packagedElement xmi:type="uml:Class" xmi:id="_LF3lALQmEeuOKq0JIa4gdg" name="Ansi"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_LF3lArQmEeuOKq0JIa4gdg" name="Attribute"/>
+        </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_LBe0QLQmEeuOKq0JIa4gdg" name="google">
+        <packagedElement xmi:type="uml:Package" xmi:id="_LBe0QbQmEeuOKq0JIa4gdg" name="gson">
+          <packagedElement xmi:type="uml:Class" xmi:id="_LF1v0bQmEeuOKq0JIa4gdg" name="Gson"/>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_LBYGkLQmEeuOKq0JIa4gdg" name="org">
+      <packagedElement xmi:type="uml:Package" xmi:id="_LBYGkbQmEeuOKq0JIa4gdg" name="snf4j">
+        <packagedElement xmi:type="uml:Package" xmi:id="_LBYGkrQmEeuOKq0JIa4gdg" name="core">
+          <packagedElement xmi:type="uml:Package" xmi:id="_LBYtoLQmEeuOKq0JIa4gdg" name="factory">
+            <packagedElement xmi:type="uml:Class" xmi:id="_LFpikbQmEeuOKq0JIa4gdg" name="AbstractSessionFactory"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Package" xmi:id="_LBYtobQmEeuOKq0JIa4gdg" name="handler">
+            <packagedElement xmi:type="uml:Interface" xmi:id="_LFqJobQmEeuOKq0JIa4gdg" name="IStreamHandler"/>
+            <packagedElement xmi:type="uml:Class" xmi:id="_LF2W4LQmEeuOKq0JIa4gdg" name="AbstractStreamHandler"/>
+            <packagedElement xmi:type="uml:Enumeration" xmi:id="_LF298LQmEeuOKq0JIa4gdg" name="SessionEvent"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Package" xmi:id="_LBbw8LQmEeuOKq0JIa4gdg" name="session">
+            <packagedElement xmi:type="uml:Interface" xmi:id="_LFxeYLQmEeuOKq0JIa4gdg" name="IStreamSession"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_LFoUcLQmEeuOKq0JIa4gdg" name="SelectorLoop"/>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_LBYtorQmEeuOKq0JIa4gdg" name="java">
+      <packagedElement xmi:type="uml:Package" xmi:id="_LBYto7QmEeuOKq0JIa4gdg" name="io">
+        <packagedElement xmi:type="uml:Class" xmi:id="_LFrXwLQmEeuOKq0JIa4gdg" name="BufferedReader"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_LFr-0bQmEeuOKq0JIa4gdg" name="IOException"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_LFsl4bQmEeuOKq0JIa4gdg" name="InputStreamReader"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_LF6oUbQmEeuOKq0JIa4gdg" name="File"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_LF7PYbQmEeuOKq0JIa4gdg" name="FileNotFoundException"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_LF72cbQmEeuOKq0JIa4gdg" name="FileWriter"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_LBZUsLQmEeuOKq0JIa4gdg" name="net">
+        <packagedElement xmi:type="uml:Class" xmi:id="_LFtM8bQmEeuOKq0JIa4gdg" name="InetSocketAddress"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_LFvpMbQmEeuOKq0JIa4gdg" name="InetAddress"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_LBZUsbQmEeuOKq0JIa4gdg" name="nio">
+        <packagedElement xmi:type="uml:Package" xmi:id="_LBZUsrQmEeuOKq0JIa4gdg" name="channels">
+          <packagedElement xmi:type="uml:Class" xmi:id="_LFubEbQmEeuOKq0JIa4gdg" name="ServerSocketChannel"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_LFvCILQmEeuOKq0JIa4gdg" name="SocketChannel"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_LBbw8bQmEeuOKq0JIa4gdg" name="charset">
+          <packagedElement xmi:type="uml:Class" xmi:id="_LFyFcbQmEeuOKq0JIa4gdg" name="Charset"/>
+        </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_LBZUs7QmEeuOKq0JIa4gdg" name="util">
+        <packagedElement xmi:type="uml:Package" xmi:id="_LBZUtLQmEeuOKq0JIa4gdg" name="concurrent">
+          <packagedElement xmi:type="uml:Class" xmi:id="_LFvCIrQmEeuOKq0JIa4gdg" name="ExecutionException"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_LFysgbQmEeuOKq0JIa4gdg" name="ArrayList"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_LFzTkbQmEeuOKq0JIa4gdg" name="Random"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_LF0hsLQmEeuOKq0JIa4gdg" name="HashMap"/>
+        <packagedElement xmi:type="uml:Interface" xmi:id="_LF1IwbQmEeuOKq0JIa4gdg" name="Map"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_LF72c7QmEeuOKq0JIa4gdg" name="Scanner"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_LF-SsLQmEeuOKq0JIa4gdg" name="Collections"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_LBqacLQmEeuOKq0JIa4gdg" name="lang">
+        <packagedElement xmi:type="uml:Package" xmi:id="_LBqacbQmEeuOKq0JIa4gdg" name="reflect">
+          <packagedElement xmi:type="uml:Class" xmi:id="_LGGOgLQmEeuOKq0JIa4gdg" name="Array"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_LGQmkLQmEeuOKq0JIa4gdg" name="InterruptedException"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_LGTp4LQmEeuOKq0JIa4gdg" name="Object"/>
+        <packagedElement xmi:type="uml:DataType" xmi:id="_LGXUQLQmEeuOKq0JIa4gdg" name="Long"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_LGepALQmEeuOKq0JIa4gdg" name="Exception"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_LBe0QrQmEeuOKq0JIa4gdg" name="javax">
+      <packagedElement xmi:type="uml:Package" xmi:id="_LBe0Q7QmEeuOKq0JIa4gdg" name="swing"/>
+    </packagedElement>
+    <profileApplication xmi:id="_K1auMLQmEeuOKq0JIa4gdg">
+      <eAnnotations xmi:id="_K1dKcLQmEeuOKq0JIa4gdg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://UMLLAB_PROFILES/UMLLab.profile.uml#UMLLabProfile-Annotation_2-UMLLabProfile"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UMLLAB_PROFILES/UMLLab.profile.uml#UMLLabProfile"/>
+    </profileApplication>
+  </uml:Model>
+  <UMLLabProfile:TargetLanguage xmi:id="_K1e_oLQmEeuOKq0JIa4gdg" base_Package="_Kz8HgLQmEeuOKq0JIa4gdg">
+    <languageName>java</languageName>
+  </UMLLabProfile:TargetLanguage>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_LCAYsLQmEeuOKq0JIa4gdg" base_Element="_LB_xoLQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_LCBm0LQmEeuOKq0JIa4gdg" base_Element="_LCA_w7QmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_LCFRMLQmEeuOKq0JIa4gdg" base_Element="_LCEqIrQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_LCIUgLQmEeuOKq0JIa4gdg" base_Element="_LCHtcLQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_LCKJsLQmEeuOKq0JIa4gdg" base_Element="_LCJioLQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Array xmi:id="_LCxNsLQmEeuOKq0JIa4gdg" base_Element="_LCwmoLQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Reference xmi:id="_LFlRILQmEeuOKq0JIa4gdg" base_Element="_LFkqELQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Reference xmi:id="_LFl4MLQmEeuOKq0JIa4gdg" base_Element="_LFlRIbQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Reference xmi:id="_LFmfQLQmEeuOKq0JIa4gdg" base_Element="_LFl4MbQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Reference xmi:id="_LFnGULQmEeuOKq0JIa4gdg" base_Element="_LFmfQbQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Reference xmi:id="_LFpikLQmEeuOKq0JIa4gdg" base_Element="_LFoUcLQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Reference xmi:id="_LFqJoLQmEeuOKq0JIa4gdg" base_Element="_LFpikbQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Reference xmi:id="_LFqwsLQmEeuOKq0JIa4gdg" base_Element="_LFqJobQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Reference xmi:id="_LFr-0LQmEeuOKq0JIa4gdg" base_Element="_LFrXwLQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Reference xmi:id="_LFsl4LQmEeuOKq0JIa4gdg" base_Element="_LFr-0bQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Reference xmi:id="_LFtM8LQmEeuOKq0JIa4gdg" base_Element="_LFsl4bQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Reference xmi:id="_LFubELQmEeuOKq0JIa4gdg" base_Element="_LFtM8bQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Reference xmi:id="_LFubErQmEeuOKq0JIa4gdg" base_Element="_LFubEbQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Reference xmi:id="_LFvCIbQmEeuOKq0JIa4gdg" base_Element="_LFvCILQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Reference xmi:id="_LFvpMLQmEeuOKq0JIa4gdg" base_Element="_LFvCIrQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Reference xmi:id="_LFwQQLQmEeuOKq0JIa4gdg" base_Element="_LFvpMbQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Reference xmi:id="_LFyFcLQmEeuOKq0JIa4gdg" base_Element="_LFxeYLQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Reference xmi:id="_LFysgLQmEeuOKq0JIa4gdg" base_Element="_LFyFcbQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Reference xmi:id="_LFzTkLQmEeuOKq0JIa4gdg" base_Element="_LFysgbQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Reference xmi:id="_LFzTkrQmEeuOKq0JIa4gdg" base_Element="_LFzTkbQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Reference xmi:id="_LF1IwLQmEeuOKq0JIa4gdg" base_Element="_LF0hsLQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Reference xmi:id="_LF1v0LQmEeuOKq0JIa4gdg" base_Element="_LF1IwbQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Reference xmi:id="_LF1v0rQmEeuOKq0JIa4gdg" base_Element="_LF1v0bQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Reference xmi:id="_LF2W4bQmEeuOKq0JIa4gdg" base_Element="_LF2W4LQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Reference xmi:id="_LF298bQmEeuOKq0JIa4gdg" base_Element="_LF298LQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Reference xmi:id="_LF3lAbQmEeuOKq0JIa4gdg" base_Element="_LF3lALQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Reference xmi:id="_LF4MELQmEeuOKq0JIa4gdg" base_Element="_LF3lArQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Reference xmi:id="_LF6oULQmEeuOKq0JIa4gdg" base_Element="_LF6BQLQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Reference xmi:id="_LF7PYLQmEeuOKq0JIa4gdg" base_Element="_LF6oUbQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Reference xmi:id="_LF72cLQmEeuOKq0JIa4gdg" base_Element="_LF7PYbQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Reference xmi:id="_LF72crQmEeuOKq0JIa4gdg" base_Element="_LF72cbQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Reference xmi:id="_LF8dgLQmEeuOKq0JIa4gdg" base_Element="_LF72c7QmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Reference xmi:id="_LF-5wLQmEeuOKq0JIa4gdg" base_Element="_LF-SsLQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Reference xmi:id="_LGG1kLQmEeuOKq0JIa4gdg" base_Element="_LGGOgLQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Array xmi:id="_LGIqwrQmEeuOKq0JIa4gdg" dimensions="1" base_Element="_LGIDsLQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Array xmi:id="_LGJR1LQmEeuOKq0JIa4gdg" base_Element="_LGJR0LQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Reference xmi:id="_LGQmkbQmEeuOKq0JIa4gdg" base_Element="_LGQmkLQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Generics xmi:id="_LGSbwLQmEeuOKq0JIa4gdg" genericsValue="Card" base_Element="_LGR0srQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Reference xmi:id="_LGUQ8LQmEeuOKq0JIa4gdg" base_Element="_LGTp4LQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_LGU4ALQmEeuOKq0JIa4gdg" base_Element="_LGUQ8bQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Annotations xmi:id="_LGVfELQmEeuOKq0JIa4gdg" base_Element="_LGUQ8bQmEeuOKq0JIa4gdg">
+    <annotations xmi:id="_LGVfEbQmEeuOKq0JIa4gdg" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_LGWtMLQmEeuOKq0JIa4gdg" base_Element="_LGWGILQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Annotations xmi:id="_LGWtMbQmEeuOKq0JIa4gdg" base_Element="_LGWGILQmEeuOKq0JIa4gdg">
+    <annotations xmi:id="_LGWtMrQmEeuOKq0JIa4gdg" name="SuppressWarnings">
+      <annotationParameters xmi:id="_LGWtM7QmEeuOKq0JIa4gdg" skipName="true" skipArray="true">
+        <valueSpecifications xmi:type="uml:LiteralString" xmi:id="_LHNBx7QmEeuOKq0JIa4gdg" value="&quot;incomplete-switch&quot;"/>
+      </annotationParameters>
+    </annotations>
+    <annotations xmi:id="_LGWtNLQmEeuOKq0JIa4gdg" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:Reference xmi:id="_LGX7ULQmEeuOKq0JIa4gdg" base_Element="_LGXUQLQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Generics xmi:id="_LGblsbQmEeuOKq0JIa4gdg" genericsValue="String" base_Element="_LGa-obQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Reference xmi:id="_LGepAbQmEeuOKq0JIa4gdg" base_Element="_LGepALQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Generics xmi:id="_LGf3ILQmEeuOKq0JIa4gdg" genericsValue="Card" base_Element="_LGfQELQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Generics xmi:id="_LGf3IrQmEeuOKq0JIa4gdg" genericsValue="Card" base_Element="_LGfQEbQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_LGi6cLQmEeuOKq0JIa4gdg" base_Element="_LGiTYLQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_LGi6c7QmEeuOKq0JIa4gdg" base_Element="_LGi6cbQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_LGjhgLQmEeuOKq0JIa4gdg" base_Element="_LGi6dLQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_LGkIkLQmEeuOKq0JIa4gdg" base_Element="_LGjhgbQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_LGkIk7QmEeuOKq0JIa4gdg" base_Element="_LGkIkbQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_LGkvorQmEeuOKq0JIa4gdg" base_Element="_LGkvoLQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_LGlWsbQmEeuOKq0JIa4gdg" base_Element="_LGkvo7QmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_LGl9wLQmEeuOKq0JIa4gdg" base_Element="_LGlWsrQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_LGmk0rQmEeuOKq0JIa4gdg" base_Element="_LGmk0LQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_LGoaALQmEeuOKq0JIa4gdg" base_Element="_LGny8bQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Generics xmi:id="_LGpBELQmEeuOKq0JIa4gdg" genericsValue="Card" base_Element="_LGoaAbQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_LGpBErQmEeuOKq0JIa4gdg" base_Element="_LGoaAbQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_LGpoILQmEeuOKq0JIa4gdg" base_Element="_LGpBE7QmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_LGqPMbQmEeuOKq0JIa4gdg" base_Element="_LGpoIbQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_LGq2QLQmEeuOKq0JIa4gdg" base_Element="_LGqPMrQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_LGrdULQmEeuOKq0JIa4gdg" base_Element="_LGq2QbQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_LGrdU7QmEeuOKq0JIa4gdg" base_Element="_LGrdUbQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_LGsEYrQmEeuOKq0JIa4gdg" base_Element="_LGsEYLQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_LGtSgLQmEeuOKq0JIa4gdg" base_Element="_LGsrc7QmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_LGt5kLQmEeuOKq0JIa4gdg" base_Element="_LGtSgbQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_LGt5k7QmEeuOKq0JIa4gdg" base_Element="_LGt5kbQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_LGugorQmEeuOKq0JIa4gdg" base_Element="_LGugoLQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_LGvHsLQmEeuOKq0JIa4gdg" base_Element="_LGugo7QmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_LGvHsrQmEeuOKq0JIa4gdg" base_Element="_LGvHsbQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_LGvuwbQmEeuOKq0JIa4gdg" base_Element="_LGvHs7QmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_LGw84LQmEeuOKq0JIa4gdg" base_Element="_LGwV0bQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Generics xmi:id="_LGxj8LQmEeuOKq0JIa4gdg" genericsValue="Card" base_Element="_LGw84bQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_LGxj8rQmEeuOKq0JIa4gdg" base_Element="_LGw84bQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_LGyLAbQmEeuOKq0JIa4gdg" base_Element="_LGyLALQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_LGyyELQmEeuOKq0JIa4gdg" base_Element="_LGyLArQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_LGyyErQmEeuOKq0JIa4gdg" base_Element="_LGyyEbQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Generics xmi:id="_LGzZILQmEeuOKq0JIa4gdg" genericsValue="Card" base_Element="_LGyyE7QmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_LG0AMLQmEeuOKq0JIa4gdg" base_Element="_LGyyE7QmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Generics xmi:id="_LG0nQLQmEeuOKq0JIa4gdg" genericsValue="Player" base_Element="_LG0AMbQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_LG0nQrQmEeuOKq0JIa4gdg" base_Element="_LG0AMbQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Generics xmi:id="_LG1OULQmEeuOKq0JIa4gdg" genericsValue="Player" base_Element="_LG0nQ7QmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_LG11YLQmEeuOKq0JIa4gdg" base_Element="_LG0nQ7QmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_LG2ccLQmEeuOKq0JIa4gdg" base_Element="_LG11YbQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_LG3DgLQmEeuOKq0JIa4gdg" base_Element="_LG2ccbQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_LG3Dg7QmEeuOKq0JIa4gdg" base_Element="_LG3DgbQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Generics xmi:id="_LG3qkLQmEeuOKq0JIa4gdg" genericsValue="String" base_Element="_LG3DhLQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_LG4RoLQmEeuOKq0JIa4gdg" base_Element="_LG3DhLQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_LG4Ro7QmEeuOKq0JIa4gdg" base_Element="_LG4RobQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_LG5fwrQmEeuOKq0JIa4gdg" base_Element="_LG5fwLQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_LG6G0rQmEeuOKq0JIa4gdg" base_Element="_LG6G0LQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_LG6G1bQmEeuOKq0JIa4gdg" base_Element="_LG6G07QmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Reference xmi:id="_LHVkoLQmEeuOKq0JIa4gdg" base_Element="_LHU9kLQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Reference xmi:id="_LHWLsLQmEeuOKq0JIa4gdg" base_Element="_LHVkobQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Reference xmi:id="_LHWywLQmEeuOKq0JIa4gdg" base_Element="_LHWLsbQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Reference xmi:id="_LHXZ0LQmEeuOKq0JIa4gdg" base_Element="_LHWywbQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Reference xmi:id="_LHXZ07QmEeuOKq0JIa4gdg" base_Element="_LHXZ0bQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Reference xmi:id="_LHYA4LQmEeuOKq0JIa4gdg" base_Element="_LHXZ1LQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Reference xmi:id="_LHYn8LQmEeuOKq0JIa4gdg" base_Element="_LHYA4bQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Reference xmi:id="_LHYn87QmEeuOKq0JIa4gdg" base_Element="_LHYn8bQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Reference xmi:id="_LHZPArQmEeuOKq0JIa4gdg" base_Element="_LHZPALQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Reference xmi:id="_LHZ2ELQmEeuOKq0JIa4gdg" base_Element="_LHZPA7QmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Reference xmi:id="_LHZ2E7QmEeuOKq0JIa4gdg" base_Element="_LHZ2EbQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Reference xmi:id="_LHadIrQmEeuOKq0JIa4gdg" base_Element="_LHadILQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Reference xmi:id="_LHadJbQmEeuOKq0JIa4gdg" base_Element="_LHadI7QmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Reference xmi:id="_LHbEMrQmEeuOKq0JIa4gdg" base_Element="_LHbEMLQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Reference xmi:id="_LHbrQLQmEeuOKq0JIa4gdg" base_Element="_LHbEM7QmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Reference xmi:id="_LHbrQ7QmEeuOKq0JIa4gdg" base_Element="_LHbrQbQmEeuOKq0JIa4gdg"/>
+  <UMLLabProfile:Reference xmi:id="_LHcSULQmEeuOKq0JIa4gdg" base_Element="_LHbrRLQmEeuOKq0JIa4gdg"/>
+</xmi:XMI>

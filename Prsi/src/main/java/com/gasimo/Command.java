@@ -1,5 +1,8 @@
 package com.gasimo;
 
+/**
+ * Contains necessary fields to define all local and remote command calls
+ */
 public class Command {
 
     /**

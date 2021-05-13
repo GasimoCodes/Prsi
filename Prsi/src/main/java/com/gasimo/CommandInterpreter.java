@@ -1,13 +1,13 @@
 package com.gasimo;
 
-import java.lang.reflect.Array;
+import com.google.gson.Gson;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import com.google.gson.Gson;
-
-import java.rmi.*;
-
+/**
+ * Interpreting and executing both remote and local command calls
+ */
 public class CommandInterpreter {
 
     private boolean listenConsole = false;
@@ -142,8 +142,8 @@ public class CommandInterpreter {
             case "gameStatus": {
                 if ((tempCmd.size() - 1) == 0) {
                     try {
-                        if (Main.gm != null)
-                            return "echo " + Main.gm.getGameStatus().toString();
+                        if (Main.GM != null)
+                            return "echo " + Main.GM.getGameStatus().toString();
                         else {
                             return "echo Game object not initialised.";
                         }
@@ -162,12 +162,12 @@ public class CommandInterpreter {
             case "forceStart": {
                 if ((tempCmd.size() - 1) == 0) {
                     try {
-                        if (Main.gm != null) {
-                            if (Main.gm.getGameStatus() == GameStatus.awaitingPlayers) {
+                        if (Main.GM != null) {
+                            if (Main.GM.getGameStatus() == GameStatus.awaitingPlayers) {
 
-                                if (Main.gm.players.size() >= 2) {
-                                    Main.gm.forceStart();
-                                    return "echo Forced game start for " + Main.gm.players.size() + " players.";
+                                if (Main.GM.players.size() >= 2) {
+                                    Main.GM.forceStart();
+                                    return "echo Forced game start for " + Main.GM.players.size() + " players.";
                                 } else {
                                     return "echo Cannot force game when less than 2 players are connected.";
                                 }
@@ -194,11 +194,11 @@ public class CommandInterpreter {
             // - - - - - - - - - - - - addPlayer name secret
             case "addPlayer": {
                 if ((tempCmd.size() - 1) == 2) {
-                    if (Main.gm != null) {
+                    if (Main.GM != null) {
                         try {
                             Player p = new Player(tempCmd.get(1), new ArrayList<Card>(), command.caller);
                             p.setPlayerSecret(tempCmd.get(2));
-                            return Main.gm.addPlayer(p);
+                            return Main.GM.addPlayer(p);
 
                         } catch (Exception e) {
                             throw (e);
@@ -213,10 +213,10 @@ public class CommandInterpreter {
             }
             // - - - - - - - - - - - - getPlayerData name secret
             case "getPlayer": {
-                if (Main.gm != null) {
+                if (Main.GM != null) {
                     if ((tempCmd.size() - 1) == 2) {
                         try {
-                            for (Player x : Main.gm.players) {
+                            for (Player x : Main.GM.players) {
                                 if (x.playerName.compareTo(tempCmd.get(1)) == 0) {
                                     if (x.getPlayerSecret().compareTo(tempCmd.get(2)) == 0)
                                         return "echo Success PlayerObject " + gson.toJson(x);
@@ -240,27 +240,27 @@ public class CommandInterpreter {
 
             // - - - - - - - - - - - - makeTurn Action Arg
             case "makeTurn": {
-                if (Main.gm != null) {
+                if (Main.GM != null) {
                     if ((tempCmd.size() - 1) >= 1) {
                         try {
                                 // Check if we are receiving request from the player we need,
-                                if (Main.gm.players.get(Main.gm.currentPlayer).netSession == command.caller) {
+                                if (Main.GM.players.get(Main.GM.currentPlayer).netSession == command.caller) {
 
                                         // Replace possible occurrence if we get /makeTurn PlayerName Secret turn args
-                                        command.rawCommand = command.rawCommand.replace(Main.gm.players.get(Main.gm.currentPlayer).playerName + " ", "").replace(Main.gm.players.get(Main.gm.currentPlayer).getPlayerSecret() + " ", "");
-                                        return Main.gm.fireAction(command);
+                                        command.rawCommand = command.rawCommand.replace(Main.GM.players.get(Main.GM.currentPlayer).playerName + " ", "").replace(Main.GM.players.get(Main.GM.currentPlayer).getPlayerSecret() + " ", "");
+                                        return Main.GM.fireAction(command);
 
 
                                 } else
                                 // In case we want to validate from outside of our session, we use NAME, SECRET, TURN
-                                if(Main.gm.players.get(Main.gm.currentPlayer).playerName.compareTo(tempCmd.get(1))==0 && Main.gm.players.get(Main.gm.currentPlayer).getPlayerSecret().compareTo(tempCmd.get(2))==0)
+                                if(Main.GM.players.get(Main.GM.currentPlayer).playerName.compareTo(tempCmd.get(1))==0 && Main.GM.players.get(Main.GM.currentPlayer).getPlayerSecret().compareTo(tempCmd.get(2))==0)
                                 {
                                     // occurrence of playerName and Secret /makeTurn PlayerName Secret turn args
-                                    command.rawCommand = command.rawCommand.replace(Main.gm.players.get(Main.gm.currentPlayer).playerName + " ", "").replace(Main.gm.players.get(Main.gm.currentPlayer).getPlayerSecret() + " ", "");
-                                    return Main.gm.fireAction(command);
+                                    command.rawCommand = command.rawCommand.replace(Main.GM.players.get(Main.GM.currentPlayer).playerName + " ", "").replace(Main.GM.players.get(Main.GM.currentPlayer).getPlayerSecret() + " ", "");
+                                    return Main.GM.fireAction(command);
 
                                 } else {
-                                    return "echo SessionID has timed-out and name or password does not match. You can re-assign your ID by using addPlayer name password ("+  Main.gm.players.get(Main.gm.currentPlayer).playerName + ").";
+                                    return "echo SessionID has timed-out and name or password does not match. You can re-assign your ID by using addPlayer name password ("+  Main.GM.players.get(Main.GM.currentPlayer).playerName + ").";
                                 }
                         } catch (Exception e) {
                             e.printStackTrace();

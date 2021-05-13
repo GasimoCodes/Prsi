@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="org.snf4j:snf4j-example:1.7.0" type="repository">
+    <properties maven-id="org.snf4j:snf4j-example:1.7.0" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/snf4j/snf4j-example/1.7.0/snf4j-example-1.7.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/snf4j/snf4j-core/1.7.0/snf4j-core-1.7.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/snf4j/snf4j-sctp/1.7.0/snf4j-sctp-1.7.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,6 +1,8 @@
 package com.gasimo;
 
-// Contains general card information
+/**
+ * Class to contain all necessary card information
+ */
 public class Card {
 
     CardColor color = null;

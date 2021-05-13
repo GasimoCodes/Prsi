@@ -17,7 +17,9 @@ import java.io.*;
 import java.util.*;
 import java.net.InetAddress;
 
-
+/**
+ * Handles networking initialisation and loop
+ */
 public class NetworkingInterpreter {
 
     boolean logClientRequests = true;
@@ -66,7 +68,7 @@ public class NetworkingInterpreter {
 
     /**
      * Get default IP address for remote connection.
-     * @return
+     * @return Public IP Address
      */
     private String getDefaultAddress() {
 
