@@ -21,7 +21,7 @@ public class NetworkingInterpreter {
     boolean logClientRequests = true;
 
     static final String PREFIX = "org.gasimo.";
-    static final int PORT = Integer.getInteger(PREFIX + "Port", 8002);
+    static final int PORT = Integer.getInteger(PREFIX + "Port", Main.SP.PORT);
 
     public void init() throws IOException, InterruptedException, ExecutionException {
         SelectorLoop loop = new SelectorLoop();
