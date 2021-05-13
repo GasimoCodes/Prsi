@@ -1,7 +1,6 @@
 package com.gasimo;
 
 import com.google.gson.Gson;
-import com.sun.jna.Native;
 
 import java.io.File;
 import java.io.FileNotFoundException;

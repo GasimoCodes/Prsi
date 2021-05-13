@@ -4,6 +4,7 @@
     <eAnnotations xmi:id="_K1ZgELQmEeuOKq0JIa4gdg" source="http://ns.yatta.de/umllab">
       <contents xmi:type="ecore:EAnnotation" xmi:id="_K1ZgEbQmEeuOKq0JIa4gdg" source="codegen">
         <details xmi:id="_K1ZgErQmEeuOKq0JIa4gdg" key="codegenDirectory" value="/Prsi/src/main/java"/>
+        <details xmi:id="_8ovswLQoEeuBF5ga0mmsgw" key="AssociatedSourceCode" value="/Prsi/src/main/java/com/gasimo/Card.java;377218495/1;/Prsi/src/main/java/com/gasimo/CardColor.java;2864083696/1;/Prsi/src/main/java/com/gasimo/CardType.java;1197859100/1;/Prsi/src/main/java/com/gasimo/Command.java;2286369134/1;/Prsi/src/main/java/com/gasimo/CommandResult.java;929701178/1;/Prsi/src/main/java/com/gasimo/GameData.java;3219548728/1;/Prsi/src/main/java/com/gasimo/GameStatus.java;1697319004/1;/Prsi/src/main/java/com/gasimo/Kernel32.java;1282735383/1;/Prsi/src/main/java/com/gasimo/NetworkingInterpreter.java;1150317695/1;/Prsi/src/main/java/com/gasimo/Player.java;1408362128/1;/Prsi/src/main/java/com/gasimo/ServerProperties.java;503377797/1;/Prsi/src/main/java/com/gasimo/ServerHandler.java;1604064673/1;/Prsi/src/main/java/com/gasimo/Main.java;843251435/1;/Prsi/src/main/java/com/gasimo/GameManager.java;915783149/1;/Prsi/src/main/java/com/gasimo/CommandInterpreter.java;2639365630/1;/Prsi/src/main/java/com/gasimo/CardLogic.java;4028201215/1;"/>
       </contents>
     </eAnnotations>
     <elementImport xmi:id="_LB6SELQmEeuOKq0JIa4gdg">
