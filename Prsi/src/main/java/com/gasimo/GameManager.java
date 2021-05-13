@@ -176,7 +176,7 @@ public class GameManager {
 
         // Cannot add new player if an game is already running.
         if (p.netSession == 0) {
-            return "echo Warning - Player NetSessionID is invalid, the player will not receive player-specific calls. Perhaps the player was created by server?" + " Player \" + p.playerName + \" has been added to game.\"";
+            return "echo Warning - Player NetSessionID is invalid, the player will not receive player-specific calls. Perhaps the player was created by server?" + " Player \"" + p.playerName + "\" has been added to game.\"";
         }
 
         return "echo Success - Player " + p.playerName + " has been added to game.";

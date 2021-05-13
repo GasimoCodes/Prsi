@@ -27,7 +27,7 @@ public class Main {
     /**
      * NetworkingInterpreter Object Initializes necessary networking back-end
      */
-    public static  NetworkingInterpreter NI = new NetworkingInterpreter();
+    public static  NetworkingInterpreter NI;
 
     /**
      * ServerHandler handles Incoming Network requests from packets into string which is sent to CommandInterpreter
@@ -51,7 +51,7 @@ public class Main {
     public static void main(String[] args) {
 
         // In case we do not support colors in console (like cmd)
-        if(args.length >= 1 && args[1].compareTo("-noColor") == 0)
+        if(args.length >= 1 && args[0].compareTo("-noColor") == 0)
         {
             System.out.println("Colored output has been disabled.");
             enableConsoleColors = false;
@@ -66,6 +66,7 @@ public class Main {
             // Create and init game object
             GM = new GameManager();
             GM.init();
+            NI = new NetworkingInterpreter();
 
             // Autostart game in another thread based on serverProperty fields
             if(SP.autoStartNewGame)

@@ -36,7 +36,10 @@ public class ServerHandler extends AbstractStreamHandler {
         //Todo Surround with try-catch to prevent possible exceptions with malformed packets or move to CommandInterpreter.js
         if (Main.NI.logClientRequests) {
             for (Command x : gson.fromJson(s, Command[].class)) {
-                System.out.println(colorize("[" + getSession().getRemoteAddress() + "]", YELLOW_TEXT()) + colorize(" -> ", YELLOW_TEXT()) + colorize("[Server]", YELLOW_TEXT()) + colorize(": ", YELLOW_TEXT()) + x.rawCommand.replace("echo ", ""));
+                if(Main.enableConsoleColors)
+                    System.out.println(colorize("[" + getSession().getRemoteAddress() + "]", YELLOW_TEXT()) + colorize(" -> ", YELLOW_TEXT()) + colorize("[Server]", YELLOW_TEXT()) + colorize(": ", YELLOW_TEXT()) + x.rawCommand.replace("echo ", ""));
+                else
+                    System.out.println(("[" + getSession().getRemoteAddress() + "]") + (" -> ") + ("[Server]") + (": ") + x.rawCommand.replace("echo ", ""));
             }
         }
 
@@ -86,10 +89,12 @@ public class ServerHandler extends AbstractStreamHandler {
                 x.rawCommand = (message);
                 x.identifier = (session.getId() == youId ? "Server" : userId);
 
-                if (Main.NI.logClientRequests)
-                    System.out.println(colorize("[Server]" + " -> " + userId + ": ", YELLOW_TEXT()) + x.rawCommand.replace("echo ", ""));
-
-
+                if (Main.NI.logClientRequests){
+                    if(Main.enableConsoleColors)
+                        System.out.println(colorize("[Server]" + " -> " + userId + ": ", YELLOW_TEXT()) + x.rawCommand.replace("echo ", ""));
+                    else
+                        System.out.println(("[Server]" + " -> " + userId + ": ") + x.rawCommand.replace("echo ", ""));
+                }
                 session.write(gson.toJson(new Command[]{x}).getBytes());
             }
         }
@@ -110,7 +115,10 @@ public class ServerHandler extends AbstractStreamHandler {
         //Todo Surround with try-catch to prevent possible exceptions with malformed packets or move to CommandInterpreter.js
         if (Main.NI.logClientRequests) {
             for (Command x : gson.fromJson(message, Command[].class)) {
-                System.out.println(colorize("[Server]", YELLOW_TEXT()) + colorize(" -> ", YELLOW_TEXT()) + colorize(userId, YELLOW_TEXT()) + colorize(": ", YELLOW_TEXT()) + x.rawCommand.replace("echo ", ""));
+                if(Main.enableConsoleColors)
+                    System.out.println(colorize("[Server]", YELLOW_TEXT()) + colorize(" -> ", YELLOW_TEXT()) + colorize(userId, YELLOW_TEXT()) + colorize(": ", YELLOW_TEXT()) + x.rawCommand.replace("echo ", ""));
+                else
+                    System.out.println(("[Server]") + (" -> ") + (userId) + (": ") + x.rawCommand.replace("echo ", ""));
             }
         }
 
@@ -129,7 +137,10 @@ public class ServerHandler extends AbstractStreamHandler {
         //Todo Surround with try-catch to prevent possible exceptions with malformed packets or move to CommandInterpreter.js
         if (Main.NI.logClientRequests) {
             for (Command x : gson.fromJson(message, Command[].class)) {
-                System.out.println(colorize("[Server]", YELLOW_TEXT()) + colorize(" -> ", YELLOW_TEXT()) + colorize("[All]", YELLOW_TEXT()) + colorize(": ", YELLOW_TEXT()) + x.rawCommand.replace("echo ", ""));
+                if(Main.enableConsoleColors)
+                    System.out.println(colorize("[Server]", YELLOW_TEXT()) + colorize(" -> ", YELLOW_TEXT()) + colorize("[All]", YELLOW_TEXT()) + colorize(": ", YELLOW_TEXT()) + x.rawCommand.replace("echo ", ""));
+                else
+                    System.out.println(("[Server]") + (" -> ") + ("[All]") + (": ") + x.rawCommand.replace("echo ", ""));
             }
         }
 
@@ -167,7 +178,10 @@ public class ServerHandler extends AbstractStreamHandler {
 
                     for(Command x : gson.fromJson(message, Command[].class))
                     {
+                        if(Main.enableConsoleColors)
                         System.out.println(colorize("[Server]" + " -> " + userId + ": ", YELLOW_TEXT()) + x.rawCommand);
+                        else
+                            System.out.println(("[Server]" + " -> " + userId + ": ") + x.rawCommand);
                     }
 
                 }
