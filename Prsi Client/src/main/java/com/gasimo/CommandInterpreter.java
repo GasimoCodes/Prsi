@@ -171,6 +171,8 @@ public class CommandInterpreter {
                             i++;
                         }
 
+                        System.out.println("Use makeTurn command to select your action.");
+
                         /*
                         // Player must select valid option around here. Maybe decentralise into separate command. For now its kept in while().
                         while(waitAnswer)

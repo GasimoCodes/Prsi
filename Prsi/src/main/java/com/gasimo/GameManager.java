@@ -228,10 +228,7 @@ public class GameManager {
                 tableStack.remove(0);
             }
         }
-
-
     }
-
 
     /*
      *   Valid actions:
@@ -247,7 +244,6 @@ public class GameManager {
      */
     private void mainGameLoop() {
 
-
         // If tableStack is empty, we turn in the placed cards.
         if (tableStack.size() == 0) {
             turnStacks();
@@ -259,7 +255,7 @@ public class GameManager {
 
         // Check if we can take a card from the stack
         if (tableStack.size() != 0) {
-            actions.add("pick");
+            actions.add(TurnActions.PICK.toString());
         }
 
         // - - - - - - - - - SEND TIME
@@ -300,12 +296,12 @@ public class GameManager {
 
             if(c.type != CardType.SVRSEK)
             {
-                actions.add("place " + gson.toJson(c));
+                actions.add(TurnActions.PLACE + gson.toJson(c));
             }
             else
             {
                 // Possibly add color register override for this here?
-                actions.add(("place " + gson.toJson(c)));
+                actions.add((TurnActions.PLACE + gson.toJson(c)));
             }
         }
 
