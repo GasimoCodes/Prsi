@@ -116,7 +116,8 @@ public class CommandInterpreter {
 
         // Find which command is in question
         switch (tempCmd.get(0).replace(" ", "")) {
-            // - - - - - - - - - - - - newGame
+
+            //region newGame
             case "newGame": {
                 if ((tempCmd.size() - 1) == 0) {
                     try {
@@ -137,8 +138,9 @@ public class CommandInterpreter {
                     return "echo Exception - Bad argument count. Received (" + (tempCmd.size() - 1) + "), " + 2 + " expected.";
                 }
             }
+            //endregion
 
-            // - - - - - - - - - - - - gameStatus
+            //region gameStatus
             case "gameStatus": {
                 if ((tempCmd.size() - 1) == 0) {
                     try {
@@ -157,8 +159,9 @@ public class CommandInterpreter {
                     return "echo Exception - Bad argument count. Received (" + (tempCmd.size() - 1) + "), " + 0 + " expected.";
                 }
             }
+            //endregion
 
-            // - - - - - - - - - - - - forceStart
+            //region forceStart
             case "forceStart": {
                 if ((tempCmd.size() - 1) == 0) {
                     try {
@@ -189,8 +192,9 @@ public class CommandInterpreter {
                     return "echo Exception - Bad argument count. Received (" + (tempCmd.size() - 1) + "), " + 0 + " expected.";
                 }
             }
+            //endregion
 
-
+            //region addPlayer
             // - - - - - - - - - - - - addPlayer name secret
             case "addPlayer": {
                 if ((tempCmd.size() - 1) == 2) {
@@ -211,6 +215,9 @@ public class CommandInterpreter {
                     return "echo Exception - Bad argument count. Received (" + (tempCmd.size() - 1) + "), " + "At least 2 " + " expected.";
                 }
             }
+            //endregion
+
+            //region getPlayer
             // - - - - - - - - - - - - getPlayerData name secret
             case "getPlayer": {
                 if (Main.GM != null) {
@@ -237,11 +244,12 @@ public class CommandInterpreter {
                     return "echo Exception - Bad argument count. Received (" + (tempCmd.size() - 1) + "), " + 2 + " expected.";
                 }
             }
+            //endregion
 
-            // - - - - - - - - - - - - makeTurn Action Arg
+            //region makeTurn command
             case "makeTurn": {
                 if (Main.GM != null) {
-                    if ((tempCmd.size() - 1) >= 1) {
+                    if ((tempCmd.size() - 1) == 1) {
                         try {
                                 // Check if we are receiving request from the player we need,
                                 if (Main.GM.players.get(Main.GM.currentPlayer).netSession == command.caller) {
@@ -249,7 +257,6 @@ public class CommandInterpreter {
                                         // Replace possible occurrence if we get /makeTurn PlayerName Secret turn args
                                         command.rawCommand = command.rawCommand.replace(Main.GM.players.get(Main.GM.currentPlayer).playerName + " ", "").replace(Main.GM.players.get(Main.GM.currentPlayer).getPlayerSecret() + " ", "");
                                         return Main.GM.fireAction(command);
-
 
                                 } else
                                 // In case we want to validate from outside of our session, we use NAME, SECRET, TURN
@@ -271,28 +278,12 @@ public class CommandInterpreter {
                     }
 
                 } else {
-                    return "echo Exception - Bad argument count. Received (" + (tempCmd.size() - 1) + "), " + 2 + " or more expected.";
+                    return "echo Exception - Bad argument count. Received (" + (tempCmd.size() - 1) + "), " + 1 + " expected.";
                 }
             }
+            //endregion
 
-            /*
-            // - - - - - - - - - - - - Send message to a client
-            case "sendMessage": {
-                if ((tempCmd.size() - 1) >= 1) {
-                    try {
-                        sendMessage(new Command(tempCmd.get(1)));
-                        return "echo Success - Message: \"" + tempCmd.get(1) + "\" has been sent.";
-                    } catch (Exception e) {
-                        throw (e);
-                        //return e.toString();
-                    }
-
-                } else {
-                    return "echo Exception - Bad argument count. Received (" + (tempCmd.size() - 1) + "), " + "at least 1" + " expected.";
-                }
-            }
-            */
-            // - - - - - - - - - - - - Send message to client
+            //region cs command
             case "cs": {
                 if ((tempCmd.size() - 1) >= 0) {
                     try {
@@ -305,6 +296,9 @@ public class CommandInterpreter {
                     return "echo Exception - Bad argument count. Received (" + (tempCmd.size() - 1) + "), " + "at least 1" + " expected.";
                 }
             }
+            //endregion
+
+            //region broadcast
             // Broadcasts message to all players
             case "broadcast": {
                 if ((tempCmd.size() - 1) >= 1) {
@@ -320,6 +314,9 @@ public class CommandInterpreter {
                     return "echo Exception - Bad argument count. Received (" + (tempCmd.size() - 1) + "), " + "at least 1" + " expected.";
                 }
             }
+            //endregion
+
+            //region close
             // Close connection with reason
             case "close": {
                 if (command.identifier == "Local" || command.identifier.isEmpty()) {
@@ -338,7 +335,9 @@ public class CommandInterpreter {
                 } else
                     return "You cannot execute close on local caller.";
             }
-            // - - - - - - - - - - - - echo
+            //endregion
+
+            //region echo
             case "echo": {
                 if ((tempCmd.size() - 1) >= 1) {
 
@@ -353,28 +352,7 @@ public class CommandInterpreter {
                     return "echo Exception - Bad argument count. Received (" + (tempCmd.size() - 1) + "), " + 1 + " or higher expected.";
                 }
             }
-
-
-            // - - - - - - - - - - - - turn PlayerName PlayerSecret ChoosedTurn Args
-            case "turn": {
-                if ((tempCmd.size() - 1) >= 3) {
-                    try {
-
-                        // Call the GameManager that we have received a game turn request
-
-                        // If its not out turn or the turn is out of bounds, we send the error back to player, otherwise game continues.
-
-                        return "";
-
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        return "Exception - " + e.toString();
-                    }
-                } else {
-                    return "Exception - Bad argument count. Received (" + (tempCmd.size() - 1) + "), " + 3 + " or higher expected.";
-                }
-            }
-
+            //endregion
 
         }
         return "echo Unknown command: \"" + tempCmd.get(0) + "\" ";

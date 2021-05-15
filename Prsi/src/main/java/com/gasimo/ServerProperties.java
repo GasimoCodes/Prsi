@@ -8,5 +8,6 @@ public class ServerProperties {
     Integer PORT = 8002;
     String displayName = "Generic prsi server";
     boolean autoStartNewGame = false;
+    boolean displayRawCommunication = false;
 
 }

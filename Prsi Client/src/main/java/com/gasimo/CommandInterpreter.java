@@ -1,12 +1,9 @@
 package com.gasimo;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Scanner;
-
 import com.google.gson.Gson;
 
-import javax.sql.XAConnection;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 
 public class CommandInterpreter {
@@ -37,19 +34,17 @@ public class CommandInterpreter {
 
             ArrayList<String> malFormedCommand = new ArrayList<>();
 
-            for (char c : jsonString.toCharArray())
-            {
+            for (char c : jsonString.toCharArray()) {
                 if (c == '[')
-                    nestedCount ++;
+                    nestedCount++;
 
-                if(c == ']')
-                    nestedCount --;
+                if (c == ']')
+                    nestedCount--;
 
                 tempString += c;
 
                 // End one string
-                if(nestedCount == 0)
-                {
+                if (nestedCount == 0) {
                     malFormedCommand.add(tempString);
                     tempString = "";
                 }
@@ -57,15 +52,13 @@ public class CommandInterpreter {
 
             for (String strT : malFormedCommand) {
 
-                for (Command x : gson.fromJson(strT, Command[].class))
-                {
+                for (Command x : gson.fromJson(strT, Command[].class)) {
                     cmd.add(x);
                 }
 
             }
 
-            for(Command x : cmd)
-            {
+            for (Command x : cmd) {
                 parseCommand(x);
             }
 
@@ -122,6 +115,7 @@ public class CommandInterpreter {
                     return "127.0.0.1";
                 }
             }
+
             // - - - - - - - - - - - - write message
             case "echo": {
                 //if (x.identifier.compareTo("Local") == 0 || x.identifier.isBlank()) {
@@ -155,31 +149,85 @@ public class CommandInterpreter {
                     return "127.0.0.1";
                 }
             }
+            // - - - - - - - - - - - - close reason
+            case "info": {
+                if ((tempCmd.size() - 1) >= 1) {
+
+                    try {
+
+                        if(tempCmd.get(1).compareToIgnoreCase("yourcards") ==0)
+                        {
+                            Card[] cs = gson.fromJson(x.container, Card[].class);
+
+                            System.out.println("You have these cards: ");
+                            // Write all cards we have!
+                            for(Card c : cs)
+                            {
+                                System.out.println(c.color + " " + c.type);
+                            }
+
+                        }
+
+                        return "";
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        return "Exception - " + e.toString();
+                    }
+                } else {
+                 return "Exception - Not enough arguments.";
+                }
+            }
             // - - - - - - - - - - - - You are on turn.
             case "reqTurn": {
                 if ((tempCmd.size() - 1) >= 0) {
 
                     try {
-                        System.out.println("You are on turn.");
 
-                        ArrayList<String>  opt = gson.fromJson(x.container, ArrayList.class);
+                        System.out.println("You are on turn.");
+                        gson = new Gson();
+
+                        String[] opt = gson.fromJson(x.container, String[].class);
                         boolean waitAnswer = true;
                         int i = 0;
-                        for(String s : opt)
-                        {
-                            System.out.println("[" + i + "]" + s);
+                        for (String s : opt) {
+
+                            // Decode
+                            switch (TurnActions.valueOf(s.split(" ")[0])) {
+                                case PICK:
+
+                                    // Singular
+                                    if (s.split(" ").length == 1)
+                                        System.out.println("[" + i + "]" + s);
+                                        // More than 1
+                                    else
+                                        System.out.println("[" + i + "]" + s + " cards.");
+                                    break;
+
+                                case SKIP:
+                                        System.out.println("[" + i + "]" + s);
+                                    break;
+                                case PLACE:
+                                    Card cardAction;
+                                    cardAction = gson.fromJson(s.replace("PLACE ", ""), Card.class);
+                                    if (cardAction.type != CardType.SVRSEK)
+                                        System.out.println("[" + i + "]" + "Place card: " + cardAction.type + " " + cardAction.color);
+                                    else
+                                        System.out.println("[" + i + "]" + "Place card: " + cardAction.type + " " + cardAction.color + " and change color.");
+                                    break;
+
+                                // We should not receive this action from server. We dynamically send this back when we select Svrsek.
+                                case CHANGE_COLOR:
+                                    System.out.println("[" + i + "]" + s);
+                                    break;
+
+                            }
+
                             i++;
                         }
 
                         System.out.println("Use makeTurn command to select your action.");
 
-                        /*
-                        // Player must select valid option around here. Maybe decentralise into separate command. For now its kept in while().
-                        while(waitAnswer)
-                        {
-                            // Add input detection phase here, or separate into another command so we dont linger on the thread.
-                        }
-                        */
                         return "Received";
                     } catch (Exception e) {
                         e.printStackTrace();

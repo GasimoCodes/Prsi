@@ -91,9 +91,9 @@ public class ServerHandler extends AbstractStreamHandler {
 
                 if (Main.NI.logClientRequests){
                     if(Main.enableConsoleColors)
-                        System.out.println(colorize("[Server]" + " -> " + userId + ": ", YELLOW_TEXT()) + x.rawCommand.replace("echo ", ""));
+                        System.out.println(colorize("[Server]" + " -> " + userId + ": ", YELLOW_TEXT()) + ((Main.SP.displayRawCommunication)? message : x.rawCommand.replace("echo ", "")));
                     else
-                        System.out.println(("[Server]" + " -> " + userId + ": ") + x.rawCommand.replace("echo ", ""));
+                        System.out.println(("[Server]" + " -> " + userId + ": ") + ((Main.SP.displayRawCommunication)? message : x.rawCommand.replace("echo ", "")));
                 }
                 session.write(gson.toJson(new Command[]{x}).getBytes());
             }
@@ -116,9 +116,9 @@ public class ServerHandler extends AbstractStreamHandler {
         if (Main.NI.logClientRequests) {
             for (Command x : gson.fromJson(message, Command[].class)) {
                 if(Main.enableConsoleColors)
-                    System.out.println(colorize("[Server]", YELLOW_TEXT()) + colorize(" -> ", YELLOW_TEXT()) + colorize(userId, YELLOW_TEXT()) + colorize(": ", YELLOW_TEXT()) + x.rawCommand.replace("echo ", ""));
+                    System.out.println(colorize("[Server]", YELLOW_TEXT()) + colorize(" -> ", YELLOW_TEXT()) + colorize(userId, YELLOW_TEXT()) + colorize(": ", YELLOW_TEXT()) + ((Main.SP.displayRawCommunication)? message : x.rawCommand.replace("echo ", "")));
                 else
-                    System.out.println(("[Server]") + (" -> ") + (userId) + (": ") + x.rawCommand.replace("echo ", ""));
+                    System.out.println(("[Server]") + (" -> ") + (userId) + (": ") + ((Main.SP.displayRawCommunication)? message : x.rawCommand.replace("echo ", "")));
             }
         }
 
@@ -138,9 +138,9 @@ public class ServerHandler extends AbstractStreamHandler {
         if (Main.NI.logClientRequests) {
             for (Command x : gson.fromJson(message, Command[].class)) {
                 if(Main.enableConsoleColors)
-                    System.out.println(colorize("[Server]", YELLOW_TEXT()) + colorize(" -> ", YELLOW_TEXT()) + colorize("[All]", YELLOW_TEXT()) + colorize(": ", YELLOW_TEXT()) + x.rawCommand.replace("echo ", ""));
+                    System.out.println(colorize("[Server]", YELLOW_TEXT()) + colorize(" -> ", YELLOW_TEXT()) + colorize("[All]", YELLOW_TEXT()) + colorize(": ", YELLOW_TEXT()) + ((Main.SP.displayRawCommunication)? message : x.rawCommand.replace("echo ", "")));
                 else
-                    System.out.println(("[Server]") + (" -> ") + ("[All]") + (": ") + x.rawCommand.replace("echo ", ""));
+                    System.out.println(("[Server]") + (" -> ") + ("[All]") + (": ") + ((Main.SP.displayRawCommunication)? message : x.rawCommand.replace("echo ", "")));
             }
         }
 
@@ -179,9 +179,9 @@ public class ServerHandler extends AbstractStreamHandler {
                     for(Command x : gson.fromJson(message, Command[].class))
                     {
                         if(Main.enableConsoleColors)
-                        System.out.println(colorize("[Server]" + " -> " + userId + ": ", YELLOW_TEXT()) + x.rawCommand);
+                        System.out.println(colorize("[Server]" + " -> " + userId + ": ", YELLOW_TEXT()) + ((Main.SP.displayRawCommunication)? message : x.rawCommand));
                         else
-                            System.out.println(("[Server]" + " -> " + userId + ": ") + x.rawCommand);
+                            System.out.println(("[Server]" + " -> " + userId + ": ") + ((Main.SP.displayRawCommunication)? message : x.rawCommand));
                     }
 
                 }

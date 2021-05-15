@@ -2,6 +2,7 @@ package com.gasimo;
 
 import com.google.gson.Gson;
 
+import java.lang.invoke.SwitchPoint;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -16,14 +17,13 @@ public class GameManager {
     public ArrayList<Card> tableStack = new ArrayList<>();
 
 
-
     int currentPlayer;
 
     // Number of cards which were called by sedmicka.
     int passingCards;
 
     public Card top;
-    public ArrayList<Card> placedStack;
+    public ArrayList<Card> placedStack = new ArrayList<>();
 
     ArrayList<Player> players = new ArrayList();
     ArrayList<Player> gamePlayers = new ArrayList();
@@ -36,6 +36,8 @@ public class GameManager {
 
     // If we wait the turn until we receive specific player response.
     Boolean listenPlayerWait = false;
+    private String chosenAction = "";
+    private boolean concurrentAction = false;
 
     public void init() {
 
@@ -204,12 +206,24 @@ public class GameManager {
      */
     void turnStacks() {
 
-        int i = 0;
-        for (Card c : placedStack) {
-            tableStack.add(placedStack.get(i));
-            placedStack.remove(c);
-            i++;
+        concurrentAction = true;
+        System.out.println("Stack will now be turned.");
+        try {
+            int i = 0;
+            for (Card c : placedStack) {
+                tableStack.add(placedStack.get(i));
+                placedStack.remove(c);
+                i++;
+            }
+            concurrentAction = false;
+        } catch (Exception e )
+        {
+            //Todo !!IMPORTANT!!: Make a cleaner synchronization of this or check when we are / are not writing into this array and delay any actions before this is done!!
+            System.err.println("ConcurrentModificationException has surfaced, the turning will be delayed to next frame.");
+            turnStacks();
         }
+        concurrentAction = false;
+
     }
 
     /**
@@ -230,100 +244,266 @@ public class GameManager {
         }
     }
 
-    /*
-     *   Valid actions:
+    /**
+     * Make player take cards from deck
      *
-     *   place (card)
-     *   pick
-     *   change (color)
-     *
-     * */
+     * @param p The player who will be taking these cards
+     */
+    public void pickCard(Player p, int number) {
+
+
+        // In case we ran out of deck cards
+        if (tableStack.size() < number) {
+            turnStacks();
+        }
+
+
+
+        // give n cards from deck to selected player
+        for (int i = 0; i < number; i++) {
+
+            // In case concurrence exists we desync threads.
+            while(concurrentAction)
+            {
+            }
+
+            p.deck.add(tableStack.get(0));
+            tableStack.remove(0);
+        }
+
+    }
+
 
     /**
      * Contains main game loop. This method is handled in newGame() method
      */
     private void mainGameLoop() {
 
-        // If tableStack is empty, we turn in the placed cards.
-        if (tableStack.size() == 0) {
-            turnStacks();
-        }
+        while (gameStatus != GameStatus.ended) {
 
-        // Actions the player can choose from
-        ArrayList<String> actions = new ArrayList<>();
+            // If tableStack is empty or not big enough, we turn in the placed cards.
+            if (tableStack.size() == 0 || tableStack.size() < passingCards) {
+                // Catch up with possible concurrent threads
+                while (concurrentAction){};
+                turnStacks();
 
+                // If we simply still do not have enough cards...
+                if(passingCards > tableStack.size())
+                {
+                    System.out.println("There are not enough cards left to fulfill the passingCards.");
+                    passingCards = tableStack.size();
+                }
 
-        // Check if we can take a card from the stack
-        if (tableStack.size() != 0) {
-            actions.add(TurnActions.PICK.toString());
-        }
-
-        // - - - - - - - - - SEND TIME
-
-        // Inform about the card which is on top.
-        Main.CI.broadcastMessage(("topCard " + top.type + ", " + top.color), "Server");
-
-        // Inform who is currently taking (expected to take) a turn
-        Main.CI.broadcastMessage(("turn \"" + gamePlayers.get(currentPlayer).playerName + "\" is on turn."), "Server");
-
-        //Inform about other player stats
-
-        String playerStats = "";
-
-        //Todo Replace with more json-ish decode approach here
-        for(Player p : gamePlayers)
-        {
-            playerStats += "Player " + p.playerName + " currently has " + p.deck.size() + " cards." + "\n";
-        }
-
-        Main.CI.broadcastMessage(playerStats, "Server");
-
-        // Inform about which cards you have
-        Command cmde = new Command();
-
-        cmde.rawCommand = "echo You have these cards: " + gson.toJson(gamePlayers.get(currentPlayer).deck);
-        cmde.container = gson.toJson(actions);
-
-        Main.CI.sendCommand(cmde, gamePlayers.get(currentPlayer).netSession);
-
-        // check top card and status
-
-        // Handle available cards
-        ArrayList<Card> validCards = CardLogic.CheckLegalMoves(gamePlayers.get(currentPlayer).deck, top);
-
-        // Add cards to plausible selection and register svrsek actions
-        for (Card c : validCards) {
-
-            if(c.type != CardType.SVRSEK)
-            {
-                actions.add(TurnActions.PLACE + gson.toJson(c));
             }
-            else
-            {
-                // Possibly add color register override for this here?
-                actions.add((TurnActions.PLACE + gson.toJson(c)));
+
+            // Actions the player can choose from
+            ArrayList<String> actions = new ArrayList<>();
+
+            // In case we get sedmicka, we add cards to passingCards
+            if (top.alreadyTriggered == false && top.type == CardType.SEDM) {
+                passingCards += 2;
             }
+
+            // Check whether we can even pick a card in a given scenario (ESO) so we can replace pick with skip
+            if (top.alreadyTriggered == false && top.type == CardType.ESO) {
+
+                // We add the skip turn option in case ESO was called upon us
+                actions.add(TurnActions.SKIP.name());
+
+            } else {
+
+                // Check if we can take a card from the stack (Not enough cards)
+                if (tableStack.size() != 0) {
+                    actions.add(TurnActions.PICK.name() + ((passingCards != 0) ? (" " + passingCards) : ""));
+                } else {
+
+                }
+            }
+
+            // Inform who is currently taking (expected to take) a turn
+            Main.CI.broadcastMessage(("turn \"" + gamePlayers.get(currentPlayer).playerName + "\" is on turn."), "Server");
+
+            //Inform about other player stats
+
+            String playerStats = "";
+
+            //Todo Replace with more json-ish decode approach here
+            for (Player p : gamePlayers) {
+                playerStats += "Player " + p.playerName + " currently has " + p.deck.size() + " cards.";
+
+                if (gamePlayers.get(gamePlayers.size() - 1) != p)
+                    playerStats += "\n";
+
+            }
+
+            Main.CI.broadcastMessage(playerStats, "Server");
+
+            //region inform section
+            // Inform about the card which is on top.
+            Main.CI.broadcastMessage(("topCard " + top.type + " " + top.color + " (Inactive: " + top.alreadyTriggered + ")"), "Server");
+
+
+            // Inform about which cards you have
+            Command cmde = new Command();
+            cmde.rawCommand = "info yourCards";
+            cmde.container = gson.toJson(gamePlayers.get(currentPlayer).deck);
+            //cmde.container = gson.toJson(actions);
+            Main.CI.sendCommand(cmde, gamePlayers.get(currentPlayer).netSession);
+
+            //endregion inform section
+
+            // Get legal card moves
+            ArrayList<Card> validCards = CardLogic.CheckLegalMoves(gamePlayers.get(currentPlayer).deck, top);
+
+            // Add cards to plausible selection
+            for (Card c : validCards) {
+
+                if (c.type != CardType.SVRSEK) {
+                    actions.add(TurnActions.PLACE.name() + " " + gson.toJson(c));
+                } else {
+                    // Possibly add color register override for this here?
+                    actions.add((TurnActions.PLACE.name() + " " + gson.toJson(c)));
+                }
+            }
+
+            // In the rare case we ran out of cards and actions to do, we must skip for now to not break the game.
+            if(actions.size() == 0)
+            {
+                actions.add(TurnActions.SKIP.name());
+            }
+
+
+            // - - - - - - - - - RESPONSE TIME 1
+
+            // Wait for response from player
+
+
+            String action = listenToAction(actions, gamePlayers.get(currentPlayer));
+
+
+            // Good, now to decode it. We know first piece of the string is the action name.
+
+            boolean changeColors = false;
+            switch (TurnActions.valueOf(action.split(" ")[0])) {
+
+                case PICK:
+
+                    // No passing cards
+                    if (passingCards == 0) {
+                        pickCard(gamePlayers.get(currentPlayer), 1);
+                    } else
+
+                    // We are receiving n cards
+                    {
+                        pickCard(gamePlayers.get(currentPlayer), passingCards);
+                        top.alreadyTriggered = true;
+                        passingCards = 0;
+                    }
+                    break;
+                case PLACE:
+                    // Move current TOP to placedCards
+                    placedStack.add(top);
+
+                    // Read card we want to place
+                    Card c = gson.fromJson(action.replace("PLACE ", ""), Card.class);
+
+                    //Enable possible special action
+                    if (c.type == CardType.SVRSEK || c.type == CardType.SEDM || c.type == CardType.ESO) {
+                        c.alreadyTriggered = false;
+                    }
+
+                    if (c.type == CardType.SVRSEK)
+                        changeColors = true;
+
+
+                    // Place the card as top
+                    top = c;
+
+
+                    // Remove the card from player
+                    gamePlayers.get(currentPlayer).deck.remove(c);
+
+                    for (Card cx : gamePlayers.get(currentPlayer).deck) {
+                        if (cx.type == c.type && cx.color == c.color) {
+                            System.out.println("Success - Specified card " + c.type.name() + " " + c.color.name() + " has been removed from player deck.");
+                            gamePlayers.get(currentPlayer).deck.remove(cx);
+                            break;
+                        }
+                    }
+
+                    // This was Cave Johnson, we are done here.
+                    break;
+
+                case CHANGE_COLOR:
+                    // SHOULD NOT BE POSSIBLE IN FIRST CALL
+                    break;
+
+                case SKIP:
+
+                    top.alreadyTriggered = true;
+
+                    break;
+
+            }
+
+
+            // - - - - - - - - - RESPONSE TIME 2 IN CASE WE WANT TO APPEND (Change colors, etc)
+
+            if (changeColors) {
+
+                actions = new ArrayList<>();
+
+                for (CardColor x : CardColor.values()) {
+                    actions.add(TurnActions.CHANGE_COLOR.name() + " " + x.name());
+                }
+
+
+                // - - - - - - - - - RESPONSE TIME 2
+
+                // Wait for response from player
+                action = listenToAction(actions, gamePlayers.get(currentPlayer));
+                top.color = CardColor.valueOf(action.split(" ")[1]);
+
+                // Make sure the top is no longer in triggered state.
+                top.alreadyTriggered = true;
+
+                // Update clients visually on color change around here
+
+            }
+
+            // - - - - - - - - - CHECK IF OUR ACTIONS HAVE NOT RESULTED IN GAME-END SCENARIO HERE? (Do not forget we can still bring them back using Srdvova Sedmicka
+
+            //Todo Make this thing a bit better-ish
+            if (gamePlayers.get(currentPlayer).deck.size() == 0) {
+                Main.CI.broadcastMessage("Player " + gamePlayers.get(currentPlayer).playerName + " managed to get rid of all their cards and thus won!" + ((gamePlayers.size() >= 2) ? " Now its between rest of the " + (gamePlayers.size() - 1) + " players" : ""), "Server");
+
+                if (currentPlayer > 0) {
+                    currentPlayer--;
+                } else {
+                    currentPlayer = gamePlayers.size() - 1;
+                }
+
+                gamePlayers.remove(gamePlayers.get(currentPlayer));
+            }
+
+            // If we have 1 player left
+            if (gamePlayers.size() == 1) {
+                gameStatus = GameStatus.ended;
+                Main.CI.broadcastMessage("Game has ended", "Server");
+            }
+
+            // Select next player
+            if (currentPlayer < (gamePlayers.size() - 1)) {
+                currentPlayer++;
+
+            } else {
+                currentPlayer = 0;
+            }
+
         }
 
-        // If not triggered, top must be a special card!
-        if (!top.alreadyTriggered) {
-            // Handle special stuff here, we must anticipate color change request.
 
-
-        } else {
-            // Reserved
-        }
-
-
-        // - - - - - - - - - RESPONSE TIME 1
-
-        String action = listenToAction(actions, gamePlayers.get(currentPlayer));
-
-
-        // - - - - - - - - - RESPONSE TIME 2 IN CASE WE WANT TO APPEND (Change colors, etc)
-
-
-        // - - - - - - - - - CHECK IF OUR ACTIONS HAVE NOT RESULTED IN GAME-END SCENARIO HERE?
+        //Todo Write some winner board here and things.
 
     }
 
@@ -340,15 +520,24 @@ public class GameManager {
         Command cmd = new Command();
 
         cmd.rawCommand = "reqTurn";
-        cmd.container = gson.toJson(actions);
+        cmd.container = gson.toJson(actions.toArray());
 
         Main.CI.sendCommand(cmd, player.netSession);
         // Initiate waiting period.
         while (listenPlayerWait) {
-            // Stuff while we await
+
+            // For some reason, the thread does not update unless we do this terribleness.
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
 
-        return "";
+        // we have the desired action in our grasp at this point
+
+
+        return chosenAction;
     }
 
     // Player, Secret, Action.
@@ -373,10 +562,24 @@ public class GameManager {
             return "echo Incorrect player secret received.";
         }
         */
+
+        // Check whether we expect an turn action at all at this moment
+        if (!listenPlayerWait)
+            return "There is no turn to be currently made.";
+
         // Validate valid selection
+        try {
+            if (Integer.parseInt(x.rawCommand.split(" ")[1]) <= actionsSaved.size() && Integer.parseInt(x.rawCommand.split(" ")[1]) >= 0) {
+                chosenAction = actionsSaved.get(Integer.parseInt(x.rawCommand.split(" ")[1]));
+            }
+        } catch (Exception e) {
+            listenPlayerWait = true;
+            return "An exception occurred, perhaps " + x.rawCommand.split(" ")[1] + " is not a number?";
+
+        }
+
 
         // Handle stuff
-
         listenPlayerWait = false;
 
         // Respond back with success or error
