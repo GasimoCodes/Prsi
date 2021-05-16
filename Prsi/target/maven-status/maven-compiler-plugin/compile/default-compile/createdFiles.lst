@@ -11,6 +11,7 @@ com\gasimo\CardLogic$1.class
 com\gasimo\CommandResult.class
 com\gasimo\ServerHandler.class
 com\gasimo\GameManager$1.class
+com\gasimo\TurnActions.class
 com\gasimo\Command.class
 com\gasimo\Main.class
 com\gasimo\ServerHandler$1.class

@@ -1,10 +1,12 @@
 com\gasimo\CardType.class
 com\gasimo\CommandResult.class
 com\gasimo\CommandInterpreter.class
+com\gasimo\TurnActions.class
 com\gasimo\Client.class
 com\gasimo\Command.class
 com\gasimo\Main.class
 com\gasimo\ClientHandler.class
+com\gasimo\CommandInterpreter$2.class
 com\gasimo\Card.class
 com\gasimo\CardColor.class
 com\gasimo\CommandInterpreter$1.class
